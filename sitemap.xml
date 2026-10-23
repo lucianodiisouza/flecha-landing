@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://flecha.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/pt-br/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/privacidade/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/pt-br/privacidade/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/privacidade/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/termos/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/pt-br/termos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/termos/"/>
+  </url>
+</urlset>
