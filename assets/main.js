@@ -280,6 +280,22 @@ if (!calm && 'IntersectionObserver' in window) {
 // Apple silicon build. Anything that isn't a Mac goes to the download section instead.
 
 const DOWNLOADS = { arm: 'https://dl.flecha.dev/Flecha.dmg', x64: 'https://dl.flecha.dev/Flecha-x64.dmg' };
+// Which builds are on dl.flecha.dev. A build that isn't uploaded stays "Soon" in the download
+// section, and its Macs get the section instead of a dmg. Flip x64 to true once Flecha-x64.dmg is up.
+const AVAILABLE = { arm: true, x64: false };
+
+for (const [arch, ready] of Object.entries(AVAILABLE)) {
+  const card = document.querySelector(`.dl-card[data-arch="${arch}"]`);
+  const button = card?.querySelector('[data-file-url]');
+  if (!ready || !button) continue;
+  const link = document.createElement('a');
+  link.className = 'btn';
+  link.href = button.dataset.fileUrl;
+  link.textContent = button.textContent;
+  button.replaceWith(link);
+  card.classList.remove('is-soon');
+  card.querySelector('.dl-soon')?.remove();
+}
 
 async function detectSystem() {
   const data = navigator.userAgentData;
@@ -298,7 +314,7 @@ async function detectSystem() {
 }
 
 detectSystem().then((system) => {
-  if (system === 'other') {
+  if (system === 'other' || !AVAILABLE[system]) {
     for (const link of document.querySelectorAll('[data-download]')) link.href = '#download';
     for (const text of document.querySelectorAll('[data-download-text]')) text.textContent = PT ? 'Ver downloads' : 'See downloads';
     for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'macOS';
