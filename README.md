@@ -30,7 +30,7 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 
 ### Download
 
-Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg). The app keeps itself up to date. Release notes are on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
+Download the latest Flecha for Mac with [Apple silicon](https://dl.flecha.dev/Flecha.dmg). The Intel build is coming soon. The app keeps itself up to date. Release notes are on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
 
 ## About this repository
 
@@ -69,6 +69,7 @@ Before sending a change, please check:
 - The page works at phone width (about 375px) without sideways scrolling, in light and dark mode.
 - Text keeps WCAG AA contrast (4.5:1) on the surface it sits on.
 - Motion stays off when the system's "Reduce motion" setting is on.
+- When a new build lands on dl.flecha.dev (Intel, for now), set it to `true` in `AVAILABLE` in `assets/main.js` so its download card turns on.
 - The command bar demo in `assets/main.js` follows the rules in the browser's `src/renderer/devCommands.ts`. Keep them in sync.
 - The privacy policy says the app sends nothing to Flecha. Any change to that claim must match what the browser actually does.
 
