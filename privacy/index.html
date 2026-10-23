@@ -49,7 +49,7 @@
         <section class="legal-summary">
           <h2>The short version</h2>
           <ul>
-            <li>The Flecha app does not collect, send or sell any information about you. There is no account and no Flecha server.</li>
+            <li>The Flecha app does not collect, send or sell any information about you. There is no account. The only Flecha server hands out downloads and updates.</li>
             <li>Your tabs, Spaces, history, settings and Boosts are files on your Mac.</li>
             <li>When you browse, you talk to the websites you visit and to the services you choose, under their own policies.</li>
             <li>This website is a static site. It may count visits in aggregate; this page will always say how.</li>
@@ -61,11 +61,11 @@
 
         <h2 id="app">2. The Flecha app</h2>
         <h3>What we collect</h3>
-        <p>Nothing. The app has no analytics, no telemetry, no crash reporting and no account. It does not send your browsing history, your tabs or any identifier to us. We have no servers that could receive them.</p>
+        <p>Nothing. The app has no analytics, no telemetry, no crash reporting and no account. It does not send your browsing history, your tabs or any identifier to us. Our only servers hand out downloads and updates, and the app sends them nothing about you.</p>
         <h3>What stays on your Mac</h3>
         <p>Flecha keeps its data in your Flecha profile folder and in <code>~/.flecha</code>: tabs, Spaces, favorites, history, downloads list, settings, keyboard shortcuts, cookies and site data, and your Boosts. You can back up, move or delete these files at any time. Deleting them, or uninstalling Flecha, removes the data.</p>
         <h3>Connections the app makes</h3>
-        <p>Like any browser, Flecha connects to the internet on your behalf. These connections go to third parties, not to us:</p>
+        <p>Like any browser, Flecha connects to the internet on your behalf. Apart from update checks, these connections go to third parties, not to us:</p>
         <ul>
           <li><strong>Websites you visit</strong>, and the resources they load.</li>
           <li><strong>Your search engine</strong>, when you search from the command bar. You choose it in Settings.</li>
@@ -74,7 +74,7 @@
           <li><strong>Blocker list updates</strong> for the built-in ad and tracker blocker.</li>
           <li><strong>Services built into Chromium</strong>, such as Safe Browsing or component updates, according to Chromium's defaults and your settings.</li>
           <li><strong>Google or other accounts</strong>, only if you sign in to them. Those providers' policies apply.</li>
-          <li><strong>GitHub</strong>, when you download Flecha or an update from GitHub Releases.</li>
+          <li><strong>Updates from flecha.dev.</strong> Flecha uses Sparkle to check <code>flecha.dev/appcast.xml</code> for new versions on its own schedule, and when you choose Check for Updates… in the app menu. Updates download from <code>dl.flecha.dev</code>. These requests carry what any web request carries, such as your IP address and the app's version. Flecha adds nothing about you, and Sparkle's anonymous system profile is off. Our hosting providers, Vercel and Cloudflare, may keep standard logs of these requests.</li>
         </ul>
         <h3>Importing from other browsers</h3>
         <p>When you import, Flecha reads bookmarks, history and, for Arc, your sidebar from files on your Mac. The data is copied into your Flecha profile and never leaves your computer.</p>
@@ -86,7 +86,7 @@
         <h2 id="site">3. This website</h2>
         <p>flecha.dev is a static website. We do not ask for or store any personal information through it, and it sets no cookies of its own.</p>
         <ul>
-          <li><strong>Hosting.</strong> Our hosting provider may keep standard server logs, such as IP address, browser and the page requested, for security and operations.</li>
+          <li><strong>Hosting.</strong> The site runs on Vercel, and downloads come from Cloudflare (<code>dl.flecha.dev</code>). Both may keep standard server logs, such as IP address, browser and the page or file requested, for security and operations.</li>
           <li><strong>Fonts.</strong> The site loads its typefaces from Google Fonts, so your browser connects to Google when you open it.</li>
           <li><strong>Analytics.</strong> We may use analytics to understand, in aggregate, how many people visit and which pages they read. If we do, we will name the provider and what it collects in this section, prefer tools that do not use cookies, and never use the data for advertising or sell it.</li>
           <li><strong>Links.</strong> Links to GitHub and other sites take you to services with their own policies.</li>

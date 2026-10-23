@@ -49,7 +49,7 @@
         <section class="legal-summary">
           <h2>Resumo</h2>
           <ul>
-            <li>O app Flecha não coleta, não envia e não vende nenhuma informação sobre você. Não existe conta nem servidor do Flecha.</li>
+            <li>O app Flecha não coleta, não envia e não vende nenhuma informação sobre você. Não existe conta. O único servidor do Flecha entrega downloads e atualizações.</li>
             <li>Suas abas, Spaces, histórico, configurações e Boosts são arquivos no seu Mac.</li>
             <li>Quando você navega, fala com os sites que visita e com os serviços que escolhe, sob as políticas deles.</li>
             <li>Este site é estático. Ele pode contar visitas de forma agregada; esta página sempre vai dizer como.</li>
@@ -61,11 +61,11 @@
 
         <h2 id="app">2. O app Flecha</h2>
         <h3>O que coletamos</h3>
-        <p>Nada. O app não tem analytics, telemetria, relatório de crash nem conta. Ele não nos envia seu histórico, suas abas ou qualquer identificador. Não temos servidores que poderiam receber esses dados.</p>
+        <p>Nada. O app não tem analytics, telemetria, relatório de crash nem conta. Ele não nos envia seu histórico, suas abas ou qualquer identificador. Nossos únicos servidores entregam downloads e atualizações, e o app não manda nada sobre você para eles.</p>
         <h3>O que fica no seu Mac</h3>
         <p>O Flecha guarda os dados na pasta do seu perfil do Flecha e em <code>~/.flecha</code>: abas, Spaces, favoritos, histórico, lista de downloads, configurações, atalhos, cookies e dados de sites, e seus Boosts. Você pode fazer backup, mover ou apagar esses arquivos quando quiser. Apagá-los, ou desinstalar o Flecha, remove os dados.</p>
         <h3>Conexões que o app faz</h3>
-        <p>Como qualquer navegador, o Flecha se conecta à internet em seu nome. Essas conexões vão para terceiros, não para nós:</p>
+        <p>Como qualquer navegador, o Flecha se conecta à internet em seu nome. Tirando a checagem de atualizações, essas conexões vão para terceiros, não para nós:</p>
         <ul>
           <li><strong>Sites que você visita</strong>, e os recursos que eles carregam.</li>
           <li><strong>Seu buscador</strong>, quando você pesquisa pela barra de comandos. Você escolhe qual nas Configurações.</li>
@@ -74,7 +74,7 @@
           <li><strong>Atualizações das listas</strong> do bloqueador de anúncios e rastreadores embutido.</li>
           <li><strong>Serviços que vêm no Chromium</strong>, como Navegação Segura ou atualização de componentes, conforme o padrão do Chromium e suas configurações.</li>
           <li><strong>Google ou outras contas</strong>, só se você fizer login nelas. Valem as políticas desses provedores.</li>
-          <li><strong>GitHub</strong>, quando você baixa o Flecha ou uma atualização pelo GitHub Releases.</li>
+          <li><strong>Atualizações pelo flecha.dev.</strong> O Flecha usa o Sparkle para consultar <code>flecha.dev/appcast.xml</code> em busca de versões novas, na própria agenda dele e quando você escolhe Check for Updates… no menu do app. As atualizações são baixadas de <code>dl.flecha.dev</code>. Essas requisições levam o que qualquer requisição leva, como seu endereço IP e a versão do app. O Flecha não acrescenta nada sobre você, e o perfil anônimo de sistema do Sparkle está desligado. Nossos provedores de hospedagem, Vercel e Cloudflare, podem manter logs comuns dessas requisições.</li>
         </ul>
         <h3>Importação de outros navegadores</h3>
         <p>Ao importar, o Flecha lê favoritos, histórico e, no caso do Arc, sua sidebar a partir de arquivos no seu Mac. Os dados são copiados para o seu perfil do Flecha e nunca saem do seu computador.</p>
@@ -86,7 +86,7 @@
         <h2 id="site">3. Este site</h2>
         <p>flecha.dev é um site estático. Não pedimos nem guardamos informações pessoais por ele, e ele não define cookies próprios.</p>
         <ul>
-          <li><strong>Hospedagem.</strong> Nosso provedor de hospedagem pode manter logs comuns de servidor, como endereço IP, navegador e página acessada, para segurança e operação.</li>
+          <li><strong>Hospedagem.</strong> O site roda na Vercel, e os downloads vêm da Cloudflare (<code>dl.flecha.dev</code>). As duas podem manter logs comuns de servidor, como endereço IP, navegador e a página ou arquivo acessado, para segurança e operação.</li>
           <li><strong>Fontes.</strong> O site carrega as fontes do Google Fonts, então seu navegador se conecta ao Google quando você o abre.</li>
           <li><strong>Analytics.</strong> Podemos usar analytics para entender, de forma agregada, quantas pessoas visitam e quais páginas leem. Se usarmos, vamos informar aqui o provedor e o que ele coleta, preferir ferramentas que não usam cookies, e nunca usar os dados para publicidade nem vendê-los.</li>
           <li><strong>Links.</strong> Links para o GitHub e outros sites levam a serviços com políticas próprias.</li>
