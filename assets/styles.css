@@ -258,7 +258,7 @@ body::before {
   padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.brand-mark { width: 30px; height: 30px; flex: none; border-radius: 23%; box-shadow: 0 0 0 1px var(--edge); }
+.brand-mark { width: 30px; height: 30px; flex: none; display: block; }
 .wordmark {
   font: 650 1.5rem/1 var(--display);
   font-variation-settings: 'wdth' 120;
@@ -834,7 +834,7 @@ body::before {
   min-width: 0;
 }
 .node-title { margin: 0; display: flex; align-items: center; gap: 8px; font: 650 1rem/1.25 var(--display); color: var(--ink); }
-.node-title svg { width: 22px; height: 22px; }
+.node-title .node-mark { width: 22px; height: 22px; display: block; }
 .node-sub { margin: 0; font-size: 0.88rem; color: var(--muted); }
 .node-main ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 0; }
 .node-main li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--edge); font-size: 0.9rem; color: var(--text); }
@@ -1028,7 +1028,7 @@ body::before {
 
 .not-found { min-height: 100vh; display: grid; align-items: center; padding-block: 64px; }
 .nf-inner { display: grid; gap: 20px; justify-items: start; }
-.nf-mark { width: 88px; height: 88px; border-radius: 23%; box-shadow: 0 0 0 1px var(--edge); }
+.nf-mark { width: 88px; height: 88px; display: block; }
 
 /* ---- product footer ----------------------------------------------------- */
 
