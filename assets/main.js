@@ -243,7 +243,7 @@ if (!calm && envRows.length) {
 
 const REVEAL = [
   '.section-head', '.try-stage', '.tile', '.basics-list li', '.stack .layer', '.arch',
-  '.ledger', '.privacy-points li', '.keys li', '.migrate', '.shell', '.source-copy', '.facts li',
+  '.ledger', '.privacy-points li', '.keys li', '.migrate', '.shell', '.source-copy', '.facts li', '.dl-card',
 ];
 if (!calm && 'IntersectionObserver' in window) {
   const items = document.querySelectorAll(REVEAL.join(','));
@@ -275,25 +275,28 @@ if (!calm && 'IntersectionObserver' in window) {
 }
 
 /* ---- download: Apple silicon by default, Intel when the browser says so -- */
-// Only Chromium browsers report the CPU (userAgentData); Safari and Firefox keep the default
-// and the "Intel Mac?" link.
+// Only Chromium browsers report the CPU (userAgentData). Elsewhere the buttons keep the
+// Apple silicon build and the download section lists every file.
 
 const DOWNLOADS = { arm: 'https://dl.flecha.dev/Flecha.dmg', x64: 'https://dl.flecha.dev/Flecha-x64.dmg' };
 
-async function pickDownload() {
+async function detectMac() {
   const data = navigator.userAgentData;
-  if (!data?.getHighEntropyValues) return;
+  if (!data?.getHighEntropyValues) return undefined;
   try {
     const { architecture, platform } = await data.getHighEntropyValues(['architecture']);
-    if (platform !== 'macOS' || architecture !== 'x86') return;
+    if (platform !== 'macOS') return undefined;
+    return architecture === 'x86' ? 'x64' : architecture === 'arm' ? 'arm' : undefined;
   } catch {
-    return;
-  }
-  for (const link of document.querySelectorAll('[data-download]')) link.href = DOWNLOADS.x64;
-  for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'Intel';
-  for (const link of document.querySelectorAll('[data-download-alt]')) {
-    link.href = DOWNLOADS.arm;
-    link.textContent = PT ? 'Mac com Apple silicon?' : 'Apple silicon Mac?';
+    return undefined;
   }
 }
-pickDownload();
+
+detectMac().then((arch) => {
+  if (!arch) return;
+  document.querySelector(`.dl-card[data-arch="${arch}"]`)?.classList.add('is-detected');
+  document.querySelector(`.dl-card[data-arch="${arch}"] .dl-detected`)?.removeAttribute('hidden');
+  if (arch !== 'x64') return;
+  for (const link of document.querySelectorAll('[data-download]')) link.href = DOWNLOADS.x64;
+  for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'Intel';
+});
