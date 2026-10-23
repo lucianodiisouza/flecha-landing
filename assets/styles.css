@@ -1149,3 +1149,7 @@ body::before {
   .tile:hover, .node:hover, .layer:hover, .chips button:hover, .source-icon:hover, .brand:hover .brand-mark { transform: none; }
   .btn:hover .dl { animation: none; }
 }
+
+.cta-note a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.cta-note a:hover { text-decoration-color: var(--ink); }
+.dl-note { margin: 0; }

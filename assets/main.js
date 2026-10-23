@@ -273,3 +273,27 @@ if (!calm && 'IntersectionObserver' in window) {
     seen.observe(item);
   }
 }
+
+/* ---- download: Apple silicon by default, Intel when the browser says so -- */
+// Only Chromium browsers report the CPU (userAgentData); Safari and Firefox keep the default
+// and the "Intel Mac?" link.
+
+const DOWNLOADS = { arm: 'https://dl.flecha.dev/Flecha.dmg', x64: 'https://dl.flecha.dev/Flecha-x64.dmg' };
+
+async function pickDownload() {
+  const data = navigator.userAgentData;
+  if (!data?.getHighEntropyValues) return;
+  try {
+    const { architecture, platform } = await data.getHighEntropyValues(['architecture']);
+    if (platform !== 'macOS' || architecture !== 'x86') return;
+  } catch {
+    return;
+  }
+  for (const link of document.querySelectorAll('[data-download]')) link.href = DOWNLOADS.x64;
+  for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'Intel';
+  for (const link of document.querySelectorAll('[data-download-alt]')) {
+    link.href = DOWNLOADS.arm;
+    link.textContent = PT ? 'Mac com Apple silicon?' : 'Apple silicon Mac?';
+  }
+}
+pickDownload();
