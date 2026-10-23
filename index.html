@@ -63,7 +63,7 @@
             <div class="cta-row">
               <a class="btn" href="https://dl.flecha.dev/Flecha.dmg" data-download>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path class="dl" d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>
-                Download for Mac
+                <span data-download-text>Download for Mac</span>
               </a>
               <a class="btn btn-ghost" href="https://github.com/lucianodiisouza/flecha-browser">View on GitHub</a>
             </div>
@@ -524,15 +524,22 @@
               <a class="btn" href="https://dl.flecha.dev/Flecha-x64.dmg" data-file>Download</a>
             </article>
             <article class="dl-card is-soon" data-arch="windows">
-              <p class="dl-detected" hidden>Your Mac</p>
+              <p class="dl-soon">Soon</p>
               <svg class="dl-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="3"/><path d="M4 11h24"/><path d="M8 8.5h.01M11 8.5h.01M14 8.5h.01"/></svg>
               <h3>Windows</h3>
-              <p>Not available yet. Watch the releases on GitHub to hear when it ships.</p>
-              
-              <a class="btn btn-ghost" href="https://github.com/lucianodiisouza/flecha-browser/releases">Watch releases</a>
+              <p>Not available yet.</p>
+              <span class="btn btn-ghost" aria-disabled="true">Download</span>
+            </article>
+            <article class="dl-card is-soon" data-arch="linux">
+              <p class="dl-soon">Soon</p>
+              <svg class="dl-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="3"/><path d="m9 13 4 3-4 3M15 20h7"/></svg>
+              <h3>Linux · .deb</h3>
+              <p>Not available yet.</p>
+              <span class="btn btn-ghost" aria-disabled="true">Download</span>
             </article>
         </div>
         <p class="dl-help">Not sure which Mac you have? Open the Apple menu → About This Mac. “Chip” means Apple silicon; “Processor” means Intel.</p>
+        <p class="dl-help dl-prev">Looking for an older version? <a href="https://github.com/lucianodiisouza/flecha-browser/releases">Previous versions</a> are archived on GitHub.</p>
       </div>
     </section>
 
@@ -547,7 +554,7 @@
           <div class="cta-row">
             <a class="btn btn-light" href="https://dl.flecha.dev/Flecha.dmg" data-download>
               <svg viewBox="0 0 16 16" aria-hidden="true"><path class="dl" d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>
-              Download for Mac
+              <span data-download-text>Download for Mac</span>
             </a>
             <a class="btn btn-ghost-light" href="https://github.com/lucianodiisouza/flecha-browser">Star on GitHub</a>
           </div>
