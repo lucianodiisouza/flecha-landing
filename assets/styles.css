@@ -1088,3 +1088,64 @@ body::before {
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease var(--delay, 0ms), transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0ms); }
 .reveal.in { opacity: 1; transform: none; }
+
+/* ---- hover reactions ---------------------------------------------------- */
+
+.tile, .keys li, .node, .layer, .env-row, .chips button, .ledger, .migrate, .shell, .ill > *, .foot-col a, .nav-links a, .lang, .btn svg, .brand-mark, .import-table tbody tr, .basics-list li, .facts li {
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.ill { transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+@media (hover: hover) {
+  .tile:hover { transform: translateY(-3px); border-color: var(--rule); box-shadow: 0 18px 40px -22px rgba(11, 37, 69, 0.35); }
+  .t-mcp:hover { box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.6); }
+  .tile:hover .ill { transform: scale(1.02); }
+  .tile:hover .fl-win { transform: translateY(-4px); }
+  .tile:hover .ill-split span:first-child { animation-play-state: paused; }
+
+  .btn:hover { opacity: 1; }
+  .btn:not(.btn-ghost):not(.btn-ghost-light):hover { box-shadow: 0 8px 22px -10px rgba(11, 37, 69, 0.55); }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn-ghost-light:hover { border-color: #ffffff; }
+  .btn:hover .dl { animation: nudge 0.6s ease; }
+
+  .nav-links a, .foot-col a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.25s ease, color 0.2s ease; padding-bottom: 2px; }
+  .nav-links a:hover, .foot-col a:hover { background-size: 100% 1px; }
+
+  .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.05); }
+
+  .keys li:hover { border-color: var(--rule); }
+  .keys li:hover .kc kbd { transform: translateY(1px); border-bottom-width: 1px; margin-bottom: 1px; }
+  .kc kbd { transition: transform 0.12s ease, border-bottom-width 0.12s ease; }
+
+  .env-row:hover { border-color: var(--rule); }
+  .node:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .node-none:hover { border-color: var(--mark); }
+  .layer:hover { transform: translateX(6px); }
+  .chips button:hover { transform: translateY(-2px); }
+  .import-table tbody tr:hover { background: var(--tint); }
+  .basics-list li:hover { border-top-color: var(--ink); }
+  .facts li:hover strong { color: var(--mark-text); }
+  .privacy-points li:hover h3 { color: var(--mark-text); }
+  .privacy-points h3 { transition: color 0.2s ease; }
+  .facts strong { transition: color 0.2s ease; }
+
+  /* The drawing: hovering a note lights up its balloon. */
+  .mock-canvas .balloon { transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease; }
+  .mock-canvas:has(.c1:hover) .b1,
+  .mock-canvas:has(.c2:hover) .b2,
+  .mock-canvas:has(.c3:hover) .b3 { transform: scale(1.35); background: var(--mark); color: #ffffff; }
+  .callout { cursor: default; }
+  .callout b { transition: background-color 0.2s ease, color 0.2s ease; }
+  .callout:hover b { background: var(--mark); color: #ffffff; }
+
+  .source-icon { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .source-icon:hover { transform: rotate(-6deg) scale(1.04); }
+}
+
+@keyframes nudge { 40% { transform: translateY(2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tile:hover, .node:hover, .layer:hover, .chips button:hover, .source-icon:hover, .brand:hover .brand-mark { transform: none; }
+  .btn:hover .dl { animation: none; }
+}
