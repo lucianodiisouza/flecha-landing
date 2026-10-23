@@ -275,7 +275,7 @@
 
           <article class="tile t-mcp">
             <div class="tile-text">
-              <p class="tile-meta"><span class="tag">MCP</span></p>
+              <p class="tile-meta">MCP · Model Context Protocol</p>
               <h3>Deixe seu agente de código ver e usar suas abas.</h3>
               <p>Ligue a ponte nas Configurações e o Flecha serve MCP em <code>127.0.0.1</code>, protegido por token. Claude Code, Cursor e outros agentes listam abas, leem páginas e logs do console, tiram screenshots, clicam, digitam e rodam JavaScript. A sidebar mostra o que o agente está fazendo enquanto ele trabalha.</p>
               <ul class="tools" aria-label="Ferramentas MCP">
@@ -487,25 +487,11 @@
           <p class="import-path"><kbd>File</kbd> → <kbd>Import Browser Data</kbd> <span>(menu do app, em inglês)</span></p>
         </header>
         <div class="migrate" aria-label="O que a importação traz">
-          <div class="mig-col">
-            <p class="mig-head">De</p>
-            <ul>
-              <li><i>◐</i><span><b>Arc</b> Spaces com nomes e emoji, abas fixadas e pastas, favoritos, abas do dia, histórico</span></li>
-              <li><i>◎</i><span><b>Chrome, Brave, Edge</b> e outros navegadores Chromium: favoritos e histórico</span></li>
-              <li><i>◉</i><span><b>Firefox</b> favoritos e histórico</span></li>
-              <li><i>◌</i><span><b>Safari</b> favoritos e histórico</span></li>
-            </ul>
-          </div>
-          <svg class="mig-arrow" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12h44"/><path d="M44 4l14 8-14 8z" class="fill"/><circle class="dot" cx="4" cy="12" r="3"/></svg>
-          <div class="mig-col flecha">
-            <p class="mig-head">Para o Flecha</p>
-            <ul>
-              <li><i>💼</i><span>Spaces, do jeito que estavam</span></li>
-              <li><i>📌</i><span>Favoritos viram um Space de abas fixadas</span></li>
-              <li><i>🕘</i><span>Histórico unificado e pesquisável</span></li>
-            </ul>
-          </div>
-          <p class="mig-note">Lido dos arquivos dos outros navegadores no seu Mac. Nada é enviado.</p>
+          <table class="import-table">
+            <thead><tr><th scope="col">Navegador</th><th scope="col">Spaces</th><th scope="col">Abas fixadas e favoritos</th><th scope="col">Favoritos (bookmarks)</th><th scope="col">Histórico</th></tr></thead>
+            <tbody><tr><th scope="row">Arc</th><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><span class="no" aria-label="Não">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Chrome, Brave, Edge e outros navegadores Chromium</th><td><span class="no" aria-label="Não">—</span></td><td><span class="no" aria-label="Não">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Firefox</th><td><span class="no" aria-label="Não">—</span></td><td><span class="no" aria-label="Não">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Safari</th><td><span class="no" aria-label="Não">—</span></td><td><span class="no" aria-label="Não">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Sim"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr></tbody>
+          </table>
+          <p class="mig-note">Os favoritos chegam como um Space de abas fixadas, e o histórico é unificado e pesquisável. Tudo é lido dos arquivos no seu Mac; nada é enviado.</p>
         </div>
       </div>
     </section>

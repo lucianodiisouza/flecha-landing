@@ -275,7 +275,7 @@
 
           <article class="tile t-mcp">
             <div class="tile-text">
-              <p class="tile-meta"><span class="tag">MCP</span></p>
+              <p class="tile-meta">MCP · Model Context Protocol</p>
               <h3>Let your coding agent see and drive your tabs.</h3>
               <p>Turn on the bridge in Settings and Flecha serves MCP on <code>127.0.0.1</code>, behind a token. Claude Code, Cursor and other agents can list tabs, read pages and console logs, take screenshots, click, type and run JavaScript. The sidebar shows what the agent is doing while it works.</p>
               <ul class="tools" aria-label="MCP tools">
@@ -487,25 +487,11 @@
           <p class="import-path"><kbd>File</kbd> → <kbd>Import Browser Data</kbd></p>
         </header>
         <div class="migrate" aria-label="What import brings over">
-          <div class="mig-col">
-            <p class="mig-head">From</p>
-            <ul>
-              <li><i>◐</i><span><b>Arc</b> Spaces with names and emoji, pinned tabs and folders, favorites, today's tabs, history</span></li>
-              <li><i>◎</i><span><b>Chrome, Brave, Edge</b> and other Chromium browsers: bookmarks and history</span></li>
-              <li><i>◉</i><span><b>Firefox</b> bookmarks and history</span></li>
-              <li><i>◌</i><span><b>Safari</b> bookmarks and history</span></li>
-            </ul>
-          </div>
-          <svg class="mig-arrow" viewBox="0 0 64 24" aria-hidden="true"><path d="M2 12h44"/><path d="M44 4l14 8-14 8z" class="fill"/><circle class="dot" cx="4" cy="12" r="3"/></svg>
-          <div class="mig-col flecha">
-            <p class="mig-head">Into Flecha</p>
-            <ul>
-              <li><i>💼</i><span>Spaces, as they were</span></li>
-              <li><i>📌</i><span>Bookmarks become a Space of pinned tabs</span></li>
-              <li><i>🕘</i><span>History merged and searchable</span></li>
-            </ul>
-          </div>
-          <p class="mig-note">Read from the other browsers' files on your Mac. Nothing is uploaded.</p>
+          <table class="import-table">
+            <thead><tr><th scope="col">Browser</th><th scope="col">Spaces</th><th scope="col">Pinned tabs and favorites</th><th scope="col">Bookmarks</th><th scope="col">History</th></tr></thead>
+            <tbody><tr><th scope="row">Arc</th><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><span class="no" aria-label="No">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Chrome, Brave, Edge and other Chromium browsers</th><td><span class="no" aria-label="No">—</span></td><td><span class="no" aria-label="No">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Firefox</th><td><span class="no" aria-label="No">—</span></td><td><span class="no" aria-label="No">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr><tr><th scope="row">Safari</th><td><span class="no" aria-label="No">—</span></td><td><span class="no" aria-label="No">—</span></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td><td><svg class="yes" viewBox="0 0 16 16" role="img" aria-label="Yes"><path d="m3.5 8.5 3 3 6-7"/></svg></td></tr></tbody>
+          </table>
+          <p class="mig-note">Bookmarks arrive as a Space of pinned tabs, and history is merged and searchable. Everything is read from files on your Mac; nothing is uploaded.</p>
         </div>
       </div>
     </section>
