@@ -1153,3 +1153,5 @@ body::before {
 .cta-note a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
 .cta-note a:hover { text-decoration-color: var(--ink); }
 .dl-note { margin: 0; }
+
+.node-updates { border-style: dashed; background: transparent; }
