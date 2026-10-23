@@ -1025,3 +1025,9 @@ body::before {
 .legal strong { color: var(--ink); }
 .legal-summary { padding: 24px 28px; border-radius: 14px; background: var(--panel); border: 1px solid var(--edge); }
 .legal-summary h2 { margin: 0 0 12px; padding: 0; border: 0; font-size: 1.1rem; }
+
+/* ---- 404 ---------------------------------------------------------------- */
+
+.not-found { min-height: 100vh; display: grid; align-items: center; padding-block: 64px; }
+.nf-inner { display: grid; gap: 20px; justify-items: start; }
+.nf-mark { width: 88px; height: 88px; border-radius: 23%; box-shadow: 0 0 0 1px var(--edge); }
