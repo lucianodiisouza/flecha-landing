@@ -39,7 +39,7 @@
   --step-0: 1.0625rem;
   --step-1: 1.35rem;
   --step-2: clamp(2rem, 3.6vw, 3rem);
-  --step-3: clamp(2.8rem, 6.4vw, 5.6rem);
+  --step-3: clamp(2.5rem, 6.4vw, 5.6rem);
   --col: 1200px;
 }
 
@@ -284,8 +284,8 @@ body::before {
   margin-bottom: clamp(40px, 5vw, 64px);
 }
 @media (max-width: 960px) { .hero-head { grid-template-columns: 1fr; } }
-.hero-copy { display: grid; gap: 24px; }
-.hero-side { display: grid; gap: 26px; }
+.hero-copy { display: grid; gap: 24px; min-width: 0; }
+.hero-side { display: grid; gap: 26px; min-width: 0; }
 .lede { margin: 0; font-size: 1.2rem; line-height: 1.55; color: var(--muted); }
 
 /* The drawing sheet: frame, zone markers, grid and title block, like an engineering drawing. */
@@ -866,10 +866,11 @@ body::before {
 .node-none .node-title { text-decoration: line-through; text-decoration-color: var(--mark); text-decoration-thickness: 2px; }
 @media (max-width: 960px) {
   .arch { grid-template-columns: 1fr; }
-  .arch-wire { height: 72px; width: 60px; justify-self: center; }
+  .arch-wire { height: 72px; }
   .arch-wire::before { left: 50%; right: auto; top: 0; bottom: 8px; width: 1.5px; height: auto; }
   .arch-wire::after { left: calc(50% - 6px); right: auto; top: auto; bottom: 0; border: 6px solid transparent; border-top: 10px solid var(--ink); border-bottom: 0; }
-  .arch-wire em { top: 0; left: 70px; position: absolute; width: 160px; text-align: left; }
+  .arch-wire { width: 100%; }
+  .arch-wire em { position: absolute; top: 50%; transform: translateY(-50%); left: calc(50% + 16px); right: 0; text-align: left; }
   .packets { display: none; }
 }
 @media (max-width: 640px) { .arch-mac { grid-template-columns: 1fr; } }
