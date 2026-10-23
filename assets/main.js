@@ -251,7 +251,15 @@ if (!calm && 'IntersectionObserver' in window) {
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
-        entry.target.classList.add('in');
+        const el = entry.target;
+        el.classList.add('in');
+        // Once in place, hand the element back to its own hover transitions.
+        el.addEventListener('transitionend', function done(event) {
+          if (event.target !== el) return;
+          el.removeEventListener('transitionend', done);
+          el.classList.remove('reveal', 'in');
+          el.style.removeProperty('--delay');
+        });
         seen.unobserve(entry.target);
       }
     },
