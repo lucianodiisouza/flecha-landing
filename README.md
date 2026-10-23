@@ -1,36 +1,81 @@
-# flecha.dev
+<p align="center">
+  <img src="icon.png" width="96" height="96" alt="Flecha icon">
+</p>
 
-The website for [Flecha](https://github.com/lucianodiisouza/flecha-browser), the open-source browser for developers. Plain HTML, CSS and JavaScript with no build step.
+<h1 align="center">flecha.dev</h1>
 
-## Preview
+<p align="center">
+  The website for <a href="https://github.com/lucianodiisouza/flecha-browser">Flecha</a>, the open-source browser for developers.<br>
+  <a href="https://flecha.dev">flecha.dev</a> · <a href="https://flecha.dev/pt-br/">Português</a> · <a href="https://github.com/lucianodiisouza/flecha-browser/releases/latest">Download</a>
+</p>
+
+---
+
+## About Flecha
+
+Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a command bar that speaks developer. It runs entirely on your Mac: no account, no telemetry, no Flecha server. The browser itself lives at **[lucianodiisouza/flecha-browser](https://github.com/lucianodiisouza/flecha-browser)**. This repository is only the website.
+
+### Features
+
+- **Command bar** (`⌘T`): tabs, history and commands in one box, with `gh 482`, `npm`, `mdn`, `caniuse`, `so`, `env` and `boost` shortcuts. Paste a JWT or a Unix timestamp to decode it.
+- **Environments** (`⌥⌘E`): move a page between local, staging and production with the same path, and see a LOCAL / STAGING / PROD badge in the address bar.
+- **Responsive view** (`⌥⌘M`): a phone-sized page next to the desktop one, following every navigation.
+- **Local dev servers** in the sidebar, with console error counts on local tabs.
+- **Boosts** (`⌥⌘B`): your own TypeScript and CSS for any site, as plain files in `~/.flecha/boosts`.
+- **Coding agents over MCP**: Claude Code, Cursor and others can read and drive your tabs through a local, token-protected bridge.
+- **Spaces** with their own cookies and logins, **pinned tabs and folders**, **favorites** and **today tabs** that archive themselves.
+- **Flechinha** for links from other apps, **Peek**, and **split view** with up to four panes.
+- **Real Chromium**: Google sign-in and Chrome Web Store extensions work, with ad and tracker blocking built in.
+- **Import** from Arc, Chrome, Brave, Edge, Firefox and Safari.
+
+### Download
+
+Get the latest build for Mac (Apple silicon) from [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases/latest). Flecha is free and open source.
+
+## About this repository
+
+Plain HTML, CSS and JavaScript, with no framework and no build step.
+
+| Path | What it is |
+| --- | --- |
+| `index.html`, `pt-br/index.html` | Home, in English and Portuguese |
+| `privacy/`, `pt-br/privacidade/` | Privacy policy |
+| `terms/`, `pt-br/termos/` | Terms of use |
+| `404.html` | Not found page, in both languages |
+| `assets/styles.css` | All styles |
+| `assets/main.js` | Command bar demo, drawing scale and motion |
+
+### Run it locally
 
 ```bash
+git clone https://github.com/lucianodiisouza/flecha-landing
+cd flecha-landing
 python3 -m http.server 8080
 ```
 
-Then open http://localhost:8080. Pages use root-relative paths (`/assets/styles.css`), so serve the folder; opening the files directly won't load the styles.
+Open http://localhost:8080. Pages use root-relative paths (`/assets/styles.css`), so serve the folder rather than opening the files directly.
 
-## Layout
+## Contributing
 
-| Path | Page |
-| --- | --- |
-| `index.html` | Home (English) |
-| `pt-br/index.html` | Home (Português) |
-| `privacy/`, `pt-br/privacidade/` | Privacy policy |
-| `terms/`, `pt-br/termos/` | Terms of use |
-| `404.html` | Not found, in both languages |
-| `assets/styles.css` | Every style, Blueprint identity |
-| `assets/main.js` | Command bar demo, drawing scale, motion |
+Fixes and improvements to the website are welcome.
 
-`robots.txt`, `sitemap.xml` and `site.webmanifest` sit at the root with the icons.
+- **Bugs or ideas for the browser** go to the [Flecha repository's issues](https://github.com/lucianodiisouza/flecha-browser/issues), not here.
+- **Website issues** (typos, broken layout, accessibility, translations) can be opened in [this repository's issues](https://github.com/lucianodiisouza/flecha-landing/issues).
+- **Pull requests** should be small and focused, one change per commit.
 
-## Keeping things in sync
+Before sending a change, please check:
 
-- English and Portuguese pages are separate files. Change both.
-- The command bar demo in `assets/main.js` ports `src/renderer/devCommands.ts` from the Flecha repo. Update it when those rules change.
-- The privacy policy says the app sends nothing to Flecha. If the app ever adds an update check, crash reporting or any call to a Flecha server, update the policy and the Privacy section on both homes.
-- If the site adds analytics, name the provider and what it collects in section 3 of both privacy pages.
+- English and Portuguese pages are separate files. Update both.
+- The page works at phone width (about 375px) without sideways scrolling, in light and dark mode.
+- Text keeps WCAG AA contrast (4.5:1) on the surface it sits on.
+- Motion stays off when the system's "Reduce motion" setting is on.
+- The command bar demo in `assets/main.js` follows the rules in the browser's `src/renderer/devCommands.ts`. Keep them in sync.
+- The privacy policy says the app sends nothing to Flecha. Any change to that claim must match what the browser actually does.
 
 ## Brand
 
-Blueprint identity: Ink `#0B2545`, Draft `#EEF2F6`, Grid `#3AA6D9`, Dimension `#E4572E`. Type: Archivo (wide) and JetBrains Mono. The icon sources live in the Flecha repo under `assets/icon/`.
+Blueprint identity: Ink `#0B2545`, Draft `#EEF2F6`, Grid `#3AA6D9`, Dimension `#E4572E`. Type: Archivo (wide) and JetBrains Mono. The icon sources live in the Flecha repository under `assets/icon/`.
+
+---
+
+<p align="center">Built with ❤️ by <a href="https://www.oprimo.dev">OPrimoDev</a></p>
