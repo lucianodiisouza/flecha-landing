@@ -274,29 +274,38 @@ if (!calm && 'IntersectionObserver' in window) {
   }
 }
 
-/* ---- download: Apple silicon by default, Intel when the browser says so -- */
-// Only Chromium browsers report the CPU (userAgentData). Elsewhere the buttons keep the
-// Apple silicon build and the download section lists every file.
+/* ---- download: pick the build for this computer -------------------------- */
+// Chromium browsers report the CPU through userAgentData: arm gets Flecha.dmg, x86 gets
+// Flecha-x64.dmg. Safari and Firefox always look like Intel, so a Mac there gets the
+// Apple silicon build. Anything that isn't a Mac goes to the download section instead.
 
 const DOWNLOADS = { arm: 'https://dl.flecha.dev/Flecha.dmg', x64: 'https://dl.flecha.dev/Flecha-x64.dmg' };
 
-async function detectMac() {
+async function detectSystem() {
   const data = navigator.userAgentData;
-  if (!data?.getHighEntropyValues) return undefined;
-  try {
-    const { architecture, platform } = await data.getHighEntropyValues(['architecture']);
-    if (platform !== 'macOS') return undefined;
-    return architecture === 'x86' ? 'x64' : architecture === 'arm' ? 'arm' : undefined;
-  } catch {
-    return undefined;
+  if (data?.getHighEntropyValues) {
+    try {
+      const { architecture, platform } = await data.getHighEntropyValues(['architecture']);
+      if (platform !== 'macOS') return 'other';
+      return architecture === 'x86' ? 'x64' : 'arm';
+    } catch {
+      // fall through to the user agent string
+    }
   }
+  // iPads ask for desktop pages as "Macintosh"; touch gives them away.
+  const mac = /Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints < 2;
+  return mac ? 'arm' : 'other';
 }
 
-detectMac().then((arch) => {
-  if (!arch) return;
-  document.querySelector(`.dl-card[data-arch="${arch}"]`)?.classList.add('is-detected');
-  document.querySelector(`.dl-card[data-arch="${arch}"] .dl-detected`)?.removeAttribute('hidden');
-  if (arch !== 'x64') return;
-  for (const link of document.querySelectorAll('[data-download]')) link.href = DOWNLOADS.x64;
-  for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'Intel';
+detectSystem().then((system) => {
+  if (system === 'other') {
+    for (const link of document.querySelectorAll('[data-download]')) link.href = '#download';
+    for (const text of document.querySelectorAll('[data-download-text]')) text.textContent = PT ? 'Ver downloads' : 'See downloads';
+    for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = 'macOS';
+    return;
+  }
+  document.querySelector(`.dl-card[data-arch="${system}"]`)?.classList.add('is-detected');
+  document.querySelector(`.dl-card[data-arch="${system}"] .dl-detected`)?.removeAttribute('hidden');
+  for (const link of document.querySelectorAll('[data-download]')) link.href = DOWNLOADS[system];
+  for (const label of document.querySelectorAll('[data-download-label]')) label.textContent = system === 'x64' ? 'Intel' : 'Apple silicon';
 });
