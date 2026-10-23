@@ -6,7 +6,7 @@
 
 <p align="center">
   The website for <a href="https://github.com/lucianodiisouza/flecha-browser">Flecha</a>, the open-source browser for developers.<br>
-  <a href="https://flecha.dev">flecha.dev</a> · <a href="https://flecha.dev/pt-br/">Português</a> · <a href="https://github.com/lucianodiisouza/flecha-browser/releases/latest">Download</a>
+  <a href="https://flecha.dev">flecha.dev</a> · <a href="https://flecha.dev/pt-br/">Português</a> · <a href="https://dl.flecha.dev/Flecha.dmg">Download</a>
 </p>
 
 ---
@@ -30,7 +30,7 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 
 ### Download
 
-Get the latest build for Mac (Apple silicon) from [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases/latest). Flecha is free and open source.
+Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg). The app keeps itself up to date. Release notes are on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
 
 ## About this repository
 
