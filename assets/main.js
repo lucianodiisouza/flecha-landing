@@ -236,3 +236,32 @@ if (!calm && envRows.length) {
     envRows[current].classList.add('on');
   }, 2400);
 }
+
+/* ---- reveal on scroll ---------------------------------------------------- */
+// Elements start visible; the hidden starting state only applies once this script has run,
+// and anything already on screen is shown at once.
+
+const REVEAL = [
+  '.section-head', '.try-stage', '.tile', '.basics-list li', '.stack .layer', '.arch',
+  '.ledger', '.privacy-points li', '.keys li', '.migrate', '.shell', '.source-copy', '.facts li',
+];
+if (!calm && 'IntersectionObserver' in window) {
+  const items = document.querySelectorAll(REVEAL.join(','));
+  const seen = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('in');
+        seen.unobserve(entry.target);
+      }
+    },
+    { rootMargin: '0px 0px -8% 0px' },
+  );
+  for (const item of items) {
+    // Siblings of the same kind come in one after another.
+    const siblings = [...item.parentElement.children].filter((el) => el.matches(REVEAL.join(',')));
+    item.style.setProperty('--delay', `${Math.min(siblings.indexOf(item), 6) * 60}ms`);
+    item.classList.add('reveal');
+    seen.observe(item);
+  }
+}
