@@ -998,3 +998,11 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .fl-win, .pk-card, .ill-split span:first-child { animation: none; }
 }
+
+.term { white-space: normal; }
+.basics-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
+.basics-list li { display: grid; gap: 4px; align-content: start; padding: 18px 0; border-top: 1px solid var(--rule); }
+.basics-list strong { color: var(--ink); font-weight: 650; }
+.basics-list span { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 860px) { .basics-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .basics-list { grid-template-columns: 1fr; } }
