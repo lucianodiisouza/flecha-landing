@@ -42,7 +42,7 @@
         <a href="#switch">Migrar</a>
       </nav>
       <a class="lang" href="/" hreflang="en" lang="en" title="Read in English">EN</a>
-      <a class="btn btn-small" href="https://dl.flecha.dev/Flecha.dmg" data-download>
+      <a class="btn btn-small" href="#download">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path class="dl" d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>
         Baixar
       </a>
@@ -67,7 +67,7 @@
               </a>
               <a class="btn btn-ghost" href="https://github.com/lucianodiisouza/flecha-browser">Ver no GitHub</a>
             </div>
-            <p class="cta-note">Grátis e open source · <span data-download-label>Apple silicon</span> · <a href="https://dl.flecha.dev/Flecha-x64.dmg" data-download-alt>Mac com Intel?</a></p>
+            <p class="cta-note">Grátis e open source · <span data-download-label>Apple silicon</span> · <a href="#download">Intel e outras versões</a></p>
           </div>
         </div>
 
@@ -496,8 +496,48 @@
       </div>
     </section>
 
-    <!-- Download / open source ------------------------------------------- -->
-    <section class="band dark" id="download">
+    <!-- Download --------------------------------------------------------- -->
+    <section class="band" id="download">
+      <div class="inner">
+        <header class="section-head split">
+          <div>
+            <p class="eyebrow">Download</p>
+            <h2>Escolha a versão para o seu computador.</h2>
+          </div>
+          <p class="aside">Cada link é sempre a versão mais recente. Depois disso, o Flecha se atualiza sozinho.</p>
+        </header>
+        <div class="downloads">
+            <article class="dl-card" data-arch="arm">
+              <p class="dl-detected" hidden>Seu Mac</p>
+              <svg class="dl-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="7" width="18" height="18" rx="3"/><path d="M11 3v4M16 3v4M21 3v4M11 25v4M16 25v4M21 25v4M3 11h4M3 16h4M3 21h4M25 11h4M25 16h4M25 21h4"/><text x="16" y="19.5" text-anchor="middle">M</text></svg>
+              <h3>macOS · Apple silicon</h3>
+              <p>Macs com chip M1, M2, M3, M4 ou mais novo.</p>
+              <code class="dl-file">Flecha.dmg</code>
+              <a class="btn" href="https://dl.flecha.dev/Flecha.dmg" data-file>Baixar</a>
+            </article>
+            <article class="dl-card" data-arch="x64">
+              <p class="dl-detected" hidden>Seu Mac</p>
+              <svg class="dl-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="7" width="18" height="18" rx="3"/><path d="M11 3v4M16 3v4M21 3v4M11 25v4M16 25v4M21 25v4M3 11h4M3 16h4M3 21h4M25 11h4M25 16h4M25 21h4"/><text x="16" y="19.5" text-anchor="middle">x64</text></svg>
+              <h3>macOS · Intel</h3>
+              <p>Macs com processador Intel.</p>
+              <code class="dl-file">Flecha-x64.dmg</code>
+              <a class="btn" href="https://dl.flecha.dev/Flecha-x64.dmg" data-file>Baixar</a>
+            </article>
+            <article class="dl-card is-soon" data-arch="windows">
+              <p class="dl-detected" hidden>Seu Mac</p>
+              <svg class="dl-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="3"/><path d="M4 11h24"/><path d="M8 8.5h.01M11 8.5h.01M14 8.5h.01"/></svg>
+              <h3>Windows</h3>
+              <p>Ainda não disponível. Acompanhe as versões no GitHub para saber quando sair.</p>
+              
+              <a class="btn btn-ghost" href="https://github.com/lucianodiisouza/flecha-browser/releases">Acompanhar versões</a>
+            </article>
+        </div>
+        <p class="dl-help">Não sabe qual é o seu Mac? Abra o menu Apple → Sobre Este Mac. “Chip” é Apple silicon; “Processador” é Intel.</p>
+      </div>
+    </section>
+
+    <!-- Open source ------------------------------------------- -->
+    <section class="band dark" id="source">
       <div class="inner source-grid">
         <div class="source-copy">
           <img class="source-icon" src="/assets/brand/flecha-mark.svg" alt="" width="132" height="132">
@@ -511,7 +551,6 @@
             </a>
             <a class="btn btn-ghost-light" href="https://github.com/lucianodiisouza/flecha-browser">Estrela no GitHub</a>
           </div>
-          <p class="cta-note dl-note"><span data-download-label>Apple silicon</span> · <a href="https://dl.flecha.dev/Flecha-x64.dmg" data-download-alt>Mac com Intel?</a></p>
         </div>
         <div class="shell">
           <div class="shell-bar"><span>flecha-browser</span><span>main</span></div>
@@ -538,7 +577,7 @@
         <p>O navegador open source para devs.</p>
         <p class="credit">Feito com <svg class="heart" viewBox="0 0 16 16" role="img" aria-label="amor"><path d="M8 14s-5.5-3.4-5.5-7.3A3 3 0 0 1 8 4.9a3 3 0 0 1 5.5 1.8C13.5 10.6 8 14 8 14Z"/></svg> por <a href="https://www.oprimo.dev">OPrimoDev</a></p>
       </div>
-      <nav class="foot-cols" aria-label="Rodapé"><div class="foot-col"><p class="foot-head">Produto</p><ul><li><a href="https://dl.flecha.dev/Flecha.dmg" data-download>Baixar</a></li><li><a href="/pt-br/#dev">Barra de comandos</a></li><li><a href="/pt-br/#loop">Ferramentas</a></li><li><a href="/pt-br/#privacy">Privacidade</a></li></ul></div><div class="foot-col"><p class="foot-head">Projeto</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Código-fonte</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Versões</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/pt-br/privacidade/">Política de privacidade</a></li><li><a href="/pt-br/termos/">Termos de uso</a></li><li><a href="/" hreflang="en" lang="en">English</a></li></ul></div></nav>
+      <nav class="foot-cols" aria-label="Rodapé"><div class="foot-col"><p class="foot-head">Produto</p><ul><li><a href="/pt-br/#download">Baixar</a></li><li><a href="/pt-br/#dev">Barra de comandos</a></li><li><a href="/pt-br/#loop">Ferramentas</a></li><li><a href="/pt-br/#privacy">Privacidade</a></li></ul></div><div class="foot-col"><p class="foot-head">Projeto</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Código-fonte</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Versões</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/pt-br/privacidade/">Política de privacidade</a></li><li><a href="/pt-br/termos/">Termos de uso</a></li><li><a href="/" hreflang="en" lang="en">English</a></li></ul></div></nav>
     </div>
     <div class="inner foot-base"><span>© 2026 OPrimoDev. O Flecha é gratuito e open source.</span><span>Sem vínculo com a The Browser Company ou o Google.</span></div>
   </footer>
