@@ -282,7 +282,7 @@ if (!calm && 'IntersectionObserver' in window) {
 const DOWNLOADS = { arm: 'https://dl.flecha.dev/Flecha.dmg', x64: 'https://dl.flecha.dev/Flecha-x64.dmg' };
 // Which builds are on dl.flecha.dev. A build that isn't uploaded stays "Soon" in the download
 // section, and its Macs get the section instead of a dmg. Flip x64 to true once Flecha-x64.dmg is up.
-const AVAILABLE = { arm: true, x64: false };
+const AVAILABLE = { arm: true, x64: true };
 
 for (const [arch, ready] of Object.entries(AVAILABLE)) {
   const card = document.querySelector(`.dl-card[data-arch="${arch}"]`);
