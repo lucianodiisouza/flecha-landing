@@ -1,0 +1,52 @@
+---
+title: Developer tools in Flecha
+description: Move a page between local, staging and production in one key, see a phone-sized view next to desktop, find your dev servers in the sidebar and catch console errors.
+sidebar:
+  label: Developer tools
+---
+
+Flecha is built for the loop of edit, reload, check staging and ship. Next to Chromium's own DevTools (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd>) it adds these.
+
+## Environments
+
+Group a project's origins once, then move any page between them with its path, query and hash intact.
+
+1. Open Settings › **Environments** › **Add Project**.
+2. Name the project and list one environment per line, as `label origin`:
+
+   ```text
+   local http://localhost:3000
+   staging https://staging.example.com
+   prod https://example.com
+   ```
+
+3. On any of those origins, press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd> to go to the next environment, or type `env` in the [command bar](/docs/command-bar/) to pick one.
+
+The address bar shows the label as a badge so you never edit production by accident. The colour comes from the name: green for `localhost`, `127.0.0.1`, `.test`, `.local` or a label like `local`; amber for names with `stag`, `preview`, `qa`, `test`, `dev`, `sandbox` or `uat`; red for everything else.
+
+## Responsive view
+
+Press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>M</kbd> to open a phone-sized copy of the page next to the full one.
+
+- It's 393 px wide at 3× pixel density, with touch and an Android Chrome user agent, so mobile layouts and touch handlers kick in.
+- It follows the desktop side as you navigate.
+- Press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>M</kbd> again, or <kbd>⌃</kbd><kbd>⇧</kbd><kbd>-</kbd>, to close it.
+
+## Your dev servers in the sidebar
+
+Servers running on your Mac show up on their own under **Running locally**, in the sidebar and on the new tab page. Click one to switch to its tab, or open it.
+
+- Flecha checks a few dozen common dev ports, such as 3000, 4321, 5173, 6006, 8000 and 8080.
+- Each server is named after its page title, or `localhost:port`.
+- The list refreshes every few seconds while Flecha is in front.
+
+## Console errors on local tabs
+
+Tabs on `localhost`, `127.0.0.1`, `.localhost`, `.local` or `.test` show a red badge with their number of console errors, uncaught exceptions and failed requests. Click it to open DevTools on the Console. The count resets on each page load.
+
+## More
+
+- [Command bar](/docs/command-bar/): `gh 482` opens the pull request, `npm`, `mdn`, `caniuse`, and JWT and timestamp decoding.
+- [Boosts](/docs/guides/boosts/): your own TypeScript and CSS on any site.
+- [Coding agents](/docs/agents/mcp/): let Claude Code or Cursor read and drive your tabs.
+- <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> copies the link, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> as a Markdown link, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>2</kbd> copies a screenshot of the page.

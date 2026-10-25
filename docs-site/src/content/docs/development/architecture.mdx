@@ -1,0 +1,54 @@
+---
+title: How Flecha is built
+description: Flecha's architecture. A small Chromium patch set, a TypeScript shell that draws the whole interface as a built-in extension, and a Node helper for importing and MCP.
+sidebar:
+  label: Architecture
+---
+
+Flecha is a Chromium 158 fork. It's Chromium rather than Electron because Google blocks sign-in in Electron apps; in Chromium, sign-in, extensions and the rest of the web platform work as they do in Chrome.
+
+The fork is kept small on purpose so updating Chromium stays easy. Almost everything you see is a TypeScript extension.
+
+```text
+flecha-browser/
+├── chromium/
+│   ├── patches/      the Chromium patch set, applied in order
+│   ├── shell/        the interface, as a built-in MV3 extension
+│   ├── native-host/  Node helper: browser import and the MCP server
+│   ├── shared/       the Store and code shared by shell and host
+│   ├── branding/     names, icons and bundle IDs
+│   ├── build/        GN args for dev and release builds
+│   └── scripts/      apply, build, run, package, release
+└── package.json      npm scripts for the shell and host
+```
+
+## The patches
+
+About fifty small patches in `chromium/patches/`, numbered in the order they apply. They do three kinds of things:
+
+- **Make room for the shell.** Hide Chromium's tab strip and toolbar (0002), let the shell's page draw the window frame (0011–0013, 0017, 0024), and load the shell as a component extension (0021).
+- **Give the shell what an extension can't do.** A private `chrome.flechaPrivate` API (0010) for shortcuts that run before the page (0016), the theme (0018), split view with a resizable gap (0019), Flechinha windows (0023, 0025), Peek (0026), DevTools and the default browser (0027), the find bar (0030), and per-Space storage partitions for separate cookies (0034).
+- **Tidy and package.** The "Flecha Browser" profile folder (0001), no Chromium first run (0035), no missing-API-keys bar (0036), Sparkle updates and **Check for Updates…** (0040, 0053), and the release app's name, version and bundled shell (0050–0052).
+
+Each patch starts with a one-line description; changed lines in Chromium are marked with `// Flecha:` comments.
+
+## The shell
+
+`chromium/shell` is a Manifest V3 extension with the ID `abdiaepfgbbhdjaecjipmaailijaaide`, built with esbuild.
+
+- `background.ts`, the service worker, holds the **Store**: Spaces, tabs, folders, favorites, settings. It's saved in `chrome.storage.local`.
+- `ui/` draws the window frame, sidebar, command bar and new tab page. `settings.html`, `boosts.html` and `flechinha.html` are the other pages.
+- `features/` holds the developer features: Boosts (compiled with sucrase, run through `chrome.userScripts`), the ad blocker (declarativeNetRequest rulesets built from EasyList and EasyPrivacy at build time), console error counts, responsive view and the local server scanner.
+
+Because the shell is just an extension, UI work needs no Chromium build at all: `run.sh` loads it from `chromium/shell/dist`, and `npm run shell:watch` rebuilds it as you save.
+
+## The native helper
+
+A browser can't read other browsers' files or listen on a port. `chromium/native-host` is a Node program that Chromium starts through native messaging (host name `dev.oprimo.flecha.host`). It only accepts Flecha's own shell. It:
+
+- reads Arc, Chromium-family, Firefox and Safari data for [importing](/docs/switch-from-arc/),
+- runs the [MCP server](/docs/agents/mcp/) on `127.0.0.1`, forwarding each tool call to the shell, which drives tabs through `chrome.debugger`.
+
+Release builds carry Node inside the app as `Contents/Helpers/flecha-node`.
+
+Next: [build Flecha from source](/docs/development/build/).

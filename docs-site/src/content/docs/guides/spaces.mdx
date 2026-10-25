@@ -1,0 +1,61 @@
+---
+title: Spaces and separate logins
+description: Use Spaces in Flecha to keep work, side projects and clients apart, each with its own pinned tabs and, if you want, its own cookies and logins.
+sidebar:
+  label: Spaces
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+A Space is a set of pinned tabs, folders and Today tabs with its own name, icon and colour. Use one for work, one for a side project, one per client. Favorites are shared: they stay in every Space.
+
+## Create a Space
+
+Any of these creates a Space and opens its editor:
+
+- the **+** button at the bottom of the sidebar,
+- <kbd>⌃</kbd><kbd>⇧</kbd><kbd>N</kbd>,
+- **New Space** in the [command bar](/docs/command-bar/),
+- **New Space** in Settings › **Tabs & Spaces**.
+
+In the editor, give it a name, pick an **Icon** (an emoji) and a **Colour**, or a custom one. In dark mode the colour becomes a deep tint of the same hue.
+
+To edit a Space later, double-click its name at the top of the sidebar, or right-click it and choose **Edit Space…**.
+
+## Switch Spaces
+
+- <kbd>⌃</kbd><kbd>1</kbd> to <kbd>⌃</kbd><kbd>9</kbd> jumps to a Space.
+- <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd> and <kbd>⌥</kbd><kbd>⌘</kbd><kbd>←</kbd> go to the next and previous, wrapping around.
+- Swipe sideways with two fingers over the sidebar to move one Space at a time.
+- Click a Space's dot at the bottom of the sidebar.
+
+## Separate cookies and logins
+
+Turn this on for a Space and it gets its own cookies, local storage, cache and service workers. You can be signed in to GitHub as two people, or test a site as an admin in one Space and as a customer in another, side by side.
+
+- In the Space editor, turn on **Separate cookies and logins**, or right-click the Space and choose **Separate Cookies and Logins**.
+- A lock next to the Space's name shows it's on.
+- Turning it on or off reopens the Space's tabs so they move to the right storage.
+- **Clear Cookies and Site Data…** in the Space's right-click menu signs you out of everything in that Space only.
+
+<Aside>
+Favorites always use the shared storage, even when you open them from a Space with separate cookies. Keep the sites you need to sign in to separately as pinned tabs in that Space.
+</Aside>
+
+## The Space menu
+
+Right-click a Space's name, its dot, or an empty part of the sidebar:
+
+- **Edit Space…**
+- **New Folder**
+- **Separate Cookies and Logins**
+- **Clear Cookies and Site Data…** (when cookies are separate)
+- **Delete Space…**
+
+Deleting a Space closes its pinned and Today tabs for good; they don't go to the archive. Flecha asks first. The **Delete Space** button inside the editor deletes right away.
+
+## Organise everything at once
+
+Settings › **Tabs & Spaces** shows every Space, its pinned tabs, folders and Today tabs in one list. Drag tabs and folders between Spaces, select several with <kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click, reorder Spaces by dragging their headers, and search with <kbd>⌘</kbd><kbd>F</kbd>.
+
+Next: [pinned tabs, folders and Today](/docs/guides/tabs/).

@@ -1,0 +1,39 @@
+---
+title: Flecha vs Zen Browser
+description: Duas alternativas ao Arc open source com sidebar no estilo do Arc. O Zen é Firefox e roda em tudo; o Flecha é Chromium, feito para devs no Mac.
+sidebar:
+  label: Flecha vs Zen
+---
+
+O [Zen](https://zen-browser.app/) e o Flecha são os dois navegadores open source mais parecidos com o Arc. A maior diferença está por baixo: o Zen é um fork do Firefox, o Flecha é um fork do Chromium. Isso decide quais extensões você pode usar e como os sites se comportam.
+
+## Resumo
+
+| | Flecha | Zen |
+| --- | --- | --- |
+| Motor | Chromium (Blink) | Firefox (Gecko) |
+| Licença | MIT | MPL-2.0 |
+| Plataformas | macOS | macOS, Windows, Linux |
+| Extensões | Chrome Web Store | Complementos do Firefox |
+| Sidebar e Spaces | Spaces, com cookies separados se você quiser | Workspaces |
+| Prévia de links | Peek | Glance |
+| Tela dividida (split view) | Dois painéis | Sim |
+| Importação do Arc | Spaces, abas fixadas, pastas, favoritos, histórico | Não importa a sidebar do Arc |
+| Bloqueio de anúncios | Embutido | Por um complemento como o uBlock Origin |
+| Barra de comandos para devs | `gh`, `npm`, `mdn`, `caniuse`, decodificação de JWT e timestamps | Não |
+| Agentes de código | [Servidor MCP embutido](/docs/pt-br/agents/mcp/) | Não |
+
+## Escolha o Zen se
+
+- você usa Linux ou Windows,
+- você prefere o motor do Firefox ou depende de complementos que só existem no Firefox,
+- você quer personalizar a fundo pelas configurações e mods do Firefox.
+
+## Escolha o Flecha se
+
+- você usa Mac e quer que as páginas apareçam exatamente como no Chrome, o navegador em que a maioria dos sites é testada,
+- você precisa de extensões do Chrome, como um gerenciador de senhas que conversa com o app de desktop,
+- você quer trazer seus Spaces e abas fixadas do Arc de uma vez,
+- você faz sites: [ambientes, visão de celular e seus servidores de dev na sidebar](/docs/pt-br/command-bar/#ir-para-outro-ambiente), mais [MCP para agentes de código](/docs/pt-br/agents/mcp/).
+
+<small>Fatos sobre o Zen verificados em 25 de outubro de 2026, em zen-browser.app, na documentação e no repositório do GitHub do Zen.</small>

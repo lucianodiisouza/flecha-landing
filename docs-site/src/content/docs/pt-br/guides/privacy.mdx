@@ -1,0 +1,43 @@
+---
+title: Privacidade e bloqueio de anúncios
+description: Privacidade no Flecha. O que o app envia e o que não envia, onde ficam seus dados e como funciona o bloqueador de anúncios e rastreadores embutido.
+sidebar:
+  label: Privacidade e bloqueio de anúncios
+---
+
+O Flecha não tem conta, analytics nem relatórios de falha. Nada sobre você é enviado ao Flecha. Esta página lista exatamente com o que o app se conecta, para você conferir no [código](https://github.com/lucianodiisouza/flecha-browser).
+
+## Com o que o Flecha se conecta
+
+- **Os sites que você visita**, e o seu buscador quando você pesquisa: Google por padrão, ou DuckDuckGo, Bing, Brave Search, Kagi ou Ecosia (Configurações › **General**).
+- **Verificação de atualizações** no `flecha.dev`, e downloads do `dl.flecha.dev`, pelo Sparkle. Elas levam o que qualquer requisição leva, como seu endereço IP e a versão do Flecha.
+- **Ícones dos sites**: para sites que o Chromium não tem ícone, o Flecha pede o ícone ao próprio site, sem cookies. Nenhum serviço de ícones de terceiros é usado.
+- **O seu próprio Mac**: o Flecha verifica portas comuns em `localhost` para [listar seus servidores de dev](/docs/pt-br/guides/developer-tools/#seus-servidores-de-dev-na-sidebar).
+- **Serviços embutidos no Chromium**, como em qualquer navegador Chromium, e atualizações das extensões que você instala.
+
+O Flecha vem sem chaves de API do Google, então o login e a sincronização do próprio Chromium ficam desligados. Você continua podendo entrar nos sites do Google normalmente.
+
+## Onde ficam seus dados
+
+Abas, Spaces, histórico, configurações, cookies e [Boosts](/docs/pt-br/guides/boosts/) ficam no seu perfil do Flecha, em `~/Library/Application Support/Flecha Browser`. Faça backup, leve para um Mac novo ou apague. Nada fica guardado em outro lugar.
+
+O [servidor MCP para agentes de código](/docs/pt-br/agents/mcp/) fica desligado até você ligar, só escuta em `127.0.0.1` e exige um token.
+
+## Bloqueio de anúncios e rastreadores
+
+O Flecha bloqueia anúncios e rastreadores desde o primeiro uso, com as listas **EasyList** e **EasyPrivacy**.
+
+- As requisições são bloqueadas pelo motor de regras embutido do Chromium (declarativeNetRequest), e as regras de ocultação de elementos da EasyList escondem os espaços de anúncio que sobram.
+- Funciona em todos os Spaces.
+- As listas vêm dentro do app e são atualizadas a cada atualização do Flecha; o Flecha não as baixa separadamente.
+- Desligue em Configurações › **Privacy** › **Block ads and trackers**. Ainda não existe lista de sites permitidos.
+
+Quer mais? Bloqueadores de conteúdo da Chrome Web Store, como o uBlock Origin Lite, funcionam junto com ele.
+
+## Anônimo
+
+As janelas anônimas mantêm o visual do Flecha, sempre no modo escuro, com um Space temporário que é esquecido quando a última janela anônima fecha. Agentes de código não veem abas anônimas.
+
+## Este site
+
+O flecha.dev usa Google Analytics. O app nunca usa. Veja a [política de privacidade](https://flecha.dev/pt-br/privacidade/).

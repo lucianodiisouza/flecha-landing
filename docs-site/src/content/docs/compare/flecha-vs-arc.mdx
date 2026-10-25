@@ -1,0 +1,43 @@
+---
+title: Flecha vs Arc
+description: How Flecha compares with Arc, which stops working on December 22, 2026. What's the same, what's different, and what you lose or gain by switching.
+sidebar:
+  label: Flecha vs Arc
+---
+
+Flecha was built by an Arc user, to keep Arc's interface after [The Browser Company sunsets Arc](https://arc.net/) on **December 22, 2026**. Both are Chromium browsers with a vertical sidebar, so most of your habits carry over. This page lists what's the same and what isn't.
+
+## What's the same
+
+- **Sidebar and Spaces.** A vertical sidebar with favorites, pinned tabs with folders, and Today tabs, in Spaces you switch with <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> or a two-finger swipe.
+- **Pinned tabs come back.** Closing a pinned tab unloads it and sends it back to its pinned address.
+- **Today tabs archive themselves**, after 12 hours by default, and the archive is searchable.
+- **Peek.** Links from pinned tabs and favorites open in a floating card.
+- **Split view**, two pages side by side.
+- **Little Arc → Flechinha.** Links from other apps open in a small window.
+- **Boosts.** Your own CSS and scripts for any site.
+- **Chrome extensions** from the Chrome Web Store.
+- Most [keyboard shortcuts](/docs/shortcuts/) match: <kbd>⌘</kbd><kbd>T</kbd>, <kbd>⌘</kbd><kbd>S</kbd>, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, <kbd>⌘</kbd><kbd>D</kbd>.
+
+## What's different
+
+| | Flecha | Arc |
+| --- | --- | --- |
+| Future | Open source (MIT), can't be shut down | Stops working on December 22, 2026 |
+| Platforms | macOS (Apple silicon and Intel) | macOS, Windows |
+| Account | None | Required |
+| Sync between computers | No | Yes, until the sunset |
+| Profiles | Separate cookies and logins per Space | Profiles |
+| Split view | Two panes | Up to four panes |
+| Boosts | TypeScript and CSS, edited in Flecha | Zap, CSS and JavaScript |
+| Easels, Notes, Arc Max | No | Yes |
+| Developer tools | [Command bar](/docs/command-bar/) with `gh`, `npm`, `mdn` and JWT decoding; local, staging and production in one key; phone view; dev servers in the sidebar | No |
+| Coding agents | [Built-in MCP server](/docs/agents/mcp/) for Claude Code, Cursor and others | No |
+| Ad and tracker blocking | Built in (EasyList, EasyPrivacy) | Extension needed |
+| Telemetry | None | See [The Browser Company's privacy policy](https://arc.net/privacy) |
+
+## Switching
+
+Flecha [imports Arc's sidebar](/docs/switch-from-arc/): Spaces with their names and emoji, pinned tabs and folders, unpinned tabs as Today tabs, favorites and history. Passwords, cookies, archived tabs, Easels and Boosts stay behind.
+
+Do it before December 22, while Arc still opens, so you can check nothing is missing side by side.

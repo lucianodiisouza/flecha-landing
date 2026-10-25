@@ -24,7 +24,7 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 - **Boosts** (`⌥⌘B`): your own TypeScript and CSS for any site, edited on Flecha’s Boosts page.
 - **Coding agents over MCP**: Claude Code, Cursor and others can read and drive your tabs through a local, token-protected bridge.
 - **Spaces** with their own cookies and logins, **pinned tabs and folders**, **favorites** and **today tabs** that archive themselves.
-- **Flechinha** for links from other apps, **Peek**, and **split view** with up to four panes.
+- **Flechinha** for links from other apps, **Peek**, and **split view** for two pages side by side.
 - **Real Chromium**: Google sign-in and Chrome Web Store extensions work, with ad and tracker blocking built in.
 - **Import** from Arc, Chrome, Brave, Edge, Firefox and Safari.
 
@@ -47,6 +47,9 @@ The landing page is plain HTML, CSS and JavaScript, with no framework. The docs 
 | `llms.txt` | Summary of Flecha and its docs for AI assistants |
 | `docs-site/` | The docs (Astro Starlight). Pages are in `src/content/docs/`, Portuguese in `src/content/docs/pt-br/` |
 | `scripts/build.mjs` | Builds the whole site into `dist/` |
+| `scripts/og/` | Source of the social share images in `assets/og/`; `render.sh` renders them with Chrome |
+| `scripts/indexnow.mjs` | Sends every sitemap URL to IndexNow; run by `.github/workflows/indexnow.yml` after each deploy |
+| `a1c46e71….txt` | IndexNow key file. Keep it at the root |
 
 ### Run it locally
 
@@ -78,6 +81,7 @@ Fixes and improvements to the website are welcome.
 Before sending a change, please check:
 
 - English and Portuguese pages are separate files, on the landing page and in the docs. Update both.
+- When you change a landing page, update its `<lastmod>` in `sitemap.xml`.
 - The docs describe what the browser does on `main`. Check the code, not the README, before documenting a feature.
 - The page works at phone width (about 375px) without sideways scrolling, in light and dark mode.
 - Text keeps WCAG AA contrast (4.5:1) on the surface it sits on.

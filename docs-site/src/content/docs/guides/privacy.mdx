@@ -1,0 +1,43 @@
+---
+title: Privacy and ad blocking
+description: What Flecha sends and doesn't send, where your data lives, and how its built-in ad and tracker blocker works.
+sidebar:
+  label: Privacy and ad blocking
+---
+
+Flecha has no account, no analytics and no crash reports. Nothing about you is sent to Flecha. This page lists exactly what the app connects to, so you can check it against [the code](https://github.com/lucianodiisouza/flecha-browser).
+
+## What Flecha connects to
+
+- **The sites you visit**, and your search engine when you search: Google by default, or DuckDuckGo, Bing, Brave Search, Kagi or Ecosia (Settings › **General**).
+- **Update checks** to `flecha.dev`, and downloads from `dl.flecha.dev`, through Sparkle. They carry what any request carries, such as your IP address and Flecha's version.
+- **Site icons**: for sites Chromium has no icon for, Flecha asks the site itself for its icon, without cookies. No third-party icon service is used.
+- **Your own Mac**: Flecha checks common ports on `localhost` to [list your dev servers](/docs/guides/developer-tools/#your-dev-servers-in-the-sidebar).
+- **Services built into Chromium**, as in any Chromium browser, and updates for extensions you install.
+
+Flecha ships without Google API keys, so Chromium's own sign-in and sync are off. You can still sign in to Google sites as usual.
+
+## Where your data lives
+
+Tabs, Spaces, history, settings, cookies and [Boosts](/docs/guides/boosts/) are in your Flecha profile at `~/Library/Application Support/Flecha Browser`. Back it up, move it to a new Mac or delete it. Nothing is stored anywhere else.
+
+The [MCP server for coding agents](/docs/agents/mcp/) is off until you turn it on, listens only on `127.0.0.1` and needs a token.
+
+## Ad and tracker blocking
+
+Flecha blocks ads and trackers out of the box, with the **EasyList** and **EasyPrivacy** lists.
+
+- Requests are blocked by Chromium's built-in rule engine (declarativeNetRequest), and EasyList's element-hiding rules hide leftover ad slots.
+- It works in every Space.
+- The lists ship inside the app and are refreshed with each Flecha update; Flecha doesn't download them separately.
+- Turn it off in Settings › **Privacy** › **Block ads and trackers**. There's no per-site allowlist yet.
+
+Want more? Content blockers from the Chrome Web Store, such as uBlock Origin Lite, work alongside it.
+
+## Incognito
+
+Incognito windows keep Flecha's look, always dark, with one temporary Space that's forgotten when the last incognito window closes. Coding agents can't see incognito tabs.
+
+## This website
+
+flecha.dev uses Google Analytics. The app never does. See the [privacy policy](https://flecha.dev/privacy/).

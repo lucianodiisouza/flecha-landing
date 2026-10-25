@@ -1,0 +1,80 @@
+---
+title: The best Arc alternatives in 2026
+description: Arc shuts down on December 22, 2026. Here's how Flecha, Dia, Zen, Vivaldi, Chrome and other browsers compare for people who want to keep Arc's sidebar, Spaces and Peek.
+sidebar:
+  label: Arc alternatives
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+The Browser Company is [sunsetting Arc](https://arc.net/). New accounts closed on October 22, 2026, and **Arc stops working on macOS and Windows on December 22, 2026**. Your Arc account and its data are deleted within 30 days after that. If you still use Arc every day, now is the time to choose where to go.
+
+This page compares the browsers Arc users most often move to. We make Flecha, so we've linked the source for every claim about other browsers and kept the comparison to things you can check.
+
+## At a glance
+
+| | Flecha | Dia | Zen | Vivaldi | Chrome |
+| --- | --- | --- | --- | --- | --- |
+| Engine | Chromium | Chromium | Firefox | Chromium | Chromium |
+| Open source | Yes (MIT) | No | Yes (MPL-2.0) | Partly | No |
+| Platforms | macOS | macOS, Windows | macOS, Windows, Linux | macOS, Windows, Linux | Everywhere |
+| Price | Free | Free, AI on paid plans | Free | Free | Free |
+| Vertical sidebar with Spaces | Yes | Optional sidebar, Profiles | Yes, Workspaces | Yes, Workspaces | Vertical tabs, no Spaces |
+| Peek-style link preview | Yes | No | Yes (Glance) | No | No |
+| Split view | Yes | Yes | Yes | Yes (tiling) | Yes |
+| Chrome extensions | Yes | Yes | No | Yes | Yes |
+| Imports Arc's Spaces | Yes | Yes | No | No | No |
+| Account needed | No | For sync and AI | No | No | No |
+| Coding agents can use your real tabs | Built-in MCP server | No | No | No | With Chrome DevTools MCP `--autoConnect` |
+
+## Flecha
+
+[Flecha](https://flecha.dev/) is an open-source Chromium browser for Mac, built by a developer who didn't want to give up Arc. It keeps Arc's vertical sidebar, Spaces, pinned tabs that return to where they started, Today tabs that archive themselves, Peek, split view and a Little Arc–style window called Flechinha. It [imports your Arc sidebar](/docs/switch-from-arc/), Spaces and folders included.
+
+It adds tools for people who build websites: a [command bar](/docs/command-bar/) that understands `gh`, `npm` and `mdn` and decodes JWTs, one key to move a page between local, staging and production, your dev servers in the sidebar, and a [built-in MCP server](/docs/agents/mcp/) so Claude Code or Cursor can read and drive your real tabs.
+
+**Good fit if** you're on a Mac, you liked Arc's interface more than its AI features, and you want a browser that can't be shut down: the code is MIT-licensed and public.
+
+**Not a fit if** you need Windows, Linux, a phone app or sync between computers. Flecha has no account, so there's no sync.
+
+## Dia
+
+[Dia](https://www.diabrowser.com/) is The Browser Company's AI browser, and where it points Arc users. It's Chromium-based, runs on macOS and Windows, and imports Arc's Spaces as Profiles, folders as tab groups, plus passwords, history and extensions ([arc.net](https://arc.net/)). The core browser is free; AI features are on paid plans ([pricing](https://www.diabrowser.com/pricing)). Arc's sidebar becomes an optional layout, and Boosts and Easels have no equivalent.
+
+**Good fit if** you want an AI assistant built into the browser and you're comfortable with an account and a closed-source app.
+
+## Zen
+
+[Zen](https://zen-browser.app/) is an open-source browser built on Firefox, for macOS, Windows and Linux. It has workspaces, a compact mode, split view and Glance, its version of Peek ([docs](https://docs.zen-browser.app/)). Because it's Firefox, Chrome Web Store extensions don't work, and it can't import Arc's Spaces.
+
+**Good fit if** you want an Arc-like layout on Linux or prefer Firefox's engine.
+
+## Vivaldi
+
+[Vivaldi](https://vivaldi.com/) is a highly configurable Chromium browser with vertical tabs, workspaces, tab tiling, built-in mail and a tracker blocker. It deliberately doesn't add generative AI ([Vivaldi 7.8](https://vivaldi.com/blog/vivaldi-7-8-launches-with-message-to-big-tech-humans-dont-need-ai-babysitters/)).
+
+**Good fit if** you like to configure everything and want the same browser on every desktop OS.
+
+## Chrome
+
+Chrome has had native vertical tabs since spring 2026 (right-click a tab › **Show Tabs Vertically**), but no Spaces, Peek or Little Arc. Usage statistics are sent when "Help improve Chrome's features and performance" is on ([Google](https://support.google.com/chrome/answer/14746339)).
+
+**Good fit if** you mostly wanted Arc for vertical tabs and are happy in Google's ecosystem.
+
+## Others
+
+- **[Orion](https://kagi.com/orion/)** by Kagi: a WebKit browser for macOS and iOS with zero telemetry and partial support for Chrome and Firefox extensions. Kagi ended Orion for Linux and Windows in October 2026.
+- **[Comet](https://www.perplexity.ai/comet)** by Perplexity: a free Chromium browser built around an AI assistant that automates tasks.
+- **ChatGPT Atlas** shut down on August 9, 2026, so it's no longer an option.
+
+<Aside>
+Facts about other browsers were checked on October 25, 2026, against the linked pages. Browsers change fast; if something here is out of date, [open an issue](https://github.com/lucianodiisouza/flecha-landing/issues) and we'll fix it.
+</Aside>
+
+## Moving from Arc to Flecha
+
+1. [Install Flecha](/docs/install/) for Apple silicon or Intel.
+2. Set up the helper, then [import your Arc sidebar](/docs/switch-from-arc/) in the welcome tour.
+3. Learn the [shortcuts](/docs/shortcuts/): most of Arc's are the same.
+
+Do it before December 22: once Arc stops working, its sidebar file stays on your Mac, but Arc itself won't open.

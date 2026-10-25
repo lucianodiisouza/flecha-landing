@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- Source of the social share images (assets/og/*.png). Render with scripts/og/render.sh. -->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@500;700&display=block">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #0b2545;
+    background-image:
+      linear-gradient(rgba(58,166,217,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,166,217,.10) 1px, transparent 1px),
+      linear-gradient(rgba(58,166,217,.20) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,166,217,.20) 1px, transparent 1px);
+    background-size: 30px 30px, 30px 30px, 150px 150px, 150px 150px;
+    color: #eef2f6; font-family: 'Archivo', sans-serif;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 64px 72px; box-sizing: border-box;
+  }
+  .top { display: flex; align-items: center; gap: 22px; }
+  .top img { width: 84px; height: 84px; }
+  .word { font: 750 54px/1 'Archivo'; font-variation-settings: 'wdth' 125; letter-spacing: -0.01em; }
+  h1 { margin: 0; font: 700 74px/1.0 'Archivo'; font-variation-settings: 'wdth' 116; letter-spacing: -0.015em; max-width: 1000px; }
+  h1 em { font-style: normal; color: #ff8a63; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .chips span { font: 500 22px/1 'JetBrains Mono'; padding: 11px 16px; border: 1.5px solid #3aa6d9; border-radius: 10px; color: #cfe3f2; }
+  .foot { display: flex; justify-content: space-between; font: 700 24px/1 'JetBrains Mono'; color: #a9bad0; }
+  .foot b { color: #eef2f6; }
+  .dim { position: absolute; right: 72px; top: 92px; font: 500 18px 'JetBrains Mono'; color: #e4572e; letter-spacing: .08em; }
+</style>
+</head>
+<body>
+  <div class="dim" id="tag"></div>
+  <div class="top"><img src="../../assets/brand/flecha-mark.svg" alt=""><span class="word">flecha</span></div>
+  <div>
+    <h1 id="h"></h1>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="foot"><b id="url"></b><span id="meta"></span></div>
+<script>
+  const copy = {
+    en: { tag: 'OPEN SOURCE · MIT', h: 'The browser that knows you <em>write code.</em>',
+          chips: ['Arc-style sidebar & Spaces', '⌘T command bar', 'MCP for coding agents', 'No telemetry'],
+          url: 'flecha.dev', meta: 'Free · macOS · Chromium' },
+    pt: { tag: 'OPEN SOURCE · MIT', h: 'O navegador que sabe que você <em>programa.</em>',
+          chips: ['Sidebar e Spaces estilo Arc', 'Barra de comandos ⌘T', 'MCP para agentes de código', 'Sem telemetria'],
+          url: 'flecha.dev/pt-br', meta: 'Grátis · macOS · Chromium' },
+    docs: { tag: 'DOCS', h: 'Flecha docs: install, switch from Arc, <em>connect your agent.</em>',
+          chips: ['Switch from Arc', 'Command bar', 'Claude Code & Cursor', 'Shortcuts'],
+          url: 'flecha.dev/docs', meta: 'English · Português' },
+    'docs-pt': { tag: 'DOCUMENTAÇÃO', h: 'Docs do Flecha: instale, migre do Arc, <em>conecte seu agente.</em>',
+          chips: ['Migrar do Arc', 'Barra de comandos', 'Claude Code e Cursor', 'Atalhos'],
+          url: 'flecha.dev/docs/pt-br', meta: 'Português · English' },
+  }[location.hash.slice(1) || 'en'];
+  tag.textContent = copy.tag; h.innerHTML = copy.h; url.textContent = copy.url; meta.textContent = copy.meta;
+  for (const c of copy.chips) chips.append(Object.assign(document.createElement('span'), { textContent: c }));
+</script>
+</body>
+</html>

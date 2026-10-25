@@ -1,0 +1,52 @@
+---
+title: Ferramentas de desenvolvimento no Flecha
+description: Ferramentas de dev do Flecha. Troque entre local, staging e produção numa tecla, veja a versão mobile ao lado e ache servidores de dev e erros do console.
+sidebar:
+  label: Ferramentas de desenvolvimento
+---
+
+O Flecha foi feito para o ciclo de editar, recarregar, conferir o staging e publicar. Além do DevTools do próprio Chromium (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd>), ele traz o seguinte.
+
+## Ambientes
+
+Agrupe as origens de um projeto uma vez e depois leve qualquer página de uma para outra, mantendo caminho, query e hash.
+
+1. Abra Configurações › **Environments** › **Add Project**.
+2. Dê um nome ao projeto e liste um ambiente por linha, como `rótulo origem`:
+
+   ```text
+   local http://localhost:3000
+   staging https://staging.example.com
+   prod https://example.com
+   ```
+
+3. Em qualquer uma dessas origens, aperte <kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd> para ir para o próximo ambiente, ou digite `env` na [barra de comandos](/docs/pt-br/command-bar/) para escolher um.
+
+A barra de endereço mostra o rótulo como um selo, para você nunca editar produção sem querer. A cor vem do nome: verde para `localhost`, `127.0.0.1`, `.test`, `.local` ou um rótulo como `local`; âmbar para nomes com `stag`, `preview`, `qa`, `test`, `dev`, `sandbox` ou `uat`; vermelho para todo o resto.
+
+## Visualização responsiva
+
+Aperte <kbd>⌥</kbd><kbd>⌘</kbd><kbd>M</kbd> para abrir uma cópia da página do tamanho de um celular ao lado da versão completa.
+
+- Ela tem 393 px de largura com densidade de pixels 3×, toque e user agent do Chrome para Android, então os layouts mobile e os handlers de toque entram em ação.
+- Ela acompanha o lado desktop enquanto você navega.
+- Aperte <kbd>⌥</kbd><kbd>⌘</kbd><kbd>M</kbd> de novo, ou <kbd>⌃</kbd><kbd>⇧</kbd><kbd>-</kbd>, para fechar.
+
+## Seus servidores de dev na sidebar
+
+Servidores rodando no seu Mac aparecem sozinhos em **Running locally**, na sidebar e na página de nova aba. Clique num deles para ir para a aba dele, ou para abri-lo.
+
+- O Flecha verifica algumas dezenas de portas de dev comuns, como 3000, 4321, 5173, 6006, 8000 e 8080.
+- Cada servidor recebe o nome do título da página, ou `localhost:porta`.
+- A lista se atualiza a cada poucos segundos enquanto o Flecha está em primeiro plano.
+
+## Erros do console nas abas locais
+
+Abas em `localhost`, `127.0.0.1`, `.localhost`, `.local` ou `.test` mostram um selo vermelho com o número de erros do console, exceções não tratadas e requisições que falharam. Clique nele para abrir o DevTools no Console. A contagem zera a cada carregamento da página.
+
+## Mais
+
+- [Barra de comandos](/docs/pt-br/command-bar/): `gh 482` abre o pull request, `npm`, `mdn`, `caniuse` e decodificação de JWTs e timestamps.
+- [Boosts](/docs/pt-br/guides/boosts/): seu próprio TypeScript e CSS em qualquer site.
+- [Agentes de código](/docs/pt-br/agents/mcp/): deixe o Claude Code ou o Cursor lerem e controlarem suas abas.
+- <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> copia o link, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> copia como link Markdown e <kbd>⇧</kbd><kbd>⌘</kbd><kbd>2</kbd> copia um screenshot da página.

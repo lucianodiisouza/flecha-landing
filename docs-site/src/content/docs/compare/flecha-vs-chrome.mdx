@@ -1,0 +1,44 @@
+---
+title: Flecha vs Google Chrome
+description: Flecha is built on Chromium, like Chrome, so sites and extensions work the same. Here's what Flecha adds for developers and what Chrome has that Flecha doesn't.
+sidebar:
+  label: Flecha vs Chrome
+---
+
+Flecha is a Chromium fork, so pages render as they do in Chrome and extensions from the Chrome Web Store install as usual. What changes is everything around the page.
+
+## At a glance
+
+| | Flecha | Chrome |
+| --- | --- | --- |
+| Engine | Chromium | Chromium |
+| Source | Open source, MIT | Closed source on top of Chromium |
+| Platforms | macOS | Everywhere |
+| Vertical tabs | A full sidebar with Spaces, pinned tabs, folders and Today tabs | Vertical tab strip since 2026, no Spaces |
+| Peek and Flechinha | Yes | No |
+| Ad and tracker blocking | Built in | Extension needed |
+| Telemetry | None | Usage statistics when "Help improve Chrome" is on ([Google](https://support.google.com/chrome/answer/14746339)) |
+| Google account and sync | Sign in to Google sites, no browser sync | Yes |
+| AI | None built in | Gemini in Chrome |
+| Developer command bar | `gh`, `npm`, `mdn`, `caniuse`, JWT and timestamp decoding | No |
+| Coding agents in your real profile | [Built-in MCP server](/docs/agents/mcp/), on with one switch | With [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) and `--autoConnect` |
+
+## Coding agents: Flecha's MCP server vs Chrome DevTools MCP
+
+Both let an agent such as Claude Code read pages, check the console, take screenshots and click.
+
+- **Chrome DevTools MCP** by default starts its own Chrome with a separate profile, so the agent doesn't see your tabs or sign-ins. To use your real browser you enable remote debugging and run it with `--autoConnect`. It also has deeper DevTools features, like performance traces.
+- **Flecha** has an MCP server built in. Turn it on in Settings and the agent works in your real tabs, across Spaces, and the sidebar shows what it's doing. See [the tools](/docs/agents/mcp/#tools).
+
+## Choose Chrome if
+
+- you need Windows, Linux or a phone app, or sync with a Google account,
+- you want Gemini built into the browser.
+
+## Choose Flecha if
+
+- you want Arc's sidebar, Spaces and Peek on top of the same engine,
+- you'd rather the browser send nothing about you anywhere,
+- you build websites and want [developer shortcuts](/docs/command-bar/) and an agent that sees your real tabs.
+
+[Install Flecha](/docs/install/). Your Chrome extensions install from the Chrome Web Store as usual.

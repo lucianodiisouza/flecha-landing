@@ -43,7 +43,6 @@ export default defineConfig({
           content:
             "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y05X9Z4PQJ',{allow_google_signals:false,allow_ad_personalization_signals:false});",
         },
-        { tag: 'meta', attrs: { property: 'og:image', content: 'https://flecha.dev/icon.png' } },
         { tag: 'meta', attrs: { property: 'og:site_name', content: 'Flecha' } },
         {
           tag: 'link',
@@ -62,7 +61,15 @@ export default defineConfig({
         {
           label: 'Using Flecha',
           translations: { 'pt-BR': 'Usando o Flecha' },
-          items: ['command-bar'],
+          items: [
+            'command-bar',
+            'guides/tabs',
+            'guides/spaces',
+            'guides/peek-split-flechinha',
+            'guides/developer-tools',
+            'guides/boosts',
+            'guides/privacy',
+          ],
         },
         {
           label: 'Coding agents',
@@ -70,9 +77,25 @@ export default defineConfig({
           items: ['agents/mcp', 'agents/claude-code', 'agents/cursor'],
         },
         {
+          label: 'Compare',
+          translations: { 'pt-BR': 'Comparações' },
+          items: [
+            'compare/arc-alternatives',
+            'compare/flecha-vs-arc',
+            'compare/flecha-vs-dia',
+            'compare/flecha-vs-zen',
+            'compare/flecha-vs-chrome',
+          ],
+        },
+        {
           label: 'Reference',
           translations: { 'pt-BR': 'Referência' },
-          items: ['shortcuts'],
+          items: ['shortcuts', 'changelog'],
+        },
+        {
+          label: 'Development',
+          translations: { 'pt-BR': 'Desenvolvimento' },
+          items: ['development/architecture', 'development/build', 'development/release'],
         },
       ],
     }),

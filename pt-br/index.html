@@ -25,9 +25,13 @@
   <meta property="og:title" content="Flecha · o navegador open source para devs">
   <meta property="og:description" content="Um navegador Chromium com Spaces, barra de comandos para devs e uma ponte para o seu agente de código. Sem conta, sem telemetria.">
   <meta property="og:url" content="https://flecha.dev/pt-br/">
-  <meta property="og:image" content="https://flecha.dev/icon.png">
+  <meta property="og:image" content="https://flecha.dev/assets/og/pt.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Flecha, o navegador open source para devs: sidebar e Spaces estilo Arc, barra de comandos e MCP para agentes de código">
   <meta property="og:locale" content="pt_BR">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://flecha.dev/assets/og/pt.png">
   <meta name="theme-color" content="#f4f6f9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#071426" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -98,7 +102,7 @@
           "Servidores de dev locais na sidebar, com contagem de erros do console",
           "Boosts: seu próprio TypeScript e CSS para qualquer site",
           "Ponte MCP para Claude Code, Cursor e outros agentes lerem e controlarem as abas",
-          "Peek, split view com até quatro painéis e janelas Flechinha",
+          "Prévia de links com Peek, tela dividida e janelas Flechinha",
           "Bloqueio de anúncios e rastreadores embutido (listas EasyList e EasyPrivacy)",
           "Extensões da Chrome Web Store e login do Google",
           "Importação do Arc, Chrome, Brave, Edge, Firefox e Safari"
@@ -373,7 +377,7 @@
 
           <article class="tile t-servers">
             <h3>Seus servidores de dev, já na sidebar.</h3>
-            <p>Servidores rodando neste Mac aparecem sozinhos, com o nome da pasta do projeto. Abas locais contam os erros do console; clique no selo para abrir o Console.</p>
+            <p>Servidores rodando neste Mac aparecem sozinhos, com o título da página. Abas locais contam os erros do console; clique no selo para abrir o Console.</p>
             <div class="servers" aria-hidden="true">
               <span><i class="dot"></i>:3000<em>web</em><b>2</b></span>
               <span><i class="dot"></i>:5173<em>design-system</em></span>
@@ -460,11 +464,11 @@
 
           <article class="tile t-third">
             <div class="ill ill-split" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
+              <span></span><span></span>
             </div>
             <p class="tile-meta"><kbd>⌃⇧=</kbd></p>
-            <h3>Tela dividida, até quatro painéis.</h3>
-            <p>Arraste uma aba para a página para dividir. Arraste o divisor para redimensionar, clique duas vezes para igualar.</p>
+            <h3>Tela dividida, duas páginas lado a lado.</h3>
+            <p>Arraste uma aba para a metade esquerda ou direita da página para dividir, e arraste o espaço entre elas para redimensionar. Cada Space lembra a sua divisão.</p>
           </article>
         </div>
 
@@ -538,7 +542,7 @@
           </div>
           <div class="arch-wire" aria-hidden="true"><span class="packets"></span><em>as páginas que você abre</em></div>
           <div class="arch-out">
-            <div class="node node-web"><p class="node-title">A web</p><p class="node-sub">sites que você visita, seu buscador, atualizações de extensões e das listas do bloqueador</p></div>
+            <div class="node node-web"><p class="node-title">A web</p><p class="node-sub">sites que você visita, seu buscador, atualizações de extensões</p></div>
             <div class="node node-updates"><p class="node-title">flecha.dev</p><p class="node-sub">só checagem e download de atualizações, nada sobre você</p></div>
           </div>
         </figure>
@@ -551,7 +555,7 @@
               <li><span>Histórico de navegação</span><b>0</b></li>
               <li><span>Conta ou login</span><b>nenhum</b></li>
             </ul>
-            <p class="ledger-foot">O tráfego de rede são os sites que você abre, seu buscador, atualizações de extensões e das listas do bloqueador, a checagem de atualizações no flecha.dev e os serviços que já vêm no próprio Chromium.</p>
+            <p class="ledger-foot">O tráfego de rede são os sites que você abre, seu buscador, atualizações de extensões, a checagem de atualizações no flecha.dev e os serviços que já vêm no próprio Chromium. As listas de anúncios e rastreadores vêm dentro do app.</p>
           </div>
           <ul class="privacy-points">
             <li>
@@ -612,8 +616,8 @@
         <header class="section-head">
           <p class="eyebrow">Migrando</p>
           <h2>Traga tudo com você. Inclusive do Arc.</h2>
-          <p>O Arc está sendo descontinuado, e o Flecha mantém as ideias que valem a pena. A importação encontra os navegadores do seu Mac, e um tour rápido de boas-vindas mostra tudo com os seus atalhos.</p>
-          <p class="import-path"><kbd>File</kbd> → <kbd>Import Browser Data</kbd> <span>(menu do app, em inglês)</span></p>
+          <p>O Arc para de funcionar em 22 de dezembro de 2026, e o Flecha mantém as ideias que valem a pena. A importação encontra os navegadores do seu Mac, e um tour rápido de boas-vindas mostra tudo com os seus atalhos.</p>
+          <p class="import-path"><kbd>Tour de boas-vindas</kbd> → <kbd>Bring your stuff over</kbd> · <a href="/docs/pt-br/switch-from-arc/">Como migrar do Arc</a></p>
         </header>
         <div class="migrate" aria-label="O que a importação traz">
           <table class="import-table">
@@ -714,7 +718,7 @@
         <p>O navegador open source para devs.</p>
         <p class="credit">Feito com <svg class="heart" viewBox="0 0 16 16" role="img" aria-label="amor"><path d="M8 14s-5.5-3.4-5.5-7.3A3 3 0 0 1 8 4.9a3 3 0 0 1 5.5 1.8C13.5 10.6 8 14 8 14Z"/></svg> por <a href="https://www.oprimo.dev">OPrimoDev</a></p>
       </div>
-      <nav class="foot-cols" aria-label="Rodapé"><div class="foot-col"><p class="foot-head">Produto</p><ul><li><a href="/pt-br/#download">Baixar</a></li><li><a href="/docs/pt-br/">Documentação</a></li><li><a href="/pt-br/#dev">Barra de comandos</a></li><li><a href="/pt-br/#loop">Ferramentas</a></li><li><a href="/pt-br/#privacy">Privacidade</a></li></ul></div><div class="foot-col"><p class="foot-head">Projeto</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Código-fonte</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Versões</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/pt-br/privacidade/">Política de privacidade</a></li><li><a href="/pt-br/termos/">Termos de uso</a></li><li><a href="/" hreflang="en" lang="en">English</a></li></ul></div></nav>
+      <nav class="foot-cols" aria-label="Rodapé"><div class="foot-col"><p class="foot-head">Produto</p><ul><li><a href="/pt-br/#download">Baixar</a></li><li><a href="/docs/pt-br/">Documentação</a></li><li><a href="/docs/pt-br/switch-from-arc/">Migrar do Arc</a></li><li><a href="/docs/pt-br/compare/arc-alternatives/">Alternativas ao Arc</a></li><li><a href="/pt-br/#dev">Barra de comandos</a></li><li><a href="/pt-br/#loop">Ferramentas</a></li><li><a href="/pt-br/#privacy">Privacidade</a></li></ul></div><div class="foot-col"><p class="foot-head">Projeto</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Código-fonte</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Versões</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/pt-br/privacidade/">Política de privacidade</a></li><li><a href="/pt-br/termos/">Termos de uso</a></li><li><a href="/" hreflang="en" lang="en">English</a></li></ul></div></nav>
     </div>
     <div class="inner foot-base"><span>© 2026 OPrimoDev. O Flecha é gratuito e open source.</span><span>Sem vínculo com a The Browser Company ou o Google.</span></div>
   </footer>

@@ -1,0 +1,44 @@
+---
+title: Flecha vs Google Chrome
+description: Uma alternativa ao Arc com o motor do Chrome. O Flecha é Chromium, então sites e extensões funcionam igual. Veja o que ele acrescenta e o que só o Chrome tem.
+sidebar:
+  label: Flecha vs Chrome
+---
+
+O Flecha é um fork do Chromium, então as páginas aparecem como no Chrome e as extensões da Chrome Web Store instalam normalmente. O que muda é tudo em volta da página.
+
+## Resumo
+
+| | Flecha | Chrome |
+| --- | --- | --- |
+| Motor | Chromium | Chromium |
+| Código | Open source, MIT | Código fechado sobre o Chromium |
+| Plataformas | macOS | Todas |
+| Abas verticais | Uma sidebar completa com Spaces, abas fixadas, pastas e abas Today | Faixa de abas vertical desde 2026, sem Spaces |
+| Peek e Flechinha | Sim | Não |
+| Bloqueio de anúncios e rastreadores | Embutido | Precisa de extensão |
+| Telemetria | Nenhuma | Estatísticas de uso quando "Help improve Chrome" está ligado ([Google](https://support.google.com/chrome/answer/14746339?hl=pt-BR)) |
+| Conta Google e sync | Login nos sites do Google, sem sync do navegador | Sim |
+| IA | Nada embutido | Gemini no Chrome |
+| Barra de comandos para devs | `gh`, `npm`, `mdn`, `caniuse`, decodificação de JWT e timestamps | Não |
+| Agentes de código no seu perfil de verdade | [Servidor MCP embutido](/docs/pt-br/agents/mcp/), ligado com um botão | Com o [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) e `--autoConnect` |
+
+## Agentes de código: o servidor MCP do Flecha vs o Chrome DevTools MCP
+
+Os dois deixam um agente como o Claude Code ler páginas, olhar o console, tirar screenshots e clicar.
+
+- O **Chrome DevTools MCP**, por padrão, abre um Chrome próprio com um perfil separado, então o agente não vê suas abas nem seus logins. Para usar o seu navegador de verdade, você ativa a depuração remota e roda com `--autoConnect`. Ele também tem recursos mais profundos do DevTools, como traces de performance.
+- O **Flecha** tem um servidor MCP embutido. Ligue nas Configurações e o agente trabalha nas suas abas de verdade, em todos os Spaces, e a sidebar mostra o que ele está fazendo. Veja [as ferramentas](/docs/pt-br/agents/mcp/#ferramentas).
+
+## Escolha o Chrome se
+
+- você precisa de Windows, Linux ou app de celular, ou de sync com uma conta Google,
+- você quer o Gemini dentro do navegador.
+
+## Escolha o Flecha se
+
+- você quer a sidebar, os Spaces e o Peek do Arc sobre o mesmo motor,
+- você prefere que o navegador não envie nada sobre você para lugar nenhum,
+- você faz sites e quer [atalhos para devs](/docs/pt-br/command-bar/) e um agente que vê suas abas de verdade.
+
+[Instale o Flecha](/docs/pt-br/install/). Suas extensões do Chrome instalam da Chrome Web Store normalmente.

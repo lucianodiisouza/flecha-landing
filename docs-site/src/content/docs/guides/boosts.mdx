@@ -1,0 +1,58 @@
+---
+title: Boosts, your own code on any site
+description: Write TypeScript and CSS that runs on any website in Flecha. Hide what you don't need, add what's missing, and see changes as you save.
+sidebar:
+  label: Boosts
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+A Boost is your own script or stylesheet for a site. Hide the parts of GitHub you never use, fix a font on a docs site, add a button that's missing. Boosts are Flecha's take on Arc's Boosts, written as TypeScript and CSS.
+
+## Create a Boost
+
+On the site you want to change, press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>. Flecha opens the Boosts page with a script for that site, ready to edit. You can also:
+
+- type `boost` in the [command bar](/docs/command-bar/) and pick **Edit boost script for** or **Edit boost styles for** the site,
+- open the Boosts page from Settings › **Boosts** › **Open Boosts**, type a site such as `github.com`, choose **Script** or **Styles** and click **Add**.
+
+Save with <kbd>⌘</kbd><kbd>S</kbd>.
+
+## Scripts and styles
+
+| File | Runs on | When you save |
+| --- | --- | --- |
+| `github.com.ts` | github.com and its subdomains | Open tabs of the site reload |
+| `github.com.css` | github.com and its subdomains | Applies right away, no reload |
+| `all.css` | Every site | Applies right away |
+
+- `www.` is dropped from the name, so `github.com` also covers `www.github.com`.
+- Scripts are TypeScript. Types are stripped, not checked, so a type error won't stop a Boost from running.
+- Scripts run in the page itself, after the page's HTML has loaded, so they can read and change the page and its JavaScript.
+- Errors show in the page's console, starting with `[Flecha boost github.com.ts]`.
+- A ⚡ next to a tab in the sidebar means a Boost runs there (`all.css` doesn't count).
+
+An example that hides lock files in GitHub pull requests:
+
+```ts
+// github.com.ts
+export {};
+
+const lockfiles = document.querySelectorAll<HTMLElement>('[data-path$=".lock"]');
+for (const file of lockfiles) file.hidden = true;
+```
+
+And one for every site:
+
+```css
+/* all.css */
+::selection { background: #3aa6d9; }
+```
+
+## Where Boosts are kept
+
+Boosts are saved inside your Flecha profile, not as files on disk. Delete one with **Delete** on the Boosts page. Deleting a style removes it right away; a deleted script keeps running until the page reloads.
+
+<Aside>
+Like extensions, Boosts run with full access to the pages they match. Only paste code you understand.
+</Aside>

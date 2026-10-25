@@ -1,0 +1,80 @@
+---
+title: As melhores alternativas ao Arc em 2026
+description: Procurando uma alternativa ao Arc? Ele para em 22/12/2026. Compare Flecha, Dia, Zen, Vivaldi e Chrome para manter a sidebar, os Spaces e o Peek.
+sidebar:
+  label: Alternativas ao Arc
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+A The Browser Company está [encerrando o Arc](https://arc.net/). Novas contas foram fechadas em 22 de outubro de 2026, e **o Arc para de funcionar no macOS e no Windows em 22 de dezembro de 2026**. Sua conta do Arc e os dados dela são apagados em até 30 dias depois disso. Se você ainda usa o Arc todo dia, a hora de escolher para onde ir é agora.
+
+Esta página compara os navegadores para onde os usuários do Arc mais migram. Nós fazemos o Flecha, então colocamos a fonte de cada afirmação sobre outros navegadores e limitamos a comparação ao que você pode conferir.
+
+## Resumo
+
+| | Flecha | Dia | Zen | Vivaldi | Chrome |
+| --- | --- | --- | --- | --- | --- |
+| Motor | Chromium | Chromium | Firefox | Chromium | Chromium |
+| Open source | Sim (MIT) | Não | Sim (MPL-2.0) | Em parte | Não |
+| Plataformas | macOS | macOS, Windows | macOS, Windows, Linux | macOS, Windows, Linux | Todas |
+| Preço | Grátis | Grátis, IA nos planos pagos | Grátis | Grátis | Grátis |
+| Sidebar vertical com Spaces | Sim | Sidebar opcional, Profiles | Sim, Workspaces | Sim, Workspaces | Abas verticais, sem Spaces |
+| Prévia de links estilo Peek | Sim | Não | Sim (Glance) | Não | Não |
+| Tela dividida (split view) | Sim | Sim | Sim | Sim (tiling) | Sim |
+| Extensões do Chrome | Sim | Sim | Não | Sim | Sim |
+| Importa os Spaces do Arc | Sim | Sim | Não | Não | Não |
+| Precisa de conta | Não | Para sync e IA | Não | Não | Não |
+| Agentes de código podem usar suas abas de verdade | Servidor MCP embutido | Não | Não | Não | Com Chrome DevTools MCP `--autoConnect` |
+
+## Flecha
+
+O [Flecha](https://flecha.dev/) é um navegador Chromium open source para Mac, feito por um desenvolvedor que não queria abrir mão do Arc. Ele mantém a sidebar vertical do Arc, os Spaces, as abas fixadas que voltam para onde começaram, as abas Today que se arquivam sozinhas, o Peek, a tela dividida e uma janela no estilo Little Arc chamada Flechinha. Ele [importa a sua sidebar do Arc](/docs/pt-br/switch-from-arc/), com Spaces e pastas.
+
+Ele traz ferramentas para quem faz sites: uma [barra de comandos](/docs/pt-br/command-bar/) que entende `gh`, `npm` e `mdn` e decodifica JWTs, uma tecla para levar a página entre local, staging e produção, seus servidores de dev na sidebar e um [servidor MCP embutido](/docs/pt-br/agents/mcp/) para o Claude Code ou o Cursor lerem e controlarem suas abas de verdade.
+
+**Combina com você se** você usa Mac, gostava mais da interface do Arc do que dos recursos de IA, e quer um navegador que não pode ser desligado: o código é público e tem licença MIT.
+
+**Não combina se** você precisa de Windows, Linux, app de celular ou sync entre computadores. O Flecha não tem conta, então não tem sync.
+
+## Dia
+
+O [Dia](https://www.diabrowser.com/) é o navegador com IA da The Browser Company, e é para onde ela aponta os usuários do Arc. Ele é baseado em Chromium, roda no macOS e no Windows, e importa os Spaces do Arc como Profiles, as pastas como grupos de abas, além de senhas, histórico e extensões ([arc.net](https://arc.net/)). O navegador em si é grátis; os recursos de IA ficam nos planos pagos ([preços](https://www.diabrowser.com/pricing)). A sidebar do Arc vira um layout opcional, e Boosts e Easels não têm equivalente.
+
+**Combina com você se** você quer um assistente de IA dentro do navegador e não se importa com uma conta e um app de código fechado.
+
+## Zen
+
+O [Zen](https://zen-browser.app/) é um navegador open source baseado no Firefox, para macOS, Windows e Linux. Ele tem workspaces, um modo compacto, tela dividida e o Glance, a versão dele do Peek ([docs](https://docs.zen-browser.app/)). Como é Firefox, extensões da Chrome Web Store não funcionam, e ele não importa os Spaces do Arc.
+
+**Combina com você se** você quer um layout parecido com o do Arc no Linux ou prefere o motor do Firefox.
+
+## Vivaldi
+
+O [Vivaldi](https://vivaldi.com/) é um navegador Chromium muito configurável, com abas verticais, workspaces, tiling de abas, cliente de e-mail embutido e bloqueador de rastreadores. Ele não adiciona IA generativa de propósito ([Vivaldi 7.8](https://vivaldi.com/blog/vivaldi-7-8-launches-with-message-to-big-tech-humans-dont-need-ai-babysitters/)).
+
+**Combina com você se** você gosta de configurar tudo e quer o mesmo navegador em todo sistema de desktop.
+
+## Chrome
+
+O Chrome tem abas verticais nativas desde a primavera de 2026 no hemisfério norte (clique com o botão direito numa aba › **Show Tabs Vertically**), mas não tem Spaces, Peek nem Little Arc. Estatísticas de uso são enviadas quando a opção "Help improve Chrome's features and performance" está ligada ([Google](https://support.google.com/chrome/answer/14746339?hl=pt-BR)).
+
+**Combina com você se** você queria o Arc mais pelas abas verticais e está bem no ecossistema do Google.
+
+## Outros
+
+- **[Orion](https://kagi.com/orion/)**, da Kagi: um navegador WebKit para macOS e iOS, sem nenhuma telemetria e com suporte parcial a extensões do Chrome e do Firefox. A Kagi encerrou o Orion para Linux e Windows em outubro de 2026.
+- **[Comet](https://www.perplexity.ai/comet)**, da Perplexity: um navegador Chromium grátis construído em volta de um assistente de IA que automatiza tarefas.
+- O **ChatGPT Atlas** foi encerrado em 9 de agosto de 2026, então não é mais uma opção.
+
+<Aside>
+Os fatos sobre outros navegadores foram verificados em 25 de outubro de 2026, nas páginas linkadas. Navegadores mudam rápido; se algo aqui estiver desatualizado, [abra uma issue](https://github.com/lucianodiisouza/flecha-landing/issues) e a gente corrige.
+</Aside>
+
+## Migrar do Arc para o Flecha
+
+1. [Instale o Flecha](/docs/pt-br/install/) para Apple silicon ou Intel.
+2. Configure o auxiliar e depois [importe a sua sidebar do Arc](/docs/pt-br/switch-from-arc/) no tour de boas-vindas.
+3. Aprenda os [atalhos](/docs/pt-br/shortcuts/): a maioria é igual à do Arc.
+
+Faça isso antes de 22 de dezembro: depois que o Arc parar de funcionar, o arquivo da sidebar continua no seu Mac, mas o Arc em si não abre mais.

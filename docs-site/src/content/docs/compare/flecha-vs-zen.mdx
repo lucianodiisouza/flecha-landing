@@ -1,0 +1,39 @@
+---
+title: Flecha vs Zen Browser
+description: Flecha and Zen are both open-source browsers with an Arc-style sidebar. Zen is built on Firefox and runs everywhere; Flecha is Chromium, made for Mac developers.
+sidebar:
+  label: Flecha vs Zen
+---
+
+[Zen](https://zen-browser.app/) and Flecha are the two open-source browsers most like Arc. The biggest difference is underneath: Zen is a Firefox fork, Flecha is a Chromium fork. That decides which extensions you can use and how sites behave.
+
+## At a glance
+
+| | Flecha | Zen |
+| --- | --- | --- |
+| Engine | Chromium (Blink) | Firefox (Gecko) |
+| License | MIT | MPL-2.0 |
+| Platforms | macOS | macOS, Windows, Linux |
+| Extensions | Chrome Web Store | Firefox add-ons |
+| Sidebar and Spaces | Spaces, optionally with separate cookies | Workspaces |
+| Link preview | Peek | Glance |
+| Split view | Two panes | Yes |
+| Arc import | Spaces, pinned tabs, folders, favorites, history | No Arc sidebar import |
+| Ad blocking | Built in | Through an add-on such as uBlock Origin |
+| Developer command bar | `gh`, `npm`, `mdn`, `caniuse`, JWT and timestamp decoding | No |
+| Coding agents | [Built-in MCP server](/docs/agents/mcp/) | No |
+
+## Choose Zen if
+
+- you're on Linux or Windows,
+- you prefer Firefox's engine, or rely on Firefox-only add-ons,
+- you want deep customisation through Firefox's settings and mods.
+
+## Choose Flecha if
+
+- you're on a Mac and want pages to render exactly as in Chrome, the browser most sites are tested on,
+- you need Chrome extensions, such as a password manager that talks to its desktop app,
+- you want to bring your Arc Spaces and pinned tabs over in one step,
+- you build websites: [environments, a phone view and your dev servers in the sidebar](/docs/command-bar/#jump-to-another-environment), plus [MCP for coding agents](/docs/agents/mcp/).
+
+<small>Facts about Zen checked on October 25, 2026, on zen-browser.app, its docs and its GitHub repository.</small>

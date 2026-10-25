@@ -1,0 +1,58 @@
+---
+title: Boosts, seu próprio código em qualquer site
+description: Boosts no Flecha. Escreva TypeScript e CSS que rodam em qualquer site. Esconda o que não precisa, adicione o que falta e veja as mudanças ao salvar.
+sidebar:
+  label: Boosts
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Um Boost é um script ou uma folha de estilo sua para um site. Esconda as partes do GitHub que você nunca usa, corrija uma fonte num site de documentação, adicione um botão que está faltando. Os Boosts são a versão do Flecha para os Boosts do Arc, escritos em TypeScript e CSS.
+
+## Criar um Boost
+
+No site que você quer mudar, aperte <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>. O Flecha abre a página de Boosts com um script para aquele site, pronto para editar. Você também pode:
+
+- digitar `boost` na [barra de comandos](/docs/pt-br/command-bar/) e escolher **Edit boost script for** ou **Edit boost styles for** o site,
+- abrir a página de Boosts em Configurações › **Boosts** › **Open Boosts**, digitar um site como `github.com`, escolher **Script** ou **Styles** e clicar em **Add**.
+
+Salve com <kbd>⌘</kbd><kbd>S</kbd>.
+
+## Scripts e estilos
+
+| Arquivo | Roda em | Quando você salva |
+| --- | --- | --- |
+| `github.com.ts` | github.com e seus subdomínios | As abas abertas do site recarregam |
+| `github.com.css` | github.com e seus subdomínios | Aplica na hora, sem recarregar |
+| `all.css` | Todos os sites | Aplica na hora |
+
+- O `www.` sai do nome, então `github.com` também cobre `www.github.com`.
+- Os scripts são TypeScript. Os tipos são removidos, não verificados, então um erro de tipo não impede o Boost de rodar.
+- Os scripts rodam na própria página, depois que o HTML dela carrega, então podem ler e mudar a página e o JavaScript dela.
+- Os erros aparecem no console da página, começando com `[Flecha boost github.com.ts]`.
+- Um ⚡ ao lado de uma aba na sidebar indica que um Boost roda ali (`all.css` não conta).
+
+Um exemplo que esconde lock files nos pull requests do GitHub:
+
+```ts
+// github.com.ts
+export {};
+
+const lockfiles = document.querySelectorAll<HTMLElement>('[data-path$=".lock"]');
+for (const file of lockfiles) file.hidden = true;
+```
+
+E um para todos os sites:
+
+```css
+/* all.css */
+::selection { background: #3aa6d9; }
+```
+
+## Onde os Boosts ficam guardados
+
+Os Boosts são salvos dentro do seu perfil do Flecha, não como arquivos no disco. Apague um com **Delete** na página de Boosts. Um estilo apagado some na hora; um script apagado continua rodando até a página recarregar.
+
+<Aside>
+Assim como as extensões, os Boosts rodam com acesso total às páginas em que se aplicam. Só cole código que você entende.
+</Aside>

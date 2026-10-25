@@ -952,7 +952,7 @@ body::before {
 .pk-card i + i { height: 8px; background: var(--tint); }
 @keyframes peek { 0%, 12% { transform: translateY(110%); } 28%, 80% { transform: translateY(0); } 96%, 100% { transform: translateY(110%); } }
 
-.ill-split { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 8px; }
+.ill-split { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr; gap: 6px; padding: 8px; }
 .ill-split span { border-radius: 8px; background: var(--panel); border: 1px solid var(--rule); }
 .ill-split span:first-child { grid-row: span 2; background: #cdd9f7; border-color: transparent; animation: divider 6s ease-in-out infinite; }
 @keyframes divider { 50% { margin-right: -22px; } }

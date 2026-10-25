@@ -1,0 +1,25 @@
+# After a push to main, waits for Vercel to serve that commit, then pings IndexNow.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait for the deploy
+        if: github.event_name == 'push'
+        run: |
+          for i in $(seq 1 60); do
+            live=$(curl -fsS https://flecha.dev/build.txt 2>/dev/null || true)
+            [ "$live" = "$GITHUB_SHA" ] && echo "Live after ~$((i * 10))s" && exit 0
+            sleep 10
+          done
+          echo "flecha.dev never served $GITHUB_SHA" && exit 1
+      - run: node scripts/indexnow.mjs

@@ -1,0 +1,47 @@
+---
+title: Como as versões do Flecha são feitas
+description: Como uma versão do Flecha é compilada, assinada, notarizada, publicada no GitHub e no dl.flecha.dev, e entregue aos usuários pelas atualizações do Sparkle.
+sidebar:
+  label: Versões
+---
+
+Toda versão do Flecha é assinada com Developer ID, notarizada pela Apple, arquivada no GitHub e entregue a quem já usa o Flecha pelo [Sparkle](https://sparkle-project.org/).
+
+## 1. Compilar
+
+```bash
+export FLECHA_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)"
+export FLECHA_NOTARY_PROFILE=flecha-notary   # made once with: xcrun notarytool store-credentials
+chromium/scripts/build-release.sh --dmg
+```
+
+O `build-release.sh` compila o shell, aplica os patches (pula quando nada mudou), coloca o shell e o Sparkle no checkout, gera `out/Release/args.gn` a partir de `chromium/build/release.gn` e compila. Uma build de release leva de 3 a 6 horas e pode ser retomada. Defina `FLECHA_ARCH=x64` para compilar para Intel em `out/Release-x64`.
+
+As builds de release deixam de fora os codecs proprietários (H.264 e AAC), que exigem licenças de patente.
+
+## 2. Empacotar, assinar e notarizar
+
+O `package-release.sh`, chamado pela build:
+
+- copia o app e adiciona o auxiliar nativo com o próprio Node,
+- assina tudo de dentro para fora com o hardened runtime, inclusive as partes do Sparkle,
+- gera `Flecha-<version>.dmg` (ou `-x64.dmg`) com uma janela de instalação,
+- notariza com `FLECHA_NOTARY_PROFILE` e grampeia (staple) o ticket.
+
+## 3. Feed de atualização
+
+O `make-appcast.sh <dmg>` confere a assinatura, o staple e a avaliação do Gatekeeper, e então escreve o feed do Sparkle com uma assinatura EdDSA feita com a chave guardada nas Chaves de login. A chave pública vem embutida no app.
+
+Os apps consultam `https://flecha.dev/appcast.xml` (Apple silicon) ou `appcast-x64.xml` (Intel); o site redireciona os dois para `dl.flecha.dev`.
+
+## 4. Publicar
+
+O `publish-release.sh`:
+
+1. cria ou atualiza a release `v<version>` no GitHub com o dmg, para que toda versão fique [arquivada](https://github.com/lucianodiisouza/flecha-browser/releases),
+2. envia os arquivos com versão para o `dl.flecha.dev` (Cloudflare R2), depois os estáveis `Flecha.dmg` / `Flecha-x64.dmg` que o site linka, e por fim o feed,
+3. remove o que o feed anterior listava.
+
+Os usuários recebem a atualização na próxima verificação do Sparkle, ou na hora com **Flecha › Check for Updates…**. O Sparkle só instala uma build assinada, notarizada e grampeada.
+
+Veja o [changelog](/docs/pt-br/changelog/) para saber o que cada versão trouxe.

@@ -19,6 +19,19 @@ Key facts:
 - [Connect Claude Code](https://flecha.dev/docs/agents/claude-code/): `claude mcp add --transport http flecha http://127.0.0.1:7390/mcp --header "Authorization: Bearer <token>"`
 - [Connect Cursor or Windsurf](https://flecha.dev/docs/agents/cursor/): the `mcpServers` JSON config
 - [Keyboard shortcuts](https://flecha.dev/docs/shortcuts/): every default shortcut and how to record your own
+- [Tabs and the sidebar](https://flecha.dev/docs/guides/tabs/), [Spaces and separate logins](https://flecha.dev/docs/guides/spaces/), [Peek, split view and Flechinha](https://flecha.dev/docs/guides/peek-split-flechinha/)
+- [Developer tools](https://flecha.dev/docs/guides/developer-tools/): environments (local/staging/prod), responsive phone view, local dev servers, console error badges
+- [Boosts](https://flecha.dev/docs/guides/boosts/): per-site TypeScript and CSS
+- [Privacy and ad blocking](https://flecha.dev/docs/guides/privacy/): every connection the app makes
+- [Changelog](https://flecha.dev/docs/changelog/)
+- [How Flecha is built](https://flecha.dev/docs/development/architecture/), [build from source](https://flecha.dev/docs/development/build/), [releases](https://flecha.dev/docs/development/release/)
+
+## Compare
+
+Arc stops working on December 22, 2026 (announced by The Browser Company on October 22, 2026).
+
+- [The best Arc alternatives in 2026](https://flecha.dev/docs/compare/arc-alternatives/): Flecha, Dia, Zen, Vivaldi, Chrome, Orion, Comet
+- [Flecha vs Arc](https://flecha.dev/docs/compare/flecha-vs-arc/), [Flecha vs Dia](https://flecha.dev/docs/compare/flecha-vs-dia/), [Flecha vs Zen](https://flecha.dev/docs/compare/flecha-vs-zen/), [Flecha vs Chrome](https://flecha.dev/docs/compare/flecha-vs-chrome/)
 
 ## Links
 

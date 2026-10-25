@@ -16,6 +16,7 @@
     });
   </script>
   <meta name="msvalidate.01" content="3B574A02AFCD74C9FABFC0A932660CE2">
+  <meta name="google-site-verification" content="4VIARs78amEE0jxoyzqyznHKHSMh3oVsVsqRWYGVd9Q">
   <title>Flecha · the open-source browser for developers</title>
   <meta name="description" content="Flecha is an open-source Chromium browser for macOS with a vertical sidebar, Spaces, a command bar that speaks developer and a bridge for your coding agent. Everything stays on your Mac.">
   <link rel="canonical" href="https://flecha.dev/">
@@ -26,9 +27,13 @@
   <meta property="og:title" content="Flecha · the open-source browser for developers">
   <meta property="og:description" content="A Chromium browser with Spaces, a developer command bar and a bridge for your coding agent. No account, no telemetry.">
   <meta property="og:url" content="https://flecha.dev/">
-  <meta property="og:image" content="https://flecha.dev/icon.png">
+  <meta property="og:image" content="https://flecha.dev/assets/og/en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Flecha, the open-source browser for developers: Arc-style sidebar and Spaces, a command bar and MCP for coding agents">
   <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://flecha.dev/assets/og/en.png">
   <meta name="theme-color" content="#f4f6f9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#071426" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -99,7 +104,7 @@
           "Local dev servers listed in the sidebar with console error counts",
           "Boosts: your own TypeScript and CSS for any site",
           "MCP bridge so Claude Code, Cursor and other agents can read and drive tabs",
-          "Peek, split view up to four panes and Flechinha mini windows",
+          "Peek link previews, split view and Flechinha mini windows",
           "Built-in ad and tracker blocking (EasyList and EasyPrivacy)",
           "Chrome Web Store extensions and Google sign-in",
           "Import from Arc, Chrome, Brave, Edge, Firefox and Safari"
@@ -374,7 +379,7 @@
 
           <article class="tile t-servers">
             <h3>Your dev servers, already in the sidebar.</h3>
-            <p>Servers running on this Mac show up on their own, named after their project folder. Local tabs count their console errors; click the badge to open the Console.</p>
+            <p>Servers running on this Mac show up on their own, named after their page title. Local tabs count their console errors; click the badge to open the Console.</p>
             <div class="servers" aria-hidden="true">
               <span><i class="dot"></i>:3000<em>web</em><b>2</b></span>
               <span><i class="dot"></i>:5173<em>design-system</em></span>
@@ -461,11 +466,11 @@
 
           <article class="tile t-third">
             <div class="ill ill-split" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
+              <span></span><span></span>
             </div>
             <p class="tile-meta"><kbd>⌃⇧=</kbd></p>
-            <h3>Split view, up to four panes.</h3>
-            <p>Drag a tab onto the page to split it. Drag the divider to resize, double-click to even it out.</p>
+            <h3>Split view, two pages side by side.</h3>
+            <p>Drag a tab onto the left or right half of the page to split it, and drag the gap to resize. Each Space remembers its split.</p>
           </article>
         </div>
 
@@ -539,7 +544,7 @@
           </div>
           <div class="arch-wire" aria-hidden="true"><span class="packets"></span><em>the pages you open</em></div>
           <div class="arch-out">
-            <div class="node node-web"><p class="node-title">The web</p><p class="node-sub">sites you visit, your search engine, extension and blocker-list updates</p></div>
+            <div class="node node-web"><p class="node-title">The web</p><p class="node-sub">sites you visit, your search engine, extension updates</p></div>
             <div class="node node-updates"><p class="node-title">flecha.dev</p><p class="node-sub">update checks and downloads only, nothing about you</p></div>
           </div>
         </figure>
@@ -552,7 +557,7 @@
               <li><span>Browsing history</span><b>0</b></li>
               <li><span>Account or sign-in</span><b>none</b></li>
             </ul>
-            <p class="ledger-foot">Network traffic is the sites you open, your search engine, updates for extensions and blocker lists, update checks against flecha.dev, and the services built into Chromium itself.</p>
+            <p class="ledger-foot">Network traffic is the sites you open, your search engine, extension updates, update checks against flecha.dev, and the services built into Chromium itself. The ad and tracker lists ship inside the app.</p>
           </div>
           <ul class="privacy-points">
             <li>
@@ -613,8 +618,8 @@
         <header class="section-head">
           <p class="eyebrow">Switching</p>
           <h2>Bring everything with you. Arc included.</h2>
-          <p>Arc is winding down, and Flecha keeps the ideas worth keeping. Import picks up the browsers it finds on your Mac, and a short welcome tour shows you around with your own shortcuts.</p>
-          <p class="import-path"><kbd>File</kbd> → <kbd>Import Browser Data</kbd></p>
+          <p>Arc stops working on December 22, 2026, and Flecha keeps the ideas worth keeping. Import picks up the browsers it finds on your Mac, and a short welcome tour shows you around with your own shortcuts.</p>
+          <p class="import-path"><kbd>Welcome tour</kbd> → <kbd>Bring your stuff over</kbd> · <a href="/docs/switch-from-arc/">How to switch from Arc</a></p>
         </header>
         <div class="migrate" aria-label="What import brings over">
           <table class="import-table">
@@ -715,7 +720,7 @@
         <p>The open-source browser for developers.</p>
         <p class="credit">Built with <svg class="heart" viewBox="0 0 16 16" role="img" aria-label="love"><path d="M8 14s-5.5-3.4-5.5-7.3A3 3 0 0 1 8 4.9a3 3 0 0 1 5.5 1.8C13.5 10.6 8 14 8 14Z"/></svg> by <a href="https://www.oprimo.dev">OPrimoDev</a></p>
       </div>
-      <nav class="foot-cols" aria-label="Footer"><div class="foot-col"><p class="foot-head">Product</p><ul><li><a href="/#download">Download</a></li><li><a href="/docs/">Docs</a></li><li><a href="/#dev">Command bar</a></li><li><a href="/#loop">Dev tools</a></li><li><a href="/#privacy">Privacy</a></li></ul></div><div class="foot-col"><p class="foot-head">Project</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Source code</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Releases</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/privacy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li></ul></div></nav>
+      <nav class="foot-cols" aria-label="Footer"><div class="foot-col"><p class="foot-head">Product</p><ul><li><a href="/#download">Download</a></li><li><a href="/docs/">Docs</a></li><li><a href="/docs/switch-from-arc/">Switch from Arc</a></li><li><a href="/docs/compare/arc-alternatives/">Arc alternatives</a></li><li><a href="/#dev">Command bar</a></li><li><a href="/#loop">Dev tools</a></li><li><a href="/#privacy">Privacy</a></li></ul></div><div class="foot-col"><p class="foot-head">Project</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Source code</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Releases</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/privacy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li></ul></div></nav>
     </div>
     <div class="inner foot-base"><span>© 2026 OPrimoDev. Flecha is free and open source.</span><span>Not affiliated with The Browser Company or Google.</span></div>
   </footer>

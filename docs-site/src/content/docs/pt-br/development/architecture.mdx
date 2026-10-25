@@ -1,0 +1,54 @@
+---
+title: Como o Flecha é feito
+description: A arquitetura do Flecha. Poucos patches no Chromium, um shell em TypeScript que desenha toda a interface como extensão embutida e um auxiliar em Node para importação e MCP.
+sidebar:
+  label: Arquitetura
+---
+
+O Flecha é um fork do Chromium 158. Ele é Chromium e não Electron porque o Google bloqueia o login em apps Electron; no Chromium, o login, as extensões e o resto da plataforma web funcionam como no Chrome.
+
+O fork é pequeno de propósito, para que atualizar o Chromium continue fácil. Quase tudo o que você vê é uma extensão em TypeScript.
+
+```text
+flecha-browser/
+├── chromium/
+│   ├── patches/      the Chromium patch set, applied in order
+│   ├── shell/        the interface, as a built-in MV3 extension
+│   ├── native-host/  Node helper: browser import and the MCP server
+│   ├── shared/       the Store and code shared by shell and host
+│   ├── branding/     names, icons and bundle IDs
+│   ├── build/        GN args for dev and release builds
+│   └── scripts/      apply, build, run, package, release
+└── package.json      npm scripts for the shell and host
+```
+
+## Os patches
+
+São uns cinquenta patches pequenos em `chromium/patches/`, numerados na ordem em que são aplicados. Eles fazem três tipos de coisa:
+
+- **Abrir espaço para o shell.** Esconder a faixa de abas e a barra de ferramentas do Chromium (0002), deixar a página do shell desenhar a moldura da janela (0011–0013, 0017, 0024) e carregar o shell como extensão de componente (0021).
+- **Dar ao shell o que uma extensão não consegue fazer.** Uma API privada `chrome.flechaPrivate` (0010) para atalhos que rodam antes da página (0016), o tema (0018), a tela dividida (split view) com um vão redimensionável (0019), as janelas Flechinha (0023, 0025), o Peek (0026), o DevTools e o navegador padrão (0027), a barra de busca na página (0030) e partições de armazenamento por Space para cookies separados (0034).
+- **Arrumar e empacotar.** A pasta de perfil "Flecha Browser" (0001), sem a primeira execução do Chromium (0035), sem a barra de chaves de API ausentes (0036), atualizações pelo Sparkle e **Check for Updates…** (0040, 0053), e o nome, a versão e o shell embutido do app de release (0050–0052).
+
+Cada patch começa com uma descrição de uma linha; as linhas alteradas no Chromium são marcadas com comentários `// Flecha:`.
+
+## O shell
+
+`chromium/shell` é uma extensão Manifest V3 com o ID `abdiaepfgbbhdjaecjipmaailijaaide`, compilada com esbuild.
+
+- `background.ts`, o service worker, guarda a **Store**: Spaces, abas, pastas, favoritos, configurações. Ela é salva em `chrome.storage.local`.
+- `ui/` desenha a moldura da janela, a sidebar, a barra de comandos e a página de nova aba. `settings.html`, `boosts.html` e `flechinha.html` são as outras páginas.
+- `features/` guarda os recursos para devs: Boosts (compilados com sucrase e executados via `chrome.userScripts`), o bloqueador de anúncios (rulesets de declarativeNetRequest gerados a partir da EasyList e da EasyPrivacy no build), a contagem de erros do console, a visão responsiva e o scanner de servidores locais.
+
+Como o shell é só uma extensão, trabalhar na interface não exige compilar o Chromium: o `run.sh` carrega o shell de `chromium/shell/dist`, e `npm run shell:watch` recompila sempre que você salva.
+
+## O auxiliar nativo
+
+Um navegador não consegue ler arquivos de outros navegadores nem escutar numa porta. `chromium/native-host` é um programa Node que o Chromium inicia via native messaging (nome do host `dev.oprimo.flecha.host`). Ele só aceita o shell do próprio Flecha. Ele:
+
+- lê dados do Arc, de navegadores da família Chromium, do Firefox e do Safari para a [importação](/docs/pt-br/switch-from-arc/),
+- roda o [servidor MCP](/docs/pt-br/agents/mcp/) em `127.0.0.1`, repassando cada chamada de ferramenta para o shell, que controla as abas via `chrome.debugger`.
+
+As builds de release levam o Node dentro do app, em `Contents/Helpers/flecha-node`.
+
+Próximo: [compilar o Flecha a partir do código](/docs/pt-br/development/build/).

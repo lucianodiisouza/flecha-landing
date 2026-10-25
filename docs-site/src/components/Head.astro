@@ -7,6 +7,7 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
 const isPt = lang === 'pt-BR';
 const docsHome = new URL(isPt ? '/docs/pt-br/' : '/docs/', Astro.site).href;
 const site = isPt ? 'https://flecha.dev/pt-br/' : 'https://flecha.dev/';
+const ogImage = `https://flecha.dev/assets/og/${isPt ? 'docs-pt' : 'docs'}.png`;
 
 const crumbs = [
   { name: 'Flecha', item: site },
@@ -39,4 +40,8 @@ const graph = {
 ---
 
 <Default />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content={ogImage} />
 <script type="application/ld+json" set:html={JSON.stringify(graph)} />

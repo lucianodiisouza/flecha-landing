@@ -1,0 +1,80 @@
+---
+title: Build Flecha from source
+description: Set up a Chromium checkout, apply Flecha's patches, build and run a dev build of Flecha on macOS, and work on the interface without rebuilding Chromium.
+sidebar:
+  label: Build and contribute
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+<Aside>
+Most changes don't need Chromium at all. If you're working on the sidebar, the command bar, Settings, Boosts, import or the MCP server, you only need Node, and a release or dev build of Flecha to load the shell into. See [Shell-only changes](#shell-only-changes).
+</Aside>
+
+## What you need
+
+- A Mac with Xcode and its command line tools. The scripts build for Apple silicon by default; set `FLECHA_ARCH=x64` for Intel.
+- [depot_tools](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html) on your `PATH`.
+- A Chromium checkout at version 158, on an **APFS** volume, with 100 GB or more free. Fetch it with Chromium's [macOS build instructions](https://chromium.googlesource.com/chromium/src/+/main/docs/mac_build_instructions.md). A first build takes several hours.
+- Node 22.5 or newer (the helper uses `node:sqlite`).
+
+`chromium/scripts/env.sh` says where things live, and every script reads it. Point it at your setup with `CHROMIUM_SRC` (the checkout's `src`), `DEPOT_TOOLS`, `FLECHA_PROFILE` (the dev profile), and `FLECHA_DISK` / `FLECHA_VOLUME` if you keep the checkout on a disk image.
+
+## Build and run
+
+<Steps>
+
+1. Install the npm dependencies at the repository root:
+
+   ```bash
+   npm ci
+   ```
+
+2. Apply the patches and build Chromium. `apply.sh` resets every file it touches first, so it's safe to run again.
+
+   ```bash
+   chromium/scripts/build.sh
+   ```
+
+3. Launch the dev build with its own profile:
+
+   ```bash
+   chromium/scripts/run.sh
+   ```
+
+</Steps>
+
+The dev build is a component build, so after the first time a change relinks one small library.
+
+## Shell-only changes
+
+`run.sh` loads the shell from `chromium/shell/dist`. Rebuild it and relaunch:
+
+```bash
+npm run shell:watch   # rebuild on save
+npm run typecheck     # must pass before you send a change
+```
+
+The helper builds with `npm run host:build`. To register a helper you built yourself:
+
+```bash
+chromium/scripts/install-native-host.sh
+```
+
+## Changing a patch
+
+1. Run `chromium/scripts/apply.sh`.
+2. Edit Chromium, marking your lines with `// Flecha:`. Put new code in new files where you can.
+3. Save the diff as the patch: `git diff > chromium/patches/00NN-name.patch` in the checkout.
+4. Run `apply.sh` again to check it applies cleanly.
+
+## Contributing
+
+- Pull requests go to [lucianodiisouza/flecha-browser](https://github.com/lucianodiisouza/flecha-browser). Bugs and ideas go to [Issues](https://github.com/lucianodiisouza/flecha-browser/issues).
+- Use conventional commits: `feat`, `fix`, `docs`, `refactor`, `chore`, with a scope such as `shell`, `chromium` or `native-host`.
+- TypeScript is strict and `npm run typecheck` must pass.
+- No new dependencies without a reason, and no Arc code, assets or text.
+- Check light and dark mode, and attach a screenshot for UI changes.
+- Contributions are MIT-licensed, like the rest of Flecha.
+
+Next: [how releases are made](/docs/development/release/).

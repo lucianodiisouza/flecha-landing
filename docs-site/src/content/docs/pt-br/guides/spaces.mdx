@@ -1,0 +1,61 @@
+---
+title: Spaces e logins separados
+description: Use Spaces no Flecha para separar trabalho, projetos pessoais e clientes, cada um com suas abas fixadas e, se quiser, seus próprios cookies e logins.
+sidebar:
+  label: Spaces
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Um Space é um conjunto de abas fixadas, pastas e abas Today com nome, ícone e cor próprios. Use um para o trabalho, outro para um projeto pessoal, um para cada cliente. Os favoritos são compartilhados: eles ficam em todos os Spaces.
+
+## Criar um Space
+
+Qualquer uma destas opções cria um Space e abre o editor dele:
+
+- o botão **+** no rodapé da sidebar,
+- <kbd>⌃</kbd><kbd>⇧</kbd><kbd>N</kbd>,
+- **New Space** na [barra de comandos](/docs/pt-br/command-bar/),
+- **New Space** em Configurações › **Tabs & Spaces**.
+
+No editor, dê um nome, escolha um **Icon** (um emoji) e uma **Colour**, ou uma cor personalizada. No modo escuro, a cor vira um tom escuro do mesmo matiz.
+
+Para editar um Space depois, clique duas vezes no nome dele no topo da sidebar, ou clique com o botão direito e escolha **Edit Space…**.
+
+## Trocar de Space
+
+- <kbd>⌃</kbd><kbd>1</kbd> a <kbd>⌃</kbd><kbd>9</kbd> vai direto para um Space.
+- <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd> e <kbd>⌥</kbd><kbd>⌘</kbd><kbd>←</kbd> vão para o próximo e para o anterior, dando a volta no fim da lista.
+- Deslize com dois dedos para o lado sobre a sidebar para andar um Space por vez.
+- Clique no ponto de um Space no rodapé da sidebar.
+
+## Cookies e logins separados
+
+Ligue isso num Space e ele ganha seus próprios cookies, local storage, cache e service workers. Você pode estar logado no GitHub como duas pessoas, ou testar um site como admin num Space e como cliente em outro, lado a lado.
+
+- No editor do Space, ligue **Separate cookies and logins**, ou clique com o botão direito no Space e escolha **Separate Cookies and Logins**.
+- Um cadeado ao lado do nome do Space mostra que está ligado.
+- Ligar ou desligar reabre as abas do Space para que elas passem para o armazenamento certo.
+- **Clear Cookies and Site Data…** no menu de botão direito do Space desloga você de tudo só naquele Space.
+
+<Aside>
+Os favoritos sempre usam o armazenamento compartilhado, mesmo quando você os abre num Space com cookies separados. Deixe os sites em que você precisa entrar separadamente como abas fixadas nesse Space.
+</Aside>
+
+## O menu do Space
+
+Clique com o botão direito no nome de um Space, no ponto dele ou numa parte vazia da sidebar:
+
+- **Edit Space…**
+- **New Folder**
+- **Separate Cookies and Logins**
+- **Clear Cookies and Site Data…** (quando os cookies estão separados)
+- **Delete Space…**
+
+Apagar um Space fecha de vez as abas fixadas e as abas Today dele; elas não vão para o arquivo. O Flecha pergunta antes. O botão **Delete Space** dentro do editor apaga na hora.
+
+## Organizar tudo de uma vez
+
+Configurações › **Tabs & Spaces** mostra todos os Spaces, com suas abas fixadas, pastas e abas Today, numa lista só. Arraste abas e pastas entre Spaces, selecione várias com <kbd>⌘</kbd>-clique ou <kbd>⇧</kbd>-clique, reordene os Spaces arrastando os cabeçalhos e pesquise com <kbd>⌘</kbd><kbd>F</kbd>.
+
+Próximo: [abas fixadas, pastas e Today](/docs/pt-br/guides/tabs/).
