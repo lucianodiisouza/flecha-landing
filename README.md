@@ -96,4 +96,4 @@ Blueprint identity: Ink `#0B2545`, Draft `#EEF2F6`, Grid `#3AA6D9`, Dimension `#
 
 ---
 
-<p align="center">Built with ❤️ by <a href="https://www.oprimo.dev">OPrimoDev</a></p>
+<p align="center">Built with ❤️ by <a href="https://apps.oprimo.dev">OPrimoDev</a></p>
