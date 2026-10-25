@@ -1,0 +1,73 @@
+---
+title: Switch from Arc to Flecha
+description: Move from Arc to Flecha, an open-source Arc alternative for Mac. Import your Spaces, pinned tabs, folders, favorites and history, and find where each Arc feature lives in Flecha.
+sidebar:
+  label: Switch from Arc
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Arc is winding down, and Flecha keeps the ideas that made it worth using: a vertical sidebar, Spaces, pinned tabs that come back to where they started, Peek and split view. It is real Chromium, so your Chrome extensions and Google sign-in keep working, and it's open source, so it can't be shut down from one day to the next.
+
+Flecha's interface is rebuilt from scratch. It uses no Arc code and is not affiliated with The Browser Company.
+
+## Import your Arc sidebar
+
+<Steps>
+
+1. [Install Flecha](/docs/install/), and **before opening it for the first time**, [set up the helper](/docs/install/#set-up-the-helper-for-importing-and-coding-agents). Importing reads Arc's files on your Mac, which needs the helper.
+
+2. Open Flecha. The welcome tour starts on its own.
+
+3. On the **Bring your stuff over** step, click **Import** next to Arc. Flecha shows how many bookmarks and pages it brought in.
+
+</Steps>
+
+<Aside type="caution">
+On version 0.1.0, importing is only offered in the welcome tour. If you've already been through it, an **Import** pane in Settings is on its way. Watch the [releases](https://github.com/lucianodiisouza/flecha-browser/releases) for it.
+</Aside>
+
+### What comes over from Arc
+
+Flecha reads your sidebar from `~/Library/Application Support/Arc/StorableSidebar.json` and your history from Arc's profile folders. It only reads them; nothing is uploaded or changed.
+
+| In Arc | In Flecha |
+| --- | --- |
+| Spaces, with their name and emoji | Spaces with the same name and emoji. Colours are not brought over; Flecha gives each Space one of its own. |
+| Pinned tabs and folders, including nested folders | Pinned tabs and folders in the same Space |
+| Unpinned tabs | Today tabs (folders are flattened) |
+| Favorites (the icons at the top of the sidebar) | Favorites |
+| History | History, searchable from the command bar |
+
+These stay behind: archived tabs, Little Arc windows, Easels, Arc Boosts, Space themes and colours, passwords and cookies. You'll need to sign in to sites again.
+
+<Aside>
+Imported history keeps the pages but not their original visit times or titles. They count as visited on the day you import.
+</Aside>
+
+## Where Arc's features are in Flecha
+
+| Arc | Flecha |
+| --- | --- |
+| Command bar (<kbd>⌘</kbd><kbd>T</kbd>) | The [command bar](/docs/command-bar/) (<kbd>⌘</kbd><kbd>T</kbd>), which also understands `gh`, `npm`, `mdn`, JWTs and timestamps |
+| Spaces, switch with <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> | Spaces, <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd>, or <kbd>⌥</kbd><kbd>⌘</kbd><kbd>←</kbd> / <kbd>→</kbd>, or a two-finger swipe on the sidebar |
+| Profiles | **Separate Cookies and Logins** per Space: right-click the Space. Stay signed in as two people side by side. |
+| Today tabs that archive themselves | Today tabs archive after 12 hours by default (1 day, 7 days, 30 days or never in Settings › Tabs). The archive is searchable from the command bar. |
+| Clear unpinned tabs | **Clear Today**, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> |
+| Peek | Peek: links from pinned tabs and favorites open in a floating card. <kbd>Esc</kbd> closes it. |
+| Split View | Split view with up to four panes, <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd> |
+| Little Arc | **Flechinha**, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd>. Links from other apps open in one. |
+| Boosts | [Boosts](https://flecha.dev/#loop): your own TypeScript and CSS for any site, edited in Flecha (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>) |
+| Copy URL (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>) | Copy link, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, or as a Markdown link with <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> |
+| Hide sidebar (<kbd>⌘</kbd><kbd>S</kbd>) | Show or hide the sidebar, <kbd>⌘</kbd><kbd>S</kbd> |
+
+On top of that, Flecha adds tools for people who build websites: one key to move a page between local, staging and production, a phone-sized view next to the desktop one, your local dev servers in the sidebar, built-in ad blocking and a [bridge for coding agents](/docs/agents/mcp/). See every key in [Keyboard shortcuts](/docs/shortcuts/).
+
+## Importing from other browsers
+
+The same **Bring your stuff over** step also reads bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Opera GX, Chromium, Firefox and Safari.
+
+- Bookmarks become pinned tabs in a new Space named after the browser, with one folder per profile.
+- Up to 2,000 bookmarks and 5,000 history entries per profile come over. Only `http` and `https` pages are imported.
+- Safari's data can only be read with Full Disk Access. If Flecha asks for it, turn it on in System Settings › Privacy & Security › **Full Disk Access**, then import again.
+- Passwords and cookies are never imported.

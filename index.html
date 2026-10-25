@@ -3,6 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Google Analytics 4 (described in the privacy policy). Download clicks go out as file_download. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y05X9Z4PQJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y05X9Z4PQJ', { allow_google_signals: false, allow_ad_personalization_signals: false });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="dl.flecha.dev/"]');
+      if (a) gtag('event', 'file_download', { file_name: a.pathname.slice(1), link_url: a.href });
+    });
+  </script>
+  <meta name="msvalidate.01" content="3B574A02AFCD74C9FABFC0A932660CE2">
   <title>Flecha · the open-source browser for developers</title>
   <meta name="description" content="Flecha is an open-source Chromium browser for macOS with a vertical sidebar, Spaces, a command bar that speaks developer and a bridge for your coding agent. Everything stays on your Mac.">
   <link rel="canonical" href="https://flecha.dev/">
@@ -26,6 +39,122 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://flecha.dev/#org",
+        "name": "OPrimoDev",
+        "url": "https://www.oprimo.dev",
+        "logo": "https://flecha.dev/icon.png",
+        "sameAs": [
+          "https://github.com/lucianodiisouza"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://flecha.dev/#website",
+        "url": "https://flecha.dev/",
+        "name": "Flecha",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://flecha.dev/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://flecha.dev/#app",
+        "name": "Flecha",
+        "alternateName": "Flecha Browser",
+        "description": "Flecha is an open-source Chromium browser for macOS with a vertical sidebar, Spaces, a command bar that speaks developer and an MCP bridge for your coding agent. No account, no telemetry; everything stays on your Mac.",
+        "url": "https://flecha.dev/",
+        "image": "https://flecha.dev/icon.png",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "Web browser for developers",
+        "operatingSystem": "macOS (Apple silicon, Intel)",
+        "softwareVersion": "0.1.0",
+        "downloadUrl": ["https://dl.flecha.dev/Flecha.dmg", "https://dl.flecha.dev/Flecha-x64.dmg"],
+        "installUrl": "https://flecha.dev/#download",
+        "releaseNotes": "https://github.com/lucianodiisouza/flecha-browser/releases",
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "inLanguage": ["en", "pt-BR"],
+        "author": { "@id": "https://flecha.dev/#org" },
+        "publisher": { "@id": "https://flecha.dev/#org" },
+        "sameAs": [
+          "https://github.com/lucianodiisouza/flecha-browser"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Vertical sidebar with pinned tabs, folders and favorites",
+          "Spaces with optional separate cookies per Space",
+          "Command bar (Cmd+T) with gh, npm, mdn, caniuse and so shortcuts",
+          "Local JWT and Unix timestamp decoding",
+          "Jump between local, staging and production environments (Option+Cmd+E)",
+          "Responsive view: phone and desktop side by side",
+          "Local dev servers listed in the sidebar with console error counts",
+          "Boosts: your own TypeScript and CSS for any site",
+          "MCP bridge so Claude Code, Cursor and other agents can read and drive tabs",
+          "Peek, split view up to four panes and Flechinha mini windows",
+          "Built-in ad and tracker blocking (EasyList and EasyPrivacy)",
+          "Chrome Web Store extensions and Google sign-in",
+          "Import from Arc, Chrome, Brave, Edge, Firefox and Safari"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://flecha.dev/#faq",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Flecha free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Flecha is free and open source under the MIT license. The code is public on GitHub." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms does Flecha run on?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Flecha runs on macOS, with builds for Apple silicon (M1 or newer) and Intel Macs. Windows and Linux builds are not available yet." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Flecha based on Chromium? Do Chrome extensions work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Flecha is a Chromium fork with a small patch set, so pages render as they do in Chrome, Google sign-in works and every extension from the Chrome Web Store installs, including content blockers and password managers." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Flecha collect any data?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. There is no account, no usage analytics and no crash reports. Flecha only contacts flecha.dev to check for updates. Tabs, Spaces, history and settings are files on your Mac." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I import my tabs and Spaces from Arc?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The welcome tour imports Spaces, pinned tabs with folders, favorites and history from Arc, and bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Firefox and Safari. Everything is read from files on your Mac; nothing is uploaded. See https://flecha.dev/docs/switch-from-arc/" }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I connect Claude Code or Cursor to Flecha?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Turn on Settings › Developer › Coding Agents and copy the command or config it shows. Flecha then serves MCP over HTTP on 127.0.0.1 behind a token, and agents such as Claude Code and Cursor can list tabs, read pages and console logs, take screenshots, click, type and run JavaScript. The bridge is off by default and every action is shown in the sidebar. See https://flecha.dev/docs/agents/mcp/" }
+          },
+          {
+            "@type": "Question",
+            "name": "What are Boosts?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Boost is your own TypeScript or CSS for a site, edited on Flecha’s Boosts page (Option-Command-B on that site). Scripts run on every page of the site and its subdomains, and CSS applies live as you save. all.css applies to every site." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Flecha block ads and trackers?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Ad and tracker blocking is built in and on by default, using the EasyList and EasyPrivacy lists, and it runs locally." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="nav">
@@ -41,6 +170,7 @@
         <a href="#privacy">Privacy</a>
         <a href="#switch">Switch</a>
       </nav>
+      <a class="nav-docs" href="/docs/">Docs</a>
       <a class="lang" href="/pt-br/" hreflang="pt-BR" lang="pt-BR" title="Ler em português">PT-BR</a>
       <a class="btn btn-small" href="#download">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path class="dl" d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>
@@ -256,10 +386,10 @@
             <div class="tile-text">
               <p class="tile-meta"><kbd>⌥⌘B</kbd></p>
               <h3>Boosts: your own code on any site.</h3>
-              <p>A Boost is a plain TypeScript or CSS file in <code>~/.flecha/boosts</code>, named after the site. Flecha compiles it with esbuild. CSS applies live as you save, scripts reload the page. Keep the folder in git and your tweaks follow you to every Mac.</p>
+              <p>A Boost is your own TypeScript or CSS for a site, named after it: <code>github.com.ts</code>, <code>github.com.css</code>, or <code>all.css</code> for every site. Edit it on Flecha’s Boosts page and press <kbd>⌘S</kbd>: CSS applies live, scripts reload the site’s tabs. Boosts are saved in your Flecha profile.</p>
             </div>
             <div class="files" aria-label="Example Boost files">
-              <p class="files-path">~/.flecha/boosts/</p>
+              <p class="files-path">Flecha › Boosts</p>
               <pre class="code"><code><span class="c">// github.com.ts · runs on every github.com page</span>
 <span class="k">export</span> {};
 
@@ -397,7 +527,7 @@
               <ul>
                 <li><span>Tabs, Spaces, settings</span><code>your Flecha profile</code></li>
                 <li><span>History</span><code>your Flecha profile</code></li>
-                <li><span>Boosts</span><code>~/.flecha/boosts</code></li>
+                <li><span>Boosts</span><code>your Flecha profile</code></li>
                 <li><span>Cookies</span><code>one jar per Space, if you want</code></li>
                 <li><span>Ad and tracker blocker</span><code>runs locally</code></li>
               </ul>
@@ -431,7 +561,7 @@
             </li>
             <li>
               <h3>Trackers blocked out of the box</h3>
-              <p>Ad and tracker blocking is built in and on by default, with EasyList, EasyPrivacy and uBlock lists.</p>
+              <p>Ad and tracker blocking is built in and on by default, with the EasyList and EasyPrivacy lists.</p>
             </li>
             <li>
               <h3>Agents only when you say so</h3>
@@ -585,7 +715,7 @@
         <p>The open-source browser for developers.</p>
         <p class="credit">Built with <svg class="heart" viewBox="0 0 16 16" role="img" aria-label="love"><path d="M8 14s-5.5-3.4-5.5-7.3A3 3 0 0 1 8 4.9a3 3 0 0 1 5.5 1.8C13.5 10.6 8 14 8 14Z"/></svg> by <a href="https://www.oprimo.dev">OPrimoDev</a></p>
       </div>
-      <nav class="foot-cols" aria-label="Footer"><div class="foot-col"><p class="foot-head">Product</p><ul><li><a href="/#download">Download</a></li><li><a href="/#dev">Command bar</a></li><li><a href="/#loop">Dev tools</a></li><li><a href="/#privacy">Privacy</a></li></ul></div><div class="foot-col"><p class="foot-head">Project</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Source code</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Releases</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/privacy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li></ul></div></nav>
+      <nav class="foot-cols" aria-label="Footer"><div class="foot-col"><p class="foot-head">Product</p><ul><li><a href="/#download">Download</a></li><li><a href="/docs/">Docs</a></li><li><a href="/#dev">Command bar</a></li><li><a href="/#loop">Dev tools</a></li><li><a href="/#privacy">Privacy</a></li></ul></div><div class="foot-col"><p class="foot-head">Project</p><ul><li><a href="https://github.com/lucianodiisouza/flecha-browser">Source code</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/releases">Releases</a></li><li><a href="https://github.com/lucianodiisouza/flecha-browser/issues">Issues</a></li></ul></div><div class="foot-col"><p class="foot-head">Legal</p><ul><li><a href="/privacy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li></ul></div></nav>
     </div>
     <div class="inner foot-base"><span>© 2026 OPrimoDev. Flecha is free and open source.</span><span>Not affiliated with The Browser Company or Google.</span></div>
   </footer>

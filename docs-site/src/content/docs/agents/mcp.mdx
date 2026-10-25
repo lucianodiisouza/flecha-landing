@@ -1,0 +1,73 @@
+---
+title: Let coding agents use your browser (MCP)
+description: Flecha's MCP server lets Claude Code, Cursor, Windsurf and other agents list tabs, read pages and console logs, take screenshots, click, type and run JavaScript in your real browser.
+sidebar:
+  label: The MCP bridge
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Flecha has a built-in [Model Context Protocol](https://modelcontextprotocol.io/) server. Turn it on and coding agents such as Claude Code, Cursor and Windsurf can work in the browser you already use, with your real tabs, sign-ins and dev servers. Ask "why does checkout redirect twice?" and the agent can open the page, read the console, take a screenshot and try a fix.
+
+## Turn it on
+
+<Steps>
+
+1. [Set up the helper](/docs/install/#set-up-the-helper-for-importing-and-coding-agents). The MCP server runs inside it.
+
+2. Open Settings (<kbd>⌘</kbd><kbd>,</kbd>) › **Developer** › **Coding Agents** and turn on **Let coding agents use Flecha**.
+
+3. Copy the setup for your agent:
+   - **Claude Code** › **Copy Command**. See [Claude Code](/docs/agents/claude-code/).
+   - **Other MCP clients** › **Copy Config**, a JSON block for Cursor, Windsurf and others. See [Cursor](/docs/agents/cursor/).
+
+</Steps>
+
+<Aside type="caution">
+An agent with the token has **full access** to your regular tabs: it can read any page you're signed in to and act on it. Only connect agents you trust, and remember that pages can contain text written to mislead an agent.
+</Aside>
+
+## How it connects
+
+- **Transport**: MCP over Streamable HTTP, at `http://127.0.0.1:7390/mcp`. If port 7390 is busy, Flecha uses the next free one up to 7399. Settings shows the address it's using.
+- **Local only**: the server listens on `127.0.0.1` and refuses requests for any other host name.
+- **Token**: every request needs `Authorization: Bearer <token>`. Flecha creates a random token the first time you turn the bridge on. It is only shown inside the copied command or config.
+- **New Token** in the same pane replaces it, which disconnects every agent using the old one at once.
+- Turning the toggle off stops the server.
+
+## What agents can see
+
+- Your tabs in every Space, plus favorites and pinned tabs that aren't loaded.
+- **Not** incognito windows, and not pages in a Flechinha window.
+
+While an agent works, the sidebar shows **Agent connected**, then what it's doing ("Agent is reading the page", "Agent is clicking …"), and highlights the tab it's driving.
+
+## Tools
+
+Every tool that takes `tabId` uses the active tab when you leave it out. Tab ids come from `list_tabs`.
+
+| Tool | Inputs | What it does |
+| --- | --- | --- |
+| `list_tabs` | none | Lists tabs with `id`, `title`, `url`, `space`, `zone` (`favorites`, `pinned` or `today`) and `active`. |
+| `open_tab` | `url`, `background?` | Opens a URL, or search text, in a new tab and waits for it to load. Returns the new `tabId`. |
+| `activate_tab` | `tabId` | Brings a tab on screen. |
+| `close_tab` | `tabId` | Closes a tab. Pinned tabs and favorites are unloaded instead. |
+| `navigate` | `tabId?`, `url?`, `action?` | Loads a URL, or goes `back`, `forward` or `reload`, and waits for the page to settle. |
+| `read_page` | `tabId?`, `format?`, `maxChars?` | Returns the page as `text` (the default), `html` or `links`, up to 40,000 characters unless you set `maxChars`. |
+| `screenshot` | `tabId?` | A PNG of the tab, at most 1280 px wide. Brings the tab on screen first. |
+| `console_logs` | `tabId?`, `level?`, `limit?` | The latest console messages (`error`, `warning`, `info` or `debug`), 50 by default. Flecha keeps the last 500 per tab, including messages from before the agent connected. |
+| `click` | `tabId?`, `selector` | Scrolls to the element matching a CSS selector and clicks its centre with a real mouse event. |
+| `type` | `tabId?`, `selector?`, `text`, `clear?`, `submit?` | Types into the element, or the focused one. `clear` empties it first; `submit` presses Enter. |
+| `press_key` | `tabId?`, `key` | Presses Enter, Tab, Escape, Backspace, Delete, an arrow key, Home, End, PageUp, PageDown, space or a single character. |
+| `evaluate` | `tabId?`, `expression` | Runs JavaScript in the page and returns the result as JSON. Promises are awaited. |
+| `wait_for` | `tabId?`, `selector?`, `timeoutMs?` | Waits for an element to appear, or for loading to finish when there's no selector. Times out after 10 seconds by default. |
+
+## Troubleshooting
+
+**Settings says "Starting…" and never shows an address.** The helper isn't registered. Run the [helper setup](/docs/install/#set-up-the-helper-for-importing-and-coding-agents), then turn the toggle off and on.
+
+**The agent gets 401 "Missing or wrong token".** The token changed. Copy the command or config again and update your agent.
+
+**"No free port for the agent bridge".** Ports 7390 to 7399 are all in use. Free one and turn the toggle off and on.
+
+**A tool says "Flecha didn't answer … within N s".** The page didn't respond, for example because it's stuck in a long script. Reload the tab and try again.

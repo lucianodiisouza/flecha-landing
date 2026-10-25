@@ -1,0 +1,73 @@
+---
+title: Deixe agentes de código usarem seu navegador (MCP)
+description: O servidor MCP do Flecha deixa Claude Code, Cursor, Windsurf e outros agentes listarem abas, lerem páginas e logs do console, tirarem screenshots, clicarem, digitarem e rodarem JavaScript no seu navegador.
+sidebar:
+  label: A ponte MCP
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O Flecha tem um servidor [Model Context Protocol](https://modelcontextprotocol.io/) embutido. Ligue e agentes de código como Claude Code, Cursor e Windsurf podem trabalhar no navegador que você já usa, com suas abas, logins e servidores de dev de verdade. Pergunte "por que o checkout redireciona duas vezes?" e o agente pode abrir a página, ler o console, tirar um screenshot e testar uma correção.
+
+## Ligar
+
+<Steps>
+
+1. [Configure o auxiliar](/docs/pt-br/install/#configurar-o-auxiliar-para-importar-e-para-agentes-de-código). O servidor MCP roda dentro dele.
+
+2. Abra as Configurações (<kbd>⌘</kbd><kbd>,</kbd>) › **Developer** › **Coding Agents** e ligue **Let coding agents use Flecha**.
+
+3. Copie a configuração do seu agente:
+   - **Claude Code** › **Copy Command**. Veja [Claude Code](/docs/pt-br/agents/claude-code/).
+   - **Other MCP clients** › **Copy Config**, um bloco JSON para Cursor, Windsurf e outros. Veja [Cursor](/docs/pt-br/agents/cursor/).
+
+</Steps>
+
+<Aside type="caution">
+Um agente com o token tem **acesso total** às suas abas normais: ele pode ler qualquer página em que você está logado e agir nela. Só conecte agentes em que você confia, e lembre que páginas podem ter texto feito para enganar um agente.
+</Aside>
+
+## Como ele se conecta
+
+- **Transporte**: MCP sobre Streamable HTTP, em `http://127.0.0.1:7390/mcp`. Se a porta 7390 estiver ocupada, o Flecha usa a próxima livre até a 7399. As Configurações mostram o endereço em uso.
+- **Só local**: o servidor escuta em `127.0.0.1` e recusa pedidos para qualquer outro nome de host.
+- **Token**: todo pedido precisa de `Authorization: Bearer <token>`. O Flecha cria um token aleatório na primeira vez que você liga a ponte. Ele só aparece dentro do comando ou da configuração copiados.
+- **New Token**, no mesmo painel, troca o token e desconecta na hora todos os agentes que usavam o antigo.
+- Desligar a chave para o servidor.
+
+## O que os agentes veem
+
+- Suas abas em todos os Spaces, além de favoritos e abas fixadas que não estão carregadas.
+- **Não** veem janelas anônimas nem páginas abertas num Flechinha.
+
+Enquanto um agente trabalha, a sidebar mostra **Agent connected** e depois o que ele está fazendo ("Agent is reading the page", "Agent is clicking …"), e destaca a aba que ele está controlando.
+
+## Ferramentas
+
+Toda ferramenta que recebe `tabId` usa a aba ativa quando você não informa. Os ids vêm de `list_tabs`.
+
+| Ferramenta | Entradas | O que faz |
+| --- | --- | --- |
+| `list_tabs` | nenhuma | Lista as abas com `id`, `title`, `url`, `space`, `zone` (`favorites`, `pinned` ou `today`) e `active`. |
+| `open_tab` | `url`, `background?` | Abre uma URL, ou um texto de busca, numa aba nova e espera carregar. Devolve o `tabId` novo. |
+| `activate_tab` | `tabId` | Traz uma aba para a tela. |
+| `close_tab` | `tabId` | Fecha uma aba. Abas fixadas e favoritos são descarregados em vez de fechados. |
+| `navigate` | `tabId?`, `url?`, `action?` | Carrega uma URL, ou faz `back`, `forward` ou `reload`, e espera a página assentar. |
+| `read_page` | `tabId?`, `format?`, `maxChars?` | Devolve a página como `text` (o padrão), `html` ou `links`, até 40.000 caracteres se você não definir `maxChars`. |
+| `screenshot` | `tabId?` | Um PNG da aba, com no máximo 1280 px de largura. Traz a aba para a tela antes. |
+| `console_logs` | `tabId?`, `level?`, `limit?` | As mensagens mais recentes do console (`error`, `warning`, `info` ou `debug`), 50 por padrão. O Flecha guarda as últimas 500 por aba, inclusive as de antes do agente conectar. |
+| `click` | `tabId?`, `selector` | Rola até o elemento que casa com um seletor CSS e clica no centro dele com um evento de mouse real. |
+| `type` | `tabId?`, `selector?`, `text`, `clear?`, `submit?` | Digita no elemento, ou no que estiver em foco. `clear` esvazia antes; `submit` aperta Enter. |
+| `press_key` | `tabId?`, `key` | Aperta Enter, Tab, Escape, Backspace, Delete, uma seta, Home, End, PageUp, PageDown, espaço ou um caractere. |
+| `evaluate` | `tabId?`, `expression` | Roda JavaScript na página e devolve o resultado como JSON. Promises são aguardadas. |
+| `wait_for` | `tabId?`, `selector?`, `timeoutMs?` | Espera um elemento aparecer, ou a página terminar de carregar quando não há seletor. Desiste depois de 10 segundos por padrão. |
+
+## Problemas comuns
+
+**As Configurações mostram "Starting…" e nunca um endereço.** O auxiliar não está registrado. Faça a [configuração do auxiliar](/docs/pt-br/install/#configurar-o-auxiliar-para-importar-e-para-agentes-de-código) e desligue e ligue a chave.
+
+**O agente recebe 401 "Missing or wrong token".** O token mudou. Copie o comando ou a configuração de novo e atualize o agente.
+
+**"No free port for the agent bridge".** As portas de 7390 a 7399 estão todas em uso. Libere uma e desligue e ligue a chave.
+
+**Uma ferramenta diz "Flecha didn't answer … within N s".** A página não respondeu, por exemplo porque está presa num script longo. Recarregue a aba e tente de novo.

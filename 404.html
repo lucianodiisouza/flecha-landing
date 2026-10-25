@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Google Analytics 4 (described in the privacy policy). Download clicks go out as file_download. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y05X9Z4PQJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y05X9Z4PQJ', { allow_google_signals: false, allow_ad_personalization_signals: false });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="dl.flecha.dev/"]');
+      if (a) gtag('event', 'file_download', { file_name: a.pathname.slice(1), link_url: a.href });
+    });
+  </script>
   <title>Page not found · Flecha</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">

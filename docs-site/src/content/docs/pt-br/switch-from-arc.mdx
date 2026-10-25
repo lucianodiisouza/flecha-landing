@@ -1,0 +1,73 @@
+---
+title: Migrar do Arc para o Flecha
+description: Troque o Arc pelo Flecha, uma alternativa open source ao Arc para Mac. Importe Spaces, abas fixadas, pastas, favoritos e histórico, e veja onde fica cada recurso do Arc no Flecha.
+sidebar:
+  label: Migrar do Arc
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O Arc está sendo descontinuado, e o Flecha mantém as ideias que faziam o Arc valer a pena: sidebar vertical, Spaces, abas fixadas que voltam para onde começaram, Peek e split view. Ele é Chromium de verdade, então suas extensões do Chrome e o login do Google continuam funcionando, e é open source, então não pode ser desligado de um dia para o outro.
+
+A interface do Flecha foi refeita do zero. Ela não usa código do Arc e não tem relação com a The Browser Company.
+
+## Importar a sidebar do Arc
+
+<Steps>
+
+1. [Instale o Flecha](/docs/pt-br/install/) e, **antes de abrir pela primeira vez**, [configure o auxiliar](/docs/pt-br/install/#configurar-o-auxiliar-para-importar-e-para-agentes-de-código). A importação lê os arquivos do Arc no seu Mac, e isso precisa do auxiliar.
+
+2. Abra o Flecha. O tour de boas-vindas começa sozinho.
+
+3. No passo **Bring your stuff over**, clique em **Import** ao lado do Arc. O Flecha mostra quantos favoritos e páginas trouxe.
+
+</Steps>
+
+<Aside type="caution">
+Na versão 0.1.0, a importação só aparece no tour de boas-vindas. Se você já passou por ele, um painel **Import** nas Configurações está a caminho. Acompanhe as [versões](https://github.com/lucianodiisouza/flecha-browser/releases).
+</Aside>
+
+### O que vem do Arc
+
+O Flecha lê sua sidebar em `~/Library/Application Support/Arc/StorableSidebar.json` e o histórico nas pastas de perfil do Arc. Ele só lê esses arquivos; nada é enviado nem alterado.
+
+| No Arc | No Flecha |
+| --- | --- |
+| Spaces, com nome e emoji | Spaces com o mesmo nome e emoji. As cores não vêm; o Flecha dá a cada Space uma cor própria. |
+| Abas fixadas e pastas, inclusive pastas dentro de pastas | Abas fixadas e pastas no mesmo Space |
+| Abas não fixadas | Abas Today (as pastas viram uma lista só) |
+| Favoritos (os ícones no topo da sidebar) | Favoritos |
+| Histórico | Histórico, pesquisável pela barra de comandos |
+
+Ficam para trás: abas arquivadas, janelas Little Arc, Easels, Boosts do Arc, temas e cores dos Spaces, senhas e cookies. Você vai precisar entrar de novo nos sites.
+
+<Aside>
+O histórico importado mantém as páginas, mas não as datas nem os títulos originais. Elas contam como visitadas no dia da importação.
+</Aside>
+
+## Onde ficam os recursos do Arc no Flecha
+
+| Arc | Flecha |
+| --- | --- |
+| Barra de comandos (<kbd>⌘</kbd><kbd>T</kbd>) | A [barra de comandos](/docs/pt-br/command-bar/) (<kbd>⌘</kbd><kbd>T</kbd>), que também entende `gh`, `npm`, `mdn`, JWTs e timestamps |
+| Spaces, troca com <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> | Spaces, <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd>, ou <kbd>⌥</kbd><kbd>⌘</kbd><kbd>←</kbd> / <kbd>→</kbd>, ou deslizando dois dedos na sidebar |
+| Perfis | **Separate Cookies and Logins** por Space: clique com o botão direito no Space. Fique logado como duas pessoas lado a lado. |
+| Abas Today que se arquivam sozinhas | As abas Today se arquivam depois de 12 horas por padrão (1 dia, 7 dias, 30 dias ou nunca, em Configurações › Tabs). O arquivo é pesquisável pela barra de comandos. |
+| Limpar abas não fixadas | **Clear Today**, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> |
+| Peek | Peek: links de abas fixadas e favoritos abrem num cartão flutuante. <kbd>Esc</kbd> fecha. |
+| Split View | Split view com até quatro painéis, <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd> |
+| Little Arc | **Flechinha**, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd>. Links de outros apps abrem num. |
+| Boosts | [Boosts](https://flecha.dev/pt-br/#loop): seu próprio TypeScript e CSS para qualquer site, editados no Flecha (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>) |
+| Copiar URL (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>) | Copiar link, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, ou como link Markdown com <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> |
+| Esconder a sidebar (<kbd>⌘</kbd><kbd>S</kbd>) | Mostrar ou esconder a sidebar, <kbd>⌘</kbd><kbd>S</kbd> |
+
+Além disso, o Flecha traz ferramentas para quem faz sites: uma tecla para levar a página entre local, staging e produção, uma visão de celular ao lado da de desktop, seus servidores de dev locais na sidebar, bloqueador de anúncios embutido e uma [ponte para agentes de código](/docs/pt-br/agents/mcp/). Veja todas as teclas em [Atalhos de teclado](/docs/pt-br/shortcuts/).
+
+## Importar de outros navegadores
+
+O mesmo passo **Bring your stuff over** também lê favoritos e histórico do Chrome, Brave, Edge, Vivaldi, Opera, Opera GX, Chromium, Firefox e Safari.
+
+- Os favoritos viram abas fixadas num Space novo com o nome do navegador, com uma pasta por perfil.
+- Vêm até 2.000 favoritos e 5.000 itens de histórico por perfil. Só páginas `http` e `https` são importadas.
+- Os dados do Safari só podem ser lidos com Acesso Total ao Disco. Se o Flecha pedir, ative em Ajustes do Sistema › Privacidade e Segurança › **Acesso Total ao Disco** e importe de novo.
+- Senhas e cookies nunca são importados.

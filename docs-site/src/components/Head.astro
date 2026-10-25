@@ -1,0 +1,42 @@
+---
+// Starlight's head, plus TechArticle and BreadcrumbList structured data for every page.
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const { entry, lang, lastUpdated } = Astro.locals.starlightRoute;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const isPt = lang === 'pt-BR';
+const docsHome = new URL(isPt ? '/docs/pt-br/' : '/docs/', Astro.site).href;
+const site = isPt ? 'https://flecha.dev/pt-br/' : 'https://flecha.dev/';
+
+const crumbs = [
+  { name: 'Flecha', item: site },
+  { name: isPt ? 'Documentação' : 'Docs', item: docsHome },
+];
+if (url !== docsHome) crumbs.push({ name: entry.data.title, item: url });
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'TechArticle',
+      '@id': `${url}#article`,
+      headline: entry.data.title,
+      description: entry.data.description,
+      inLanguage: lang,
+      url,
+      ...(lastUpdated ? { dateModified: lastUpdated.toISOString() } : {}),
+      about: { '@id': 'https://flecha.dev/#app' },
+      author: { '@id': 'https://flecha.dev/#org' },
+      publisher: { '@id': 'https://flecha.dev/#org' },
+      isPartOf: { '@type': 'WebSite', name: 'Flecha', url: site },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.item })),
+    },
+  ],
+};
+---
+
+<Default />
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

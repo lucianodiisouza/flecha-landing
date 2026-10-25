@@ -1,0 +1,46 @@
+---
+title: Connect Claude Code to Flecha
+description: Give Claude Code your real browser. Add Flecha as an MCP server in one command so Claude Code can read pages and console logs, take screenshots, click and run JavaScript.
+sidebar:
+  label: Claude Code
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+With Flecha connected, [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) can check its own work in your browser: open your dev server, read the console, take a screenshot and click through a flow, all in the tabs and sessions you already have.
+
+## Set it up
+
+<Steps>
+
+1. Turn on the bridge in Settings › **Developer** › **Coding Agents**, as described in [The MCP bridge](/docs/agents/mcp/#turn-it-on).
+
+2. Next to **Claude Code**, click **Copy Command**. It looks like this, with your own port and token:
+
+   ```bash
+   claude mcp add --transport http flecha http://127.0.0.1:7390/mcp --header "Authorization: Bearer <token>"
+   ```
+
+3. Paste it in a terminal. By default Claude Code adds the server to the current project only. To use Flecha in every project, add `--scope user` after `add`.
+
+4. Start Claude Code and run `/mcp`. **flecha** should be listed as connected.
+
+</Steps>
+
+## Try it
+
+Ask in plain words. Claude Code picks the tools on its own:
+
+- "Open localhost:3000/checkout in Flecha and tell me why it redirects twice."
+- "Read the console errors on my current tab and fix them."
+- "Take a screenshot of the pricing page at the phone size and compare it with the design."
+- "List my open tabs and summarise the GitHub pull requests."
+
+Flecha's sidebar shows what Claude Code is doing while it works, and highlights the tab it's using. See [all the tools](/docs/agents/mcp/#tools).
+
+## If it doesn't connect
+
+- `/mcp` shows **flecha** as failed: make sure Flecha is open and the toggle is on. Settings should show an address, not "Starting…".
+- After **New Token**, the old command stops working. Remove the server with `claude mcp remove flecha` and add it again with a freshly copied command.
+
+More fixes are in [Troubleshooting](/docs/agents/mcp/#troubleshooting).

@@ -1,0 +1,88 @@
+---
+title: The command bar
+description: Every command in Flecha's command bar, from gh, npm, mdn, caniuse and so to environments, Boosts, and decoding JWTs and Unix timestamps on your Mac.
+sidebar:
+  label: Command bar
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+The command bar is one box for open tabs, history, actions and the developer sites you open fifty times a day. Open it with:
+
+| Keys | What it does |
+| --- | --- |
+| <kbd>⌘</kbd><kbd>T</kbd> | Opens empty. <kbd>Enter</kbd> opens the result in a new Today tab. |
+| <kbd>⌘</kbd><kbd>L</kbd> | Starts with the current tab's URL selected. <kbd>Enter</kbd> loads the result in the current tab. You can also click the URL bar. |
+| <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd> | Opens the result in split view next to the current tab. Picking an open tab splits with it. |
+
+Move with <kbd>↑</kbd> and <kbd>↓</kbd>, run the selected row with <kbd>Enter</kbd>, and close with <kbd>Esc</kbd>.
+
+## URLs and search
+
+- Anything with a scheme (`https://`, `about:`, `file:` and so on) opens as is.
+- `localhost`, `127.0.0.1` and `[::1]`, with or without a port and path, get `http://`.
+- Text that looks like a domain, such as `example.com/docs`, gets `https://`.
+- Anything else is searched with your search engine: Google (the default), DuckDuckGo, Bing, Brave Search, Kagi or Ecosia. Change it in Settings › **General**.
+
+## Developer commands
+
+Type a keyword, a space and what you're looking for. Every command needs that last part.
+
+| You type | Flecha opens |
+| --- | --- |
+| `gh vercel/next.js` | The repository on GitHub |
+| `gh 482` or `gh #482` | Pull request or issue 482 in the repository of the current tab |
+| `gh any words` | A GitHub search |
+| `npm zod` | The package page on npm (one word) |
+| `npm date picker` | An npm search (several words) |
+| `mdn structuredClone` | A search on MDN Web Docs |
+| `caniuse :has` | A search on Can I use |
+| `so docker volume permissions` | A search on Stack Overflow |
+
+<Aside type="tip">
+`gh 482` reads the repository from the tab you're on, so it works from any page of that repository on github.com. GitHub sends `/pull/482` to the issue when 482 is an issue. On any other site, `gh 482` searches GitHub instead.
+</Aside>
+
+### Jump to another environment
+
+Type `env` on a page whose origin is part of a project in Settings › **Environments**. The command bar lists **Switch to** for each of the project's other environments, keeping the path, query and hash. <kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd> does the same in one key, going to the next environment in order.
+
+To set up a project, go to Settings › **Environments** › **Add Project** and list one environment per line, as `label origin`:
+
+```text
+local http://localhost:3000
+staging https://staging.example.com
+prod https://example.com
+```
+
+The address bar then shows the label as a badge: green for local, amber for staging-like names such as `staging`, `preview` or `qa`, and red for everything else.
+
+### Edit this site's Boost
+
+Type `boost` to get **Edit boost script for** the current site (TypeScript) and **Edit boost styles for** it (CSS, applied live as you save). <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> goes straight to the editor.
+
+## Decode JWTs and timestamps
+
+Paste one of these and the command bar decodes it in place. Nothing leaves your Mac.
+
+- **JSON Web Token**: anything in three dot-separated parts starting with `eyJ`. The row shows the algorithm, the subject and when it expires or expired, and the selected row shows the decoded header and payload. <kbd>Enter</kbd> copies them as JSON. The signature is **not** verified.
+- **Unix timestamp**: exactly 10 digits (seconds) or 13 digits (milliseconds), such as `1761140000`. The row shows the date in your time zone and how long ago or from now it is. <kbd>Enter</kbd> copies it as an ISO 8601 date in UTC.
+
+## Actions
+
+Type at least two letters of an action's name to run it from the bar:
+
+**New Space**, **Edit Space**, **New Flechinha Window**, **Settings**, **Responsive View**, **Toggle Sidebar**, **Clear Today Tabs**, **Show Downloads** and **Open Boosts Folder**.
+
+## What it searches
+
+Results come in groups, in this order:
+
+1. **Open** or **Search** for what you typed.
+2. **Developer**: the commands above.
+3. **Actions**.
+4. **Tabs**: open tabs in every Space, plus favorites and pinned tabs that aren't loaded, most recently used first.
+5. **History**: pages you've visited, including history [imported from other browsers](/docs/switch-from-arc/).
+6. **Archive**: Today tabs that archived themselves.
+
+Imported bookmarks become pinned tabs, so they show up under **Tabs**.

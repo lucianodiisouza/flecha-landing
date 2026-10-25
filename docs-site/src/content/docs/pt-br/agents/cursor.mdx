@@ -1,0 +1,56 @@
+---
+title: Conectar o Cursor ao Flecha
+description: Adicione o Flecha como servidor MCP no Cursor (ou no Windsurf) para o agente ler páginas e o console, tirar screenshots e controlar as abas do seu navegador.
+sidebar:
+  label: Cursor e Windsurf
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O agente do Cursor pode usar o Flecha via MCP para olhar o seu app rodando do jeito que você olha: no seu navegador, com suas abas e seus logins.
+
+## Configurar
+
+<Steps>
+
+1. Ligue a ponte em Configurações › **Developer** › **Coding Agents**, como explicado em [A ponte MCP](/docs/pt-br/agents/mcp/#ligar).
+
+2. Ao lado de **Other MCP clients**, clique em **Copy Config**. Você recebe um JSON assim, com a sua porta e o seu token:
+
+   ```json
+   {
+     "mcpServers": {
+       "flecha": {
+         "type": "http",
+         "url": "http://127.0.0.1:7390/mcp",
+         "headers": { "Authorization": "Bearer <token>" }
+       }
+     }
+   }
+   ```
+
+3. Coloque na configuração MCP do Cursor:
+   - `~/.cursor/mcp.json` para usar o Flecha em todos os projetos, ou
+   - `.cursor/mcp.json` dentro de um projeto para usar só nele.
+
+   Se o arquivo já tiver um objeto `mcpServers`, acrescente a entrada `flecha` nele em vez de substituir.
+
+4. Abra as configurações do Cursor › **MCP** (Tools & Integrations nas versões recentes) e confira se o **flecha** está ativo e lista as ferramentas.
+
+</Steps>
+
+<Aside type="caution">
+A configuração contém o seu token, que dá acesso total às suas abas. Não faça commit de um `.cursor/mcp.json` de projeto com ele; coloque no `.gitignore` ou use o arquivo global.
+</Aside>
+
+## Windsurf e outros clientes
+
+O mesmo JSON funciona em outros clientes MCP que aceitam servidores Streamable HTTP com headers, como o Windsurf (`~/.codeium/windsurf/mcp_config.json`). Veja na documentação do seu cliente onde fica a configuração MCP.
+
+## Teste
+
+- "Abra meu servidor de dev no Flecha e veja se há erros no console."
+- "Faça o cadastro em localhost:5173 e me diga onde quebra."
+- "Tire um screenshot da aba atual e compare o espaçamento com o frame do Figma."
+
+Veja [todas as ferramentas](/docs/pt-br/agents/mcp/#ferramentas) e [Problemas comuns](/docs/pt-br/agents/mcp/#problemas-comuns).

@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Google Analytics 4 (described in the privacy policy). Download clicks go out as file_download. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y05X9Z4PQJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y05X9Z4PQJ', { allow_google_signals: false, allow_ad_personalization_signals: false });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="dl.flecha.dev/"]');
+      if (a) gtag('event', 'file_download', { file_name: a.pathname.slice(1), link_url: a.href });
+    });
+  </script>
   <title>Privacy Policy · Flecha</title>
   <meta name="description" content="How Flecha and flecha.dev handle your data: the app collects nothing and keeps everything on your Mac.">
   <link rel="canonical" href="https://flecha.dev/privacy/">
@@ -43,7 +55,7 @@
       <header class="legal-head">
         <p class="eyebrow">Legal</p>
         <h1>Privacy Policy</h1>
-        <p class="legal-updated">Last updated: 23 October 2026</p>
+        <p class="legal-updated">Last updated: 25 October 2026</p>
       </header>
       <article class="legal">
         <section class="legal-summary">
@@ -52,7 +64,7 @@
             <li>The Flecha app does not collect, send or sell any information about you. There is no account. The only Flecha server hands out downloads and updates.</li>
             <li>Your tabs, Spaces, history, settings and Boosts are files on your Mac.</li>
             <li>When you browse, you talk to the websites you visit and to the services you choose, under their own policies.</li>
-            <li>This website is a static site. It may count visits in aggregate; this page will always say how.</li>
+            <li>This website counts visits with Google Analytics, which sets cookies. Section 3 says what it collects and how to turn it off. The app itself never talks to Google Analytics.</li>
           </ul>
         </section>
 
@@ -63,7 +75,7 @@
         <h3>What we collect</h3>
         <p>Nothing. The app has no analytics, no telemetry, no crash reporting and no account. It does not send your browsing history, your tabs or any identifier to us. Our only servers hand out downloads and updates, and the app sends them nothing about you.</p>
         <h3>What stays on your Mac</h3>
-        <p>Flecha keeps its data in your Flecha profile folder and in <code>~/.flecha</code>: tabs, Spaces, favorites, history, downloads list, settings, keyboard shortcuts, cookies and site data, and your Boosts. You can back up, move or delete these files at any time. Deleting them, or uninstalling Flecha, removes the data.</p>
+        <p>Flecha keeps its data in your Flecha profile folder, <code>~/Library/Application Support/Flecha Browser</code>: tabs, Spaces, favorites, history, downloads list, settings, keyboard shortcuts, cookies and site data, and your Boosts. You can back up, move or delete these files at any time. Deleting them, or uninstalling Flecha, removes the data.</p>
         <h3>Connections the app makes</h3>
         <p>Like any browser, Flecha connects to the internet on your behalf. Apart from update checks, these connections go to third parties, not to us:</p>
         <ul>
@@ -84,11 +96,11 @@
         <p>Boosts are code you write or install. Extensions are made by third parties. Both run in pages you visit and can read them. Review what you install.</p>
 
         <h2 id="site">3. This website</h2>
-        <p>flecha.dev is a static website. We do not ask for or store any personal information through it, and it sets no cookies of its own.</p>
+        <p>flecha.dev is a static website, and so are its docs at flecha.dev/docs. We do not ask for any personal information through it. The only cookies it sets are Google Analytics’ own, described below.</p>
         <ul>
           <li><strong>Hosting.</strong> The site runs on Vercel, and downloads come from Cloudflare (<code>dl.flecha.dev</code>). Both may keep standard server logs, such as IP address, browser and the page or file requested, for security and operations.</li>
           <li><strong>Fonts.</strong> The site loads its typefaces from Google Fonts, so your browser connects to Google when you open it.</li>
-          <li><strong>Analytics.</strong> We may use analytics to understand, in aggregate, how many people visit and which pages they read. If we do, we will name the provider and what it collects in this section, prefer tools that do not use cookies, and never use the data for advertising or sell it.</li>
+          <li><strong>Analytics.</strong> We use Google Analytics 4 to see, in aggregate, how many people visit, which pages they read, where they came from (such as a search engine or a link) and how many click a download. It sets first-party cookies (<code>_ga</code> and <code>_ga_*</code>) with a random ID, and Google receives your IP address, browser, device type, approximate location and the pages you view. Google Analytics 4 does not log or store IP addresses. We have turned off Google signals and ad personalisation, we don’t link this data to advertising, and we never sell it. Google keeps it for up to 14 months under <a href="https://policies.google.com/privacy">Google’s privacy policy</a>. To opt out, block <code>googletagmanager.com</code> with a content blocker (Flecha’s built-in blocker does this), or install <a href="https://tools.google.com/dlpage/gaoptout">Google’s opt-out add-on</a>.</li>
           <li><strong>Links.</strong> Links to GitHub and other sites take you to services with their own policies.</li>
         </ul>
 

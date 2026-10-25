@@ -1,5 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci --prefix docs-site",
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
   "rewrites": [

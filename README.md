@@ -21,7 +21,7 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 - **Environments** (`⌥⌘E`): move a page between local, staging and production with the same path, and see a LOCAL / STAGING / PROD badge in the address bar.
 - **Responsive view** (`⌥⌘M`): a phone-sized page next to the desktop one, following every navigation.
 - **Local dev servers** in the sidebar, with console error counts on local tabs.
-- **Boosts** (`⌥⌘B`): your own TypeScript and CSS for any site, as plain files in `~/.flecha/boosts`.
+- **Boosts** (`⌥⌘B`): your own TypeScript and CSS for any site, edited on Flecha’s Boosts page.
 - **Coding agents over MCP**: Claude Code, Cursor and others can read and drive your tabs through a local, token-protected bridge.
 - **Spaces** with their own cookies and logins, **pinned tabs and folders**, **favorites** and **today tabs** that archive themselves.
 - **Flechinha** for links from other apps, **Peek**, and **split view** with up to four panes.
@@ -34,7 +34,7 @@ Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha
 
 ## About this repository
 
-Plain HTML, CSS and JavaScript, with no framework and no build step.
+The landing page is plain HTML, CSS and JavaScript, with no framework. The docs at `/docs` are an [Astro Starlight](https://starlight.astro.build/) site in `docs-site/`, in English and Portuguese. `scripts/build.mjs` builds the docs into `dist/docs` and copies the landing page around them; Vercel serves `dist/`.
 
 | Path | What it is |
 | --- | --- |
@@ -44,6 +44,9 @@ Plain HTML, CSS and JavaScript, with no framework and no build step.
 | `404.html` | Not found page, in both languages |
 | `assets/styles.css` | All styles |
 | `assets/main.js` | Command bar demo, drawing scale and motion |
+| `llms.txt` | Summary of Flecha and its docs for AI assistants |
+| `docs-site/` | The docs (Astro Starlight). Pages are in `src/content/docs/`, Portuguese in `src/content/docs/pt-br/` |
+| `scripts/build.mjs` | Builds the whole site into `dist/` |
 
 ### Run it locally
 
@@ -55,6 +58,15 @@ python3 -m http.server 8080
 
 Open http://localhost:8080. Pages use root-relative paths (`/assets/styles.css`), so serve the folder rather than opening the files directly.
 
+To work on the docs:
+
+```bash
+npm ci --prefix docs-site
+npm run dev --prefix docs-site    # http://localhost:4321/docs/
+```
+
+To build the whole site as Vercel does, run `node scripts/build.mjs` and serve `dist/`.
+
 ## Contributing
 
 Fixes and improvements to the website are welcome.
@@ -65,13 +77,14 @@ Fixes and improvements to the website are welcome.
 
 Before sending a change, please check:
 
-- English and Portuguese pages are separate files. Update both.
+- English and Portuguese pages are separate files, on the landing page and in the docs. Update both.
+- The docs describe what the browser does on `main`. Check the code, not the README, before documenting a feature.
 - The page works at phone width (about 375px) without sideways scrolling, in light and dark mode.
 - Text keeps WCAG AA contrast (4.5:1) on the surface it sits on.
 - Motion stays off when the system's "Reduce motion" setting is on.
 - When a new build lands on dl.flecha.dev (Intel, for now), set it to `true` in `AVAILABLE` in `assets/main.js` so its download card turns on.
 - The command bar demo in `assets/main.js` follows the rules in the browser's `src/renderer/devCommands.ts`. Keep them in sync.
-- The privacy policy says the app sends nothing to Flecha. Any change to that claim must match what the browser actually does.
+- The privacy policy says the app sends nothing to Flecha, and names Google Analytics as the only analytics on the website. Any change to either claim must match what the browser and the site actually do.
 
 ## Brand
 

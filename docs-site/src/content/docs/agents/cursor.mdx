@@ -1,0 +1,56 @@
+---
+title: Connect Cursor to Flecha
+description: Add Flecha as an MCP server in Cursor (or Windsurf) so the agent can read pages and console logs, take screenshots and drive your real browser tabs.
+sidebar:
+  label: Cursor and Windsurf
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Cursor's agent can use Flecha through MCP to look at your running app the way you do: in your browser, with your tabs and sign-ins.
+
+## Set it up
+
+<Steps>
+
+1. Turn on the bridge in Settings › **Developer** › **Coding Agents**, as described in [The MCP bridge](/docs/agents/mcp/#turn-it-on).
+
+2. Next to **Other MCP clients**, click **Copy Config**. You get JSON like this, with your own port and token:
+
+   ```json
+   {
+     "mcpServers": {
+       "flecha": {
+         "type": "http",
+         "url": "http://127.0.0.1:7390/mcp",
+         "headers": { "Authorization": "Bearer <token>" }
+       }
+     }
+   }
+   ```
+
+3. Put it in Cursor's MCP config:
+   - `~/.cursor/mcp.json` to use Flecha in every project, or
+   - `.cursor/mcp.json` in a project to use it there only.
+
+   If the file already has an `mcpServers` object, add the `flecha` entry to it rather than replacing it.
+
+4. Open Cursor's settings › **MCP** (Tools & Integrations in recent versions) and check that **flecha** is enabled and lists its tools.
+
+</Steps>
+
+<Aside type="caution">
+The config holds your token, which gives full access to your tabs. Don't commit a project's `.cursor/mcp.json` that contains it; add it to `.gitignore`, or use the global file.
+</Aside>
+
+## Windsurf and other clients
+
+The same JSON works in other MCP clients that support Streamable HTTP servers with headers, such as Windsurf (`~/.codeium/windsurf/mcp_config.json`). Check your client's docs for where its MCP config lives.
+
+## Try it
+
+- "Open my dev server in Flecha and check the console for errors."
+- "Click through sign-up on localhost:5173 and tell me where it breaks."
+- "Screenshot the current tab and compare the spacing with the Figma frame."
+
+See [all the tools](/docs/agents/mcp/#tools) and [Troubleshooting](/docs/agents/mcp/#troubleshooting).

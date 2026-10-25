@@ -1,0 +1,72 @@
+---
+title: Install Flecha on your Mac
+description: Download Flecha for Apple silicon or Intel Macs, install it, make it your default browser and set up the helper that importing and coding agents need.
+sidebar:
+  label: Install
+---
+
+import { Steps, Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+Flecha runs on **macOS 13 Ventura or newer**, on Apple silicon (M1 or newer) and on Intel Macs. It is free and open source under the MIT license.
+
+## Download and install
+
+<Steps>
+
+1. Download the build for your Mac:
+
+   - [Flecha for Apple silicon](https://dl.flecha.dev/Flecha.dmg) (M1, M2, M3, M4 or newer)
+   - [Flecha for Intel](https://dl.flecha.dev/Flecha-x64.dmg)
+
+   Not sure which one you have? Open the Apple menu › **About This Mac**. "Chip" means Apple silicon; "Processor" means Intel.
+
+2. Open the `.dmg` and drag **Flecha** onto **Applications**.
+
+3. Open Flecha from Applications. Releases are signed with a Developer ID and notarized by Apple, so macOS opens them without extra steps.
+
+</Steps>
+
+On first launch a short welcome tour shows you around and offers to [bring your data over from Arc and other browsers](/docs/switch-from-arc/).
+
+## Updates
+
+Flecha updates itself with [Sparkle](https://sparkle-project.org/). It checks automatically, and you can check by hand from the app menu: **Flecha › Check for Updates…**. The download links above always point at the newest version, and every release, including older ones, is archived on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases).
+
+## Make Flecha your default browser
+
+Open Settings (<kbd>⌘</kbd><kbd>,</kbd>) › **General** › **Default browser** and click **Make Default**. macOS asks you to confirm.
+
+Links you click in other apps, such as Slack or Mail, then open in a **Flechinha**: a small, focused window that doesn't pile up in your Spaces. Press <kbd>⌘</kbd><kbd>O</kbd> in it to move the page into the main window. To open those links as regular tabs instead, turn off Settings › **Tabs** › **Open links from other apps in Flechinha**.
+
+## Set up the helper (for importing and coding agents)
+
+A browser can't read other browsers' files or open a local port on its own. Flecha ships a small helper for that (a native messaging host, with its own bundled Node) inside the app. You need it to:
+
+- [import from Arc, Chrome, Firefox, Safari and others](/docs/switch-from-arc/)
+- let [coding agents use Flecha over MCP](/docs/agents/mcp/)
+
+For now the helper has to be registered once by a script from the source repository:
+
+```bash
+git clone https://github.com/lucianodiisouza/flecha-browser.git
+cd flecha-browser
+chromium/scripts/install-native-host.sh --app /Applications/Flecha.app
+```
+
+With `--app`, the script builds nothing. It only writes a small manifest to `~/Library/Application Support/Flecha Browser/NativeMessagingHosts/` that points at the helper inside the app, and it allows only Flecha's own built-in extension to talk to it.
+
+<Aside type="tip">
+Run the script **before you first open Flecha** if you want to import from Arc or another browser in the welcome tour. If you move Flecha.app to another folder, run it again with the new path.
+</Aside>
+
+## Where Flecha keeps your data
+
+Your tabs, Spaces, history, settings, cookies and Boosts live in your Flecha profile at `~/Library/Application Support/Flecha Browser`. Flecha has no account and sends nothing about you anywhere; it only contacts flecha.dev to check for updates. See the [privacy policy](https://flecha.dev/privacy/).
+
+## Uninstall
+
+Quit Flecha and drag it from Applications to the Trash. To remove your data as well, delete `~/Library/Application Support/Flecha Browser`.
+
+## Build from source
+
+Flecha is a Chromium fork with a small patch set and a TypeScript shell. To build it yourself you need a Chromium checkout, Xcode and a lot of disk space and time. The full guide is in the [repository README](https://github.com/lucianodiisouza/flecha-browser#build-from-source).

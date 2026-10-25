@@ -1,0 +1,61 @@
+/* Flecha Docs · the landing page's Blueprint colours and type mapped onto Starlight. */
+
+:root {
+  --sl-font: 'Archivo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --sl-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Dark mode, Starlight's default */
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eef2f6;
+  --sl-color-gray-2: #d8e1ec;
+  --sl-color-gray-3: #a3b2c6;
+  --sl-color-gray-4: #5e7491;
+  --sl-color-gray-5: #1d3657;
+  --sl-color-gray-6: #0a1b31;
+  --sl-color-black: #071426;
+
+  --sl-color-accent-low: #3b1c12;
+  --sl-color-accent: #e4572e;
+  --sl-color-accent-high: #ff8a63;
+}
+
+:root[data-theme='light'] {
+  --sl-color-white: #0b2545;
+  --sl-color-gray-1: #0b2545;
+  --sl-color-gray-2: #1c2b40;
+  --sl-color-gray-3: #46566b;
+  --sl-color-gray-4: #7a8ba1;
+  --sl-color-gray-5: #d3dbe5;
+  --sl-color-gray-6: #e9eef4;
+  --sl-color-gray-7: #f4f6f9;
+  --sl-color-black: #fbfcfd;
+
+  --sl-color-accent-low: #fbe0d6;
+  --sl-color-accent: #e4572e;
+  --sl-color-accent-high: #b13d16;
+}
+
+.site-title {
+  font-weight: 700;
+  font-variation-settings: 'wdth' 114;
+  letter-spacing: -0.01em;
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+h1#_top {
+  font-variation-settings: 'wdth' 108;
+  letter-spacing: -0.01em;
+}
+
+kbd {
+  font-family: var(--sl-font-mono);
+  font-size: 0.85em;
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--sl-color-gray-5);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--sl-color-gray-6);
+  white-space: nowrap;
+}

@@ -1,0 +1,72 @@
+---
+title: Instalar o Flecha no Mac
+description: Baixe o Flecha para Mac com Apple silicon ou Intel, instale, defina como navegador padrão e configure o auxiliar que a importação e os agentes de código usam.
+sidebar:
+  label: Instalar
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O Flecha roda no **macOS 13 Ventura ou mais novo**, em Macs com Apple silicon (M1 ou mais novo) e com Intel. Ele é gratuito e open source, com licença MIT.
+
+## Baixar e instalar
+
+<Steps>
+
+1. Baixe a versão para o seu Mac:
+
+   - [Flecha para Apple silicon](https://dl.flecha.dev/Flecha.dmg) (M1, M2, M3, M4 ou mais novo)
+   - [Flecha para Intel](https://dl.flecha.dev/Flecha-x64.dmg)
+
+   Não sabe qual é o seu? Abra o menu Apple › **Sobre Este Mac**. "Chip" quer dizer Apple silicon; "Processador" quer dizer Intel.
+
+2. Abra o `.dmg` e arraste o **Flecha** para **Aplicativos**.
+
+3. Abra o Flecha em Aplicativos. As versões são assinadas com Developer ID e notarizadas pela Apple, então o macOS abre sem passos extras.
+
+</Steps>
+
+Na primeira vez, um tour rápido de boas-vindas mostra o navegador e oferece [trazer seus dados do Arc e de outros navegadores](/docs/pt-br/switch-from-arc/).
+
+## Atualizações
+
+O Flecha se atualiza sozinho com o [Sparkle](https://sparkle-project.org/). Ele verifica automaticamente, e você também pode verificar pelo menu do app: **Flecha › Check for Updates…**. Os links de download acima sempre apontam para a versão mais nova, e todas as versões, inclusive as antigas, ficam no [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases).
+
+## Definir o Flecha como navegador padrão
+
+Abra as Configurações (<kbd>⌘</kbd><kbd>,</kbd>) › **General** › **Default browser** e clique em **Make Default**. O macOS pede para você confirmar.
+
+Os links que você clica em outros apps, como Slack ou Mail, passam a abrir num **Flechinha**: uma janela pequena e focada, que não lota os seus Spaces. Aperte <kbd>⌘</kbd><kbd>O</kbd> nela para levar a página para a janela principal. Para abrir esses links como abas normais, desligue Configurações › **Tabs** › **Open links from other apps in Flechinha**.
+
+## Configurar o auxiliar (para importar e para agentes de código)
+
+Um navegador não consegue ler arquivos de outros navegadores nem abrir uma porta local sozinho. Para isso, o Flecha traz dentro do app um pequeno auxiliar (um native messaging host, com Node embutido). Você precisa dele para:
+
+- [importar do Arc, Chrome, Firefox, Safari e outros](/docs/pt-br/switch-from-arc/)
+- deixar [agentes de código usarem o Flecha via MCP](/docs/pt-br/agents/mcp/)
+
+Por enquanto, o auxiliar precisa ser registrado uma vez por um script do repositório do código-fonte:
+
+```bash
+git clone https://github.com/lucianodiisouza/flecha-browser.git
+cd flecha-browser
+chromium/scripts/install-native-host.sh --app /Applications/Flecha.app
+```
+
+Com `--app`, o script não compila nada. Ele só grava um pequeno manifesto em `~/Library/Application Support/Flecha Browser/NativeMessagingHosts/` apontando para o auxiliar dentro do app, e só deixa a extensão interna do próprio Flecha falar com ele.
+
+<Aside type="tip">
+Rode o script **antes de abrir o Flecha pela primeira vez** se quiser importar do Arc ou de outro navegador no tour de boas-vindas. Se mover o Flecha.app para outra pasta, rode de novo com o caminho novo.
+</Aside>
+
+## Onde o Flecha guarda seus dados
+
+Abas, Spaces, histórico, configurações, cookies e Boosts ficam no seu perfil do Flecha, em `~/Library/Application Support/Flecha Browser`. O Flecha não tem conta e não envia nada sobre você; ele só acessa o flecha.dev para verificar atualizações. Veja a [política de privacidade](https://flecha.dev/pt-br/privacidade/).
+
+## Desinstalar
+
+Feche o Flecha e arraste-o de Aplicativos para o Lixo. Para apagar seus dados também, apague `~/Library/Application Support/Flecha Browser`.
+
+## Compilar a partir do código
+
+O Flecha é um fork do Chromium com poucos patches e uma interface em TypeScript. Para compilar você precisa de um checkout do Chromium, do Xcode, de bastante espaço em disco e de tempo. O guia completo está no [README do repositório](https://github.com/lucianodiisouza/flecha-browser#build-from-source).

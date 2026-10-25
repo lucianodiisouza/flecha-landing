@@ -1,0 +1,46 @@
+---
+title: Conectar o Claude Code ao Flecha
+description: Dê ao Claude Code o seu navegador de verdade. Adicione o Flecha como servidor MCP com um comando e o Claude Code passa a ler páginas e o console, tirar screenshots, clicar e rodar JavaScript.
+sidebar:
+  label: Claude Code
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Com o Flecha conectado, o [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) consegue conferir o próprio trabalho no seu navegador: abrir seu servidor de dev, ler o console, tirar um screenshot e clicar num fluxo, tudo nas abas e sessões que você já tem.
+
+## Configurar
+
+<Steps>
+
+1. Ligue a ponte em Configurações › **Developer** › **Coding Agents**, como explicado em [A ponte MCP](/docs/pt-br/agents/mcp/#ligar).
+
+2. Ao lado de **Claude Code**, clique em **Copy Command**. Ele fica assim, com a sua porta e o seu token:
+
+   ```bash
+   claude mcp add --transport http flecha http://127.0.0.1:7390/mcp --header "Authorization: Bearer <token>"
+   ```
+
+3. Cole num terminal. Por padrão o Claude Code adiciona o servidor só no projeto atual. Para usar o Flecha em todos os projetos, coloque `--scope user` depois de `add`.
+
+4. Abra o Claude Code e rode `/mcp`. O **flecha** deve aparecer como conectado.
+
+</Steps>
+
+## Teste
+
+Peça com palavras normais. O Claude Code escolhe as ferramentas sozinho:
+
+- "Abra localhost:3000/checkout no Flecha e me diga por que redireciona duas vezes."
+- "Leia os erros do console da minha aba atual e corrija."
+- "Tire um screenshot da página de preços no tamanho de celular e compare com o design."
+- "Liste minhas abas abertas e resuma os pull requests do GitHub."
+
+A sidebar do Flecha mostra o que o Claude Code está fazendo e destaca a aba que ele está usando. Veja [todas as ferramentas](/docs/pt-br/agents/mcp/#ferramentas).
+
+## Se não conectar
+
+- O `/mcp` mostra o **flecha** com falha: confira se o Flecha está aberto e a chave ligada. As Configurações devem mostrar um endereço, não "Starting…".
+- Depois de **New Token**, o comando antigo para de funcionar. Remova o servidor com `claude mcp remove flecha` e adicione de novo com um comando copiado agora.
+
+Mais soluções em [Problemas comuns](/docs/pt-br/agents/mcp/#problemas-comuns).

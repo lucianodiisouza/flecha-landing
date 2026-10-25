@@ -1,0 +1,40 @@
+# Flecha
+
+> Flecha is a free, open-source (MIT) Chromium browser for macOS built for developers: a vertical sidebar with Spaces, a command bar that understands developer shortcuts, and an MCP server that lets coding agents like Claude Code and Cursor see and drive your tabs. No account, no telemetry; everything stays on your Mac.
+
+Key facts:
+
+- Platform: macOS 13 Ventura or newer, on Apple silicon (M1 or newer) and Intel. Windows and Linux builds are not available yet.
+- Engine: a Chromium fork with a small patch set. Pages render as in Chrome, Google sign-in works and Chrome Web Store extensions install.
+- Privacy: the app has no account, no usage analytics and no crash reports. It only contacts flecha.dev for update checks (Sparkle). Ad and tracker blocking (EasyList and EasyPrivacy) is built in and on by default.
+- Switching from Arc: the welcome tour imports Arc's Spaces, pinned tabs with folders, favorites and history, and bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Firefox and Safari. Importing and the MCP server need a helper registered once with `chromium/scripts/install-native-host.sh`.
+- Made by OPrimoDev. Not affiliated with The Browser Company or Google.
+
+## Docs
+
+- [Install Flecha](https://flecha.dev/docs/install/): download, updates, default browser, the helper for importing and agents
+- [Switch from Arc](https://flecha.dev/docs/switch-from-arc/): what's imported and where each Arc feature lives in Flecha
+- [Command bar](https://flecha.dev/docs/command-bar/): `gh`, `npm`, `mdn`, `caniuse`, `so`, `env`, `boost`, JWT and Unix timestamp decoding
+- [The MCP server for coding agents](https://flecha.dev/docs/agents/mcp/): how to turn it on, security model and every tool (list_tabs, open_tab, activate_tab, close_tab, navigate, read_page, screenshot, console_logs, click, type, press_key, evaluate, wait_for)
+- [Connect Claude Code](https://flecha.dev/docs/agents/claude-code/): `claude mcp add --transport http flecha http://127.0.0.1:7390/mcp --header "Authorization: Bearer <token>"`
+- [Connect Cursor or Windsurf](https://flecha.dev/docs/agents/cursor/): the `mcpServers` JSON config
+- [Keyboard shortcuts](https://flecha.dev/docs/shortcuts/): every default shortcut and how to record your own
+
+## Links
+
+- [Homepage](https://flecha.dev/): product overview, features and downloads
+- [Download for Mac, Apple silicon](https://dl.flecha.dev/Flecha.dmg): latest build; Flecha updates itself afterwards
+- [Download for Mac, Intel](https://dl.flecha.dev/Flecha-x64.dmg): latest Intel build
+- [Source code](https://github.com/lucianodiisouza/flecha-browser): Chromium patches, TypeScript shell, build scripts
+- [Releases](https://github.com/lucianodiisouza/flecha-browser/releases): changelog and previous versions
+- [Issues](https://github.com/lucianodiisouza/flecha-browser/issues): bug reports and feature requests
+- [Privacy policy](https://flecha.dev/privacy/)
+
+## Português (pt-BR)
+
+O Flecha é um navegador Chromium gratuito e open source (MIT) para macOS, feito para devs. Ele tem sidebar vertical com Spaces, uma barra de comandos com atalhos de desenvolvedor e um servidor MCP para agentes de código como Claude Code e Cursor. Não pede conta, não tem telemetria e tudo fica no seu Mac. Roda no macOS 13 ou mais novo, em Macs com Apple silicon e Intel, e importa Spaces, abas e histórico do Arc.
+
+- [Página inicial em português](https://flecha.dev/pt-br/)
+- [Documentação em português](https://flecha.dev/docs/pt-br/)
+- [Migrar do Arc](https://flecha.dev/docs/pt-br/switch-from-arc/)
+- [Política de privacidade](https://flecha.dev/pt-br/privacidade/)

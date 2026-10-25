@@ -1,0 +1,88 @@
+---
+title: A barra de comandos
+description: Todos os comandos da barra do Flecha, de gh, npm, mdn, caniuse e so a ambientes, Boosts e decodificação de JWTs e timestamps Unix no seu Mac.
+sidebar:
+  label: Barra de comandos
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+A barra de comandos é uma caixa só para abas abertas, histórico, ações e os sites de dev que você abre cinquenta vezes por dia. Abra com:
+
+| Teclas | O que faz |
+| --- | --- |
+| <kbd>⌘</kbd><kbd>T</kbd> | Abre vazia. <kbd>Enter</kbd> abre o resultado numa nova aba Today. |
+| <kbd>⌘</kbd><kbd>L</kbd> | Começa com a URL da aba atual selecionada. <kbd>Enter</kbd> carrega o resultado na aba atual. Clicar na barra de endereço faz o mesmo. |
+| <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd> | Abre o resultado em split view ao lado da aba atual. Escolher uma aba aberta divide a tela com ela. |
+
+Navegue com <kbd>↑</kbd> e <kbd>↓</kbd>, rode a linha selecionada com <kbd>Enter</kbd> e feche com <kbd>Esc</kbd>.
+
+## URLs e busca
+
+- Qualquer coisa com esquema (`https://`, `about:`, `file:` etc.) abre como está.
+- `localhost`, `127.0.0.1` e `[::1]`, com ou sem porta e caminho, ganham `http://`.
+- Texto que parece domínio, como `example.com/docs`, ganha `https://`.
+- O resto é pesquisado no seu buscador: Google (o padrão), DuckDuckGo, Bing, Brave Search, Kagi ou Ecosia. Troque em Configurações › **General**.
+
+## Comandos de dev
+
+Digite uma palavra-chave, um espaço e o que você procura. Todo comando precisa dessa última parte.
+
+| Você digita | O Flecha abre |
+| --- | --- |
+| `gh vercel/next.js` | O repositório no GitHub |
+| `gh 482` ou `gh #482` | O pull request ou issue 482 do repositório da aba atual |
+| `gh quaisquer palavras` | Uma busca no GitHub |
+| `npm zod` | A página do pacote no npm (uma palavra) |
+| `npm date picker` | Uma busca no npm (várias palavras) |
+| `mdn structuredClone` | Uma busca no MDN Web Docs |
+| `caniuse :has` | Uma busca no Can I use |
+| `so docker volume permissions` | Uma busca no Stack Overflow |
+
+<Aside type="tip">
+`gh 482` pega o repositório da aba em que você está, então funciona em qualquer página desse repositório no github.com. O GitHub manda `/pull/482` para a issue quando 482 é uma issue. Em outros sites, `gh 482` pesquisa no GitHub.
+</Aside>
+
+### Ir para outro ambiente
+
+Digite `env` numa página cuja origem faz parte de um projeto em Configurações › **Environments**. A barra lista **Switch to** para cada um dos outros ambientes do projeto, mantendo caminho, query e hash. <kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd> faz o mesmo numa tecla, indo para o próximo ambiente da lista.
+
+Para montar um projeto, vá em Configurações › **Environments** › **Add Project** e liste um ambiente por linha, como `rótulo origem`:
+
+```text
+local http://localhost:3000
+staging https://staging.example.com
+prod https://example.com
+```
+
+A barra de endereço passa a mostrar o rótulo como selo: verde para local, âmbar para nomes de staging como `staging`, `preview` ou `qa`, e vermelho para o resto.
+
+### Editar o Boost deste site
+
+Digite `boost` para ver **Edit boost script for** o site atual (TypeScript) e **Edit boost styles for** ele (CSS, aplicado ao vivo quando você salva). <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> vai direto para o editor.
+
+## Decodificar JWTs e timestamps
+
+Cole um destes e a barra decodifica na hora. Nada sai do seu Mac.
+
+- **JSON Web Token**: qualquer coisa em três partes separadas por ponto começando com `eyJ`. A linha mostra o algoritmo, o subject e quando expira ou expirou, e a linha selecionada mostra o header e o payload decodificados. <kbd>Enter</kbd> copia os dois como JSON. A assinatura **não** é verificada.
+- **Timestamp Unix**: exatamente 10 dígitos (segundos) ou 13 dígitos (milissegundos), como `1761140000`. A linha mostra a data no seu fuso e quanto tempo falta ou passou. <kbd>Enter</kbd> copia como data ISO 8601 em UTC.
+
+## Ações
+
+Digite pelo menos duas letras do nome de uma ação para rodá-la pela barra:
+
+**New Space**, **Edit Space**, **New Flechinha Window**, **Settings**, **Responsive View**, **Toggle Sidebar**, **Clear Today Tabs**, **Show Downloads** e **Open Boosts Folder**.
+
+## O que ela pesquisa
+
+Os resultados vêm em grupos, nesta ordem:
+
+1. **Open** ou **Search** para o que você digitou.
+2. **Developer**: os comandos acima.
+3. **Actions**.
+4. **Tabs**: abas abertas em todos os Spaces, além de favoritos e abas fixadas que não estão carregadas, das usadas mais recentemente para as mais antigas.
+5. **History**: páginas que você visitou, incluindo o histórico [importado de outros navegadores](/docs/pt-br/switch-from-arc/).
+6. **Archive**: abas Today que se arquivaram sozinhas.
+
+Favoritos importados viram abas fixadas, então aparecem em **Tabs**.

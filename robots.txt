@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://flecha.dev/sitemap.xml
+Sitemap: https://flecha.dev/docs/sitemap-index.xml
