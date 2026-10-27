@@ -5,6 +5,10 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/docs/changelog", "destination": "/changelog/", "permanent": true },
+    { "source": "/docs/pt-br/changelog", "destination": "/pt-br/novidades/", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/appcast.xml",

@@ -90,7 +90,11 @@ export default defineConfig({
         {
           label: 'Reference',
           translations: { 'pt-BR': 'Referência' },
-          items: ['shortcuts', 'changelog'],
+          items: [
+            'shortcuts',
+            // What's new lives on the website itself (scripts/changelog.mjs); /docs/changelog/ redirects there.
+            { label: "What's new", translations: { 'pt-BR': 'Novidades' }, link: '/changelog/' },
+          ],
         },
         {
           label: 'Development',

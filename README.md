@@ -30,7 +30,7 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 
 ### Download
 
-Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg). The app keeps itself up to date. Release notes are on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
+Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg). The app keeps itself up to date. What changed in each version is on [flecha.dev/changelog](https://flecha.dev/changelog/), and every release is archived on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
 
 ## About this repository
 

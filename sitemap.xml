@@ -36,4 +36,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/terms/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/termos/"/>
   </url>
+  <url>
+    <loc>https://flecha.dev/changelog/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/novidades/"/>
+  </url>
+  <url>
+    <loc>https://flecha.dev/pt-br/novidades/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flecha.dev/changelog/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/novidades/"/>
+  </url>
 </urlset>
