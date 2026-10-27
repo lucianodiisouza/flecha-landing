@@ -1027,6 +1027,22 @@ body::before {
 .legal-summary { padding: 24px 28px; border-radius: 14px; background: var(--panel); border: 1px solid var(--edge); }
 .legal-summary h2 { margin: 0 0 12px; padding: 0; border: 0; font-size: 1.1rem; }
 
+/* ---- changelog (scripts/changelog-page.mjs) ------------------------------ */
+
+.changelog-intro { margin: 0; max-width: 60ch; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+.release h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.release h2 a { color: var(--ink); text-decoration: none; font-family: var(--mono); }
+.release h2 a:hover { text-decoration: underline; text-decoration-color: var(--mark); }
+.release time { font: 500 0.8rem/1 var(--mono); color: var(--muted); }
+.release-tag {
+  padding: 4px 8px; border-radius: 999px; background: var(--mark); color: var(--paper);
+  font: 700 0.68rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.legal .release-summary { margin-top: 12px; color: var(--ink); font-weight: 600; }
+.legal .release-summary + ul { margin-top: 12px; }
+.legal code { font: 500 0.88em/1 var(--mono); padding: 2px 5px; border-radius: 5px; background: var(--panel); border: 1px solid var(--edge); }
+.changelog-archive { margin-top: 48px !important; padding-top: 20px; border-top: 1px solid var(--edge); color: var(--muted); }
+
 /* ---- 404 ---------------------------------------------------------------- */
 
 .not-found { min-height: 100vh; display: grid; align-items: center; padding-block: 64px; }
