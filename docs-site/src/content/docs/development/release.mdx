@@ -17,7 +17,7 @@ chromium/scripts/build-release.sh --dmg
 
 `build-release.sh` builds the shell, applies the patches (skipped when nothing changed), stages the shell and Sparkle into the checkout, writes `out/Release/args.gn` from `chromium/build/release.gn`, and builds. A release build takes 3 to 6 hours and can be resumed. Set `FLECHA_ARCH=x64` to build for Intel into `out/Release-x64`.
 
-Release builds leave out proprietary codecs (H.264 and AAC), which need patent licences.
+Release builds include H.264 and AAC (`proprietary_codecs`, `ffmpeg_branding = "Chrome"`), since many sites only serve video in those formats.
 
 ## 2. Package, sign and notarize
 
