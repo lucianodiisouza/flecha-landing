@@ -12,6 +12,36 @@
 /** @type {ChangelogEntry[]} */
 export const CHANGELOG = [
   {
+    version: '0.1.2',
+    date: '2026-11-02',
+    en: {
+      summary: 'Your extensions in the sidebar, sites that stay signed in after importing, and video on X.',
+      items: [
+        'The site panel shows every installed extension, as in Arc. Pinned ones get a section at the bottom of the sidebar, in every Space, that you can collapse and reorder by dragging.',
+        'Clicking an extension opens its popup beside the sidebar. Right-click for Pin, Options, Remove and Manage Extensions.',
+        'Importing brings your logins: cookies now come over from Chromium browsers and Firefox, so sites stay signed in. macOS asks once per Chromium browser for its Safe Storage key. Safari’s cookies don’t come over yet. Thanks to @gitlherme.',
+        'If you refuse the keychain prompt during an import, Flecha says the logins are missing and can try again for the cookies alone.',
+        'Video that only comes as H.264/AAC, such as on X, now plays.',
+        '⌥⌘M opens the responsive view. Thanks to @mattverlaque.',
+        'The responsive view’s phone pane is as wide as the phone, and keeps that width when you resize the window. Thanks to @mattverlaque.',
+        'Coding agents can read and drive a tab in the responsive view, and no longer knock its phone mirror back to desktop width. Thanks to @mattverlaque.',
+      ],
+    },
+    'pt-br': {
+      summary: 'Suas extensões na sidebar, sites que continuam logados depois de importar e vídeo no X.',
+      items: [
+        'O painel do site mostra todas as extensões instaladas, como no Arc. As fixadas ganham uma seção no fim da sidebar, em todos os Spaces, que você pode recolher e reordenar arrastando.',
+        'Clicar numa extensão abre o popup dela ao lado da sidebar. O botão direito traz Fixar, Opções, Remover e Gerenciar extensões.',
+        'A importação traz seus logins: os cookies agora vêm dos navegadores Chromium e do Firefox, então os sites continuam logados. O macOS pede uma vez, por navegador Chromium, a chave do Safe Storage dele. Os cookies do Safari ainda não vêm. Obrigado, @gitlherme.',
+        'Se você recusar o pedido do Keychain durante a importação, o Flecha avisa que os logins ficaram de fora e pode tentar de novo só com os cookies.',
+        'Vídeos que só existem em H.264/AAC, como os do X, agora tocam.',
+        '⌥⌘M abre a visualização responsiva. Obrigado, @mattverlaque.',
+        'O painel do celular na visualização responsiva tem a largura do celular e mantém essa largura quando você redimensiona a janela. Obrigado, @mattverlaque.',
+        'Agentes de código conseguem ler e controlar uma aba na visualização responsiva, e não fazem mais o espelho do celular voltar à largura de desktop. Obrigado, @mattverlaque.',
+      ],
+    },
+  },
+  {
     version: '0.1.1',
     date: '2026-10-27',
     en: {
