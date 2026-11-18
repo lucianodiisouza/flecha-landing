@@ -56,7 +56,7 @@ export default defineConfig({
         {
           label: 'Start here',
           translations: { 'pt-BR': 'Comece aqui' },
-          items: ['index', 'install', 'switch-from-arc'],
+          items: ['index', 'install', 'arc-shutdown', 'switch-from-arc'],
         },
         {
           label: 'Using Flecha',

@@ -1,0 +1,135 @@
+---
+title: 'Arc is shutting down: what to do before December 22'
+description: Arc shuts down on December 22, 2026. The dates, what you lose, how to back up your Spaces, tabs and passwords, and how to pick and move to a new browser.
+sidebar:
+  label: Arc is shutting down
+faq:
+  - q: Will Arc keep working after December 22, 2026?
+    a: No. The Browser Company says that from December 22, 2026 you can no longer use Arc on macOS or Windows or sign in, and Arc accounts are deactivated. Personal data tied to those accounts is deleted within 30 days.
+  - q: Does Arc work offline after the shutdown?
+    a: The Browser Company hasn't said anything about offline use. Its notice says Arc stops working on macOS and Windows, so plan as if it won't open at all after December 22 and move your things before then.
+  - q: Can I export my Arc Spaces?
+    a: Arc's own export (Arc › Settings › Advanced › Export Data on a Mac) saves your tabs as a list of links. To keep the Spaces themselves, with their pinned tabs and folders, import them into another browser while Arc still opens. [Flecha](/docs/switch-from-arc/) brings them over with their names, icons and colours.
+  - q: Can I still download Arc to export my data?
+    a: Yes, until December 22. The Browser Company says that if Arc is no longer installed, you can download it again from arc.net and export from inside the app.
+  - q: Will Arc be open-sourced?
+    a: There are no plans to. CEO Josh Miller has said Arc can't be open-sourced in a meaningful way without also releasing the Arc Development Kit, which Dia is built on.
+  - q: What happens to Arc Search on iPhone and Android?
+    a: On November 23, 2026, Arc Search loses sign-in, tab sync and its AI features such as Browse for Me. A lite browser stays on iOS; on Android, Arc Search is removed on December 22.
+  - q: Does Flecha import my Arc passwords?
+    a: No. Flecha imports Spaces, pinned tabs, folders, favorites, history and cookies, but never passwords. Move your passwords to a password manager before December 22.
+---
+
+import { Steps, Aside, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Faq from '../../components/Faq.astro';
+
+The Browser Company is [shutting down Arc](https://arc.net/). **Arc stops working on macOS and Windows on December 22, 2026**, and the accounts and data behind it are deleted soon after. This page puts the dates in one place, lists what to save while Arc still opens, and helps you choose where to go next.
+
+We make [Flecha](https://flecha.dev/), an open-source browser that keeps Arc's sidebar and Spaces, so we have a side in this. Every fact about Arc below links to The Browser Company or to the press that reported it.
+
+## When does Arc shut down?
+
+| Date | What happens |
+| --- | --- |
+| October 22, 2026 | New Arc accounts can no longer be created. Arc keeps working for existing users, with basic updates. |
+| November 23, 2026 | Arc Search on iOS and Android loses sign-in, tab sync and AI features such as Browse for Me. |
+| **December 22, 2026** | **Arc stops working on macOS and Windows** and you can no longer sign in. Arc accounts are deactivated. Arc Search is removed from Google Play. |
+| Within 30 days after December 22 | Personal data tied to deactivated Arc accounts is deleted. |
+
+Sources: [The Browser Company's sunset notice on arc.net](https://arc.net/), [TechCrunch](https://techcrunch.com/2026/10/22/arc-browser-sunsets-december-22-as-the-browser-company-doubles-down-on-dia/), [TidBITS](https://tidbits.com/2026/10/26/the-browser-company-kicks-arc-to-the-curb-on-22-december-2026/).
+
+After December 22, The Browser Company says it can no longer find or retrieve your data for data requests. If you want anything from Arc, export it or import it somewhere else before that date.
+
+## Why is Arc shutting down?
+
+The Browser Company, owned by Atlassian since 2025, says keeping a browser secure takes constant work that keeps growing, and that its engineering and security teams will now work only on [Dia](https://www.diabrowser.com/), its AI browser ([TechCrunch](https://techcrunch.com/2026/10/22/arc-browser-sunsets-december-22-as-the-browser-company-doubles-down-on-dia/)). Arc itself had stopped getting new features in 2025.
+
+Many Arc users asked for the code to be released. CEO Josh Miller has said that isn't possible in a meaningful way without also releasing the Arc Development Kit, which Dia is built on.
+
+## What you lose, and when
+
+- **Now:** you can't create a new Arc account, so you can't set Arc up for someone else.
+- **November 23:** Arc Search on your phone stops syncing tabs with Arc on your Mac.
+- **December 22:** the Arc app on your Mac or PC stops working. Your Spaces, pinned tabs, folders, Boosts, Easels and Notes are only reachable through Arc, so anything you haven't moved by then is out of reach.
+- **Up to 30 days later:** your Arc account and the data synced to it are deleted.
+
+## Your checklist before December 22
+
+Work through this while Arc still opens, so you can check the new browser against the old one side by side.
+
+<Steps>
+
+1. **Update Arc and export your tabs.** On a Mac, choose **Arc › Settings › Advanced › Export Data**. On Windows, open Settings (<kbd>Ctrl</kbd><kbd>,</kbd>) › **Advanced** › **Export Spaces and tabs** › **Export Data**. The export saves your tabs as a list of links: a good backup, but not your Spaces as they are.
+
+2. **Import your Spaces into your next browser.** This is what keeps your sidebar intact: Spaces, pinned tabs, folders and favorites. [Flecha does it in one step](/docs/switch-from-arc/), and so do some others (see [how to choose](#how-to-choose-a-replacement)).
+
+3. **Save your passwords.** If Arc stores your logins, move them to a password manager you'll keep using, such as Apple's Passwords app, 1Password or Bitwarden. Flecha never imports passwords. Dia imports them from Arc ([arc.net](https://arc.net/)), and Orion lists Arc among the browsers it can import from ([Kagi](https://help.kagi.com/orion/getting-started/importing.html)).
+
+4. **Write down your extensions.** Open Arc's extensions page and note what you use. In any Chromium browser, including Flecha, you reinstall them from the Chrome Web Store, then sign back in where needed.
+
+5. **Copy your Boosts.** Open each Boost you rely on and copy its code to a file. Flecha has [Boosts too](/docs/guides/boosts/), as TypeScript and CSS, so most CSS Boosts paste straight in.
+
+6. **Save Easels and Notes.** Arc's sunset notice doesn't mention them in the export, and Flecha doesn't import them. Copy anything you want to keep into a notes app or a document.
+
+7. **Check Little Arc and Air Traffic Control.** If links from Slack, Mail or other apps go to a particular Space, note your Air Traffic Control rules so you can rebuild them. Flecha has [Air Traffic Control](/docs/guides/spaces/#send-links-from-other-apps-to-a-space) and Flechinha, its Little Arc.
+
+8. **Make your new browser the default** on your Mac, so links stop opening in Arc. In Flecha: Settings › **General** › **Default browser**.
+
+</Steps>
+
+<Aside type="caution">
+If you've already deleted Arc, The Browser Company says you can download it again from [arc.net](https://arc.net/) and export from inside the app, until December 22.
+</Aside>
+
+## How to choose a replacement
+
+Start with the few things that rule browsers out:
+
+- **Your computers.** Flecha is macOS only. Dia runs on macOS and Windows. Zen, Vivaldi, Brave, Edge and Helium also run on Windows and Linux.
+- **Your extensions.** Chromium browsers (Flecha, Dia, Vivaldi, Brave, Edge, Helium) use the Chrome Web Store. Zen is Firefox-based and uses Firefox add-ons.
+- **Your Spaces.** Flecha imports Arc's Spaces with pinned tabs and folders. Dia imports them as Profiles and tab groups, and Zen can import Spaces too.
+- **AI.** Dia and Comet are built around an assistant. Flecha, Vivaldi and Helium have none built in.
+- **Streaming.** If you watch Netflix or Disney+ in the browser, check DRM. Flecha, Zen and Helium don't include Widevine today.
+- **Sync and phones.** Flecha has no account and no sync. If you need your tabs on several computers or a phone, Vivaldi, Brave and Edge have sync and phone apps, and Dia syncs between computers.
+
+Our [Arc alternatives guide](/docs/compare/arc-alternatives/) compares them all, and each one has a page of its own:
+
+<CardGrid>
+  <LinkCard title="Flecha vs Arc" href="/docs/compare/flecha-vs-arc/" />
+  <LinkCard title="Flecha vs Dia" href="/docs/compare/flecha-vs-dia/" />
+  <LinkCard title="Flecha vs Zen" href="/docs/compare/flecha-vs-zen/" />
+  <LinkCard title="Flecha vs Vivaldi" href="/docs/compare/flecha-vs-vivaldi/" />
+  <LinkCard title="Flecha vs Brave" href="/docs/compare/flecha-vs-brave/" />
+  <LinkCard title="Flecha vs Orion" href="/docs/compare/flecha-vs-orion/" />
+  <LinkCard title="Flecha vs Edge" href="/docs/compare/flecha-vs-edge/" />
+  <LinkCard title="Flecha vs Helium" href="/docs/compare/flecha-vs-helium/" />
+  <LinkCard title="Flecha vs Chrome" href="/docs/compare/flecha-vs-chrome/" />
+</CardGrid>
+
+## Move to Flecha in a few minutes
+
+Flecha is a free, MIT-licensed Chromium browser for Macs with Apple silicon or Intel (macOS 13 or newer). It keeps Arc's sidebar, Spaces, pinned tabs, Today tabs that archive themselves, Peek, split view and a Little Arc called Flechinha. It has no account and no AI built in, and nothing about you leaves your Mac.
+
+<Steps>
+
+1. [Download Flecha](https://flecha.dev/#download) and drag it to Applications.
+
+2. Before opening it, [set up the helper](/docs/install/#set-up-the-helper-for-importing-and-coding-agents) that lets Flecha read Arc's files.
+
+3. Open Flecha. On the **Bring your stuff over** step of the welcome tour, click **Import** next to Arc. Allow the Keychain prompt so your sites stay signed in.
+
+4. Check your Spaces against Arc, then make Flecha your default browser.
+
+</Steps>
+
+The full walkthrough, with where each Arc feature lives and what to do if something doesn't come over, is in [Switch from Arc](/docs/switch-from-arc/).
+
+<Aside>
+Be aware before you switch: Flecha doesn't include Widevine DRM, so Netflix, Disney+, Spotify's web player and similar services don't play in it; Flecha offers to open those pages in Safari. [Why](/docs/guides/privacy/#streaming-services-and-drm)
+</Aside>
+
+## FAQ
+
+<Faq />
+
+<small>Dates and details about Arc checked on November 18, 2026, against arc.net and the articles linked above.</small>
