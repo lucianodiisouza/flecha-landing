@@ -1,6 +1,6 @@
 ---
 title: Spaces e logins separados
-description: Use Spaces no Flecha para separar trabalho, projetos pessoais e clientes, cada um com suas abas fixadas e, se quiser, seus próprios cookies e logins.
+description: Use Spaces no Flecha para separar trabalho, projetos pessoais e clientes, cada um com suas abas fixadas e seus próprios cookies e logins.
 sidebar:
   label: Spaces
 ---
@@ -18,7 +18,7 @@ Qualquer uma destas opções cria um Space e abre o editor dele:
 - **New Space** na [barra de comandos](/docs/pt-br/command-bar/),
 - **New Space** em Configurações › **Tabs & Spaces**.
 
-No editor, dê um nome, escolha um **Icon** (um emoji) e uma **Colour**, ou uma cor personalizada. No modo escuro, a cor vira um tom escuro do mesmo matiz.
+No editor, dê um nome, escolha um **Icon** (um emoji) e uma **Colour**, ou uma cor personalizada. No modo escuro, a cor vira um tom escuro do mesmo matiz. Spaces novos já começam com [cookies e logins próprios](#cookies-e-logins-separados).
 
 Para editar um Space depois, clique duas vezes no nome dele no topo da sidebar, ou clique com o botão direito e escolha **Edit Space…**.
 
@@ -31,9 +31,10 @@ Para editar um Space depois, clique duas vezes no nome dele no topo da sidebar, 
 
 ## Cookies e logins separados
 
-Ligue isso num Space e ele ganha seus próprios cookies, local storage, cache e service workers. Você pode estar logado no GitHub como duas pessoas, ou testar um site como admin num Space e como cliente em outro, lado a lado.
+Spaces novos têm, por padrão, seus próprios cookies, local storage, cache e service workers. Você pode estar logado no GitHub como duas pessoas, ou testar um site como admin num Space e como cliente em outro, lado a lado.
 
-- No editor do Space, ligue **Separate cookies and logins**, ou clique com o botão direito no Space e escolha **Separate Cookies and Logins**.
+- A opção, **Separate cookies and logins**, fica logo abaixo do nome do Space no editor. Você também pode clicar com o botão direito no Space e escolher **Separate Cookies and Logins**, ou usar o menu **Spaces**.
+- Spaces importados não são separados, então os logins que você importou continuam valendo neles. Ligue a opção num deles quando quiser.
 - Um cadeado ao lado do nome do Space mostra que está ligado.
 - Ligar ou desligar reabre as abas do Space para que elas passem para o armazenamento certo.
 - **Clear Cookies and Site Data…** no menu de botão direito do Space desloga você de tudo só naquele Space.
@@ -54,8 +55,18 @@ Clique com o botão direito no nome de um Space, no ponto dele ou numa parte vaz
 
 Apagar um Space fecha de vez as abas fixadas e as abas Today dele; elas não vão para o arquivo. O Flecha pergunta antes. O botão **Delete Space** dentro do editor apaga na hora.
 
+## O menu Spaces na barra de menus
+
+O menu **Spaces** do Flecha, na barra de menus do Mac, lista seus Spaces para você trocar (<kbd>⌃</kbd><kbd>1</kbd>–<kbd>⌃</kbd><kbd>9</kbd>) e tem **New Space**, **Edit Space…**, Space seguinte e anterior, **Separate Cookies and Logins** e **Reset Pinned Tabs**.
+
+## Mandar links de outros apps para um Space
+
+O **Air Traffic Control**, em Configurações › **Tabs**, decide para onde vão os links abertos em outros apps. Crie uma regra com um site, ou um site e um caminho, e o Space em que ele deve abrir. Um link do Slack para `github.com/acme`, por exemplo, pode abrir sempre no seu Space de trabalho.
+
 ## Organizar tudo de uma vez
 
 Configurações › **Tabs & Spaces** mostra todos os Spaces, com suas abas fixadas, pastas e abas Today, numa lista só. Arraste abas e pastas entre Spaces, selecione várias com <kbd>⌘</kbd>-clique ou <kbd>⇧</kbd>-clique, reordene os Spaces arrastando os cabeçalhos e pesquise com <kbd>⌘</kbd><kbd>F</kbd>.
+
+Nessa mesma tela você exporta seus Spaces para um arquivo e importa de volta.
 
 Próximo: [abas fixadas, pastas e Today](/docs/pt-br/guides/tabs/).

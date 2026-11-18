@@ -23,6 +23,18 @@ Tabs, Spaces, history, settings, cookies and [Boosts](/docs/guides/boosts/) are 
 
 The [MCP server for coding agents](/docs/agents/mcp/) is off until you turn it on, listens only on `127.0.0.1` and needs a token.
 
+## Cookies and browsing data
+
+- Settings › **Privacy** › **Block third-party cookies** stops sites from setting cookies for other sites.
+- Settings › **Privacy** › **Clear Browsing Data** clears history, cookies and site data, and cached files for the time range you pick, in every Space, including those with [their own cookies and logins](/docs/guides/spaces/#separate-cookies-and-logins).
+- New Spaces keep their own cookies and logins by default, so your sessions in one Space stay invisible to the others.
+
+## The Keychain
+
+Like every Chromium browser, Flecha encrypts saved cookies and passwords with a key it keeps in the macOS Keychain. Flecha keeps that key in its own item, **Flecha Safe Storage**, rather than the one Chromium shares, so on a Mac with Chromium, Helium or another fork macOS doesn't ask on first launch to let Flecha into another app's key.
+
+If you used Flecha before version 0.1.4, macOS asks once after updating, so Flecha can carry the old key over and you stay signed in. Choose **Always Allow** and it won't ask again.
+
 ## Ad and tracker blocking
 
 Flecha blocks ads and trackers out of the box, with the **EasyList** and **EasyPrivacy** lists.
@@ -33,6 +45,12 @@ Flecha blocks ads and trackers out of the box, with the **EasyList** and **EasyP
 - Turn it off in Settings › **Privacy** › **Block ads and trackers**. There's no per-site allowlist yet.
 
 Want more? Content blockers from the Chrome Web Store, such as uBlock Origin Lite, work alongside it.
+
+## Streaming services and DRM
+
+Flecha doesn't include Widevine, the DRM that Netflix, Disney+, Prime Video, Max, Hulu, Apple TV+, Paramount+, Peacock, Crunchyroll, Globoplay, MUBI, Tidal and Spotify's web player require. Google only licenses Widevine to browsers that go through a paid certification, and Flecha is free and open source with no paid parts.
+
+On those sites Flecha says so once and offers to open the page in Safari, in one click. Without the [helper](/docs/install/#set-up-the-helper-for-importing-and-coding-agents) installed, it copies the link for you instead. Everything else, including YouTube, X, Twitch and H.264/AAC video, plays normally.
 
 ## Incognito
 

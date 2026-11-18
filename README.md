@@ -23,14 +23,16 @@ Flecha is a Chromium browser for macOS with a vertical sidebar, Spaces and a com
 - **Local dev servers** in the sidebar, with console error counts on local tabs.
 - **Boosts** (`⌥⌘B`): your own TypeScript and CSS for any site, edited on Flecha’s Boosts page.
 - **Coding agents over MCP**: Claude Code, Cursor and others can read and drive your tabs through a local, token-protected bridge.
-- **Spaces** with their own cookies and logins, **pinned tabs and folders**, **favorites** and **today tabs** that archive themselves.
+- **Spaces** with their own cookies and logins (on by default for new Spaces), **pinned tabs and folders**, **favorites** and **today tabs** that archive themselves into a searchable **archive**.
+- **Flecha’s own menus** in the Mac menu bar (Spaces, Tabs, Archive), **Stay On Top**, automatic **picture-in-picture**, **multi-select tabs** and **Air Traffic Control** for links from other apps.
 - **Flechinha** for links from other apps, **Peek**, and **split view** for two pages side by side.
 - **Real Chromium**: Google sign-in and Chrome Web Store extensions work, with ad and tracker blocking built in.
 - **Import** from Arc, Chrome, Brave, Edge, Firefox and Safari.
+- **No Widevine DRM**: Google only licenses it through a paid certification, so Netflix, Disney+, Spotify’s web player and similar services don’t play in Flecha. It offers to open those pages in Safari; YouTube, X, Twitch and the rest of the web play normally.
 
 ### Download
 
-Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg). The app keeps itself up to date. What changed in each version is on [flecha.dev/changelog](https://flecha.dev/changelog/), and every release is archived on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
+Download the latest Flecha for Mac: [Apple silicon](https://dl.flecha.dev/Flecha.dmg) · [Intel](https://dl.flecha.dev/Flecha-x64.dmg), macOS 13 or newer. The app keeps itself up to date. What changed in each version is on [flecha.dev/changelog](https://flecha.dev/changelog/), and every release is archived on [GitHub Releases](https://github.com/lucianodiisouza/flecha-browser/releases). Flecha is free and open source.
 
 ## About this repository
 

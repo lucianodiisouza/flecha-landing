@@ -23,6 +23,18 @@ Abas, Spaces, histórico, configurações, cookies e [Boosts](/docs/pt-br/guides
 
 O [servidor MCP para agentes de código](/docs/pt-br/agents/mcp/) fica desligado até você ligar, só escuta em `127.0.0.1` e exige um token.
 
+## Cookies e dados de navegação
+
+- Configurações › **Privacy** › **Block third-party cookies** impede que sites gravem cookies para outros sites.
+- Configurações › **Privacy** › **Clear Browsing Data** limpa histórico, cookies e dados de sites, e arquivos em cache do período que você escolher, em todos os Spaces, inclusive nos que têm [cookies e logins próprios](/docs/pt-br/guides/spaces/#cookies-e-logins-separados).
+- Spaces novos têm cookies e logins próprios por padrão, então suas sessões num Space ficam invisíveis para os outros.
+
+## O Keychain
+
+Como todo navegador Chromium, o Flecha criptografa cookies e senhas salvos com uma chave que guarda no Keychain do macOS. O Flecha guarda essa chave num item próprio, **Flecha Safe Storage**, e não no que o Chromium compartilha. Assim, num Mac com Chromium, Helium ou outro fork, o macOS não pede na primeira abertura para o Flecha usar a chave de outro app.
+
+Se você já usava o Flecha antes da versão 0.1.4, o macOS pede uma vez depois da atualização, para o Flecha levar a chave antiga e você continuar logado. Escolha **Permitir Sempre** e ele não pergunta mais.
+
 ## Bloqueio de anúncios e rastreadores
 
 O Flecha bloqueia anúncios e rastreadores desde o primeiro uso, com as listas **EasyList** e **EasyPrivacy**.
@@ -33,6 +45,12 @@ O Flecha bloqueia anúncios e rastreadores desde o primeiro uso, com as listas *
 - Desligue em Configurações › **Privacy** › **Block ads and trackers**. Ainda não existe lista de sites permitidos.
 
 Quer mais? Bloqueadores de conteúdo da Chrome Web Store, como o uBlock Origin Lite, funcionam junto com ele.
+
+## Streaming e DRM
+
+O Flecha não inclui o Widevine, o DRM que Netflix, Disney+, Prime Video, Max, Hulu, Apple TV+, Paramount+, Peacock, Crunchyroll, Globoplay, MUBI, Tidal e o player web do Spotify exigem. O Google só licencia o Widevine para navegadores que passam por uma certificação paga, e o Flecha é gratuito e open source, sem nenhuma parte paga.
+
+Nesses sites, o Flecha avisa uma vez e oferece abrir a página no Safari, com um clique. Sem o [auxiliar](/docs/pt-br/install/#configurar-o-auxiliar-para-importar-e-para-agentes-de-código) instalado, ele copia o link para você. Todo o resto, inclusive YouTube, X, Twitch e vídeos em H.264/AAC, toca normalmente.
 
 ## Anônimo
 
