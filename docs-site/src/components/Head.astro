@@ -1,5 +1,6 @@
 ---
-// Starlight's head, plus TechArticle and BreadcrumbList structured data for every page.
+// Starlight's head, plus TechArticle and BreadcrumbList structured data for every page, and
+// FAQPage for pages with `faq` frontmatter (rendered on the page by <Faq />).
 import Default from '@astrojs/starlight/components/Head.astro';
 
 const { entry, lang, lastUpdated } = Astro.locals.starlightRoute;
@@ -14,6 +15,11 @@ const crumbs = [
   { name: isPt ? 'Documentação' : 'Docs', item: docsHome },
 ];
 if (url !== docsHome) crumbs.push({ name: entry.data.title, item: url });
+
+// "[text](/docs/x/)" becomes "text (https://flecha.dev/docs/x/)" in the structured data.
+const plain = (s: string) =>
+  s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, href) => `${text} (${new URL(href, Astro.site).href})`);
+const faq = entry.data.faq ?? [];
 
 const graph = {
   '@context': 'https://schema.org',
@@ -35,6 +41,20 @@ const graph = {
       '@type': 'BreadcrumbList',
       itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.item })),
     },
+    ...(faq.length
+      ? [
+          {
+            '@type': 'FAQPage',
+            '@id': `${url}#faq`,
+            inLanguage: lang,
+            mainEntity: faq.map(({ q, a }) => ({
+              '@type': 'Question',
+              name: q,
+              acceptedAnswer: { '@type': 'Answer', text: plain(a) },
+            })),
+          },
+        ]
+      : []),
   ],
 };
 ---

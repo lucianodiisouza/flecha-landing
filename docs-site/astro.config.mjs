@@ -56,7 +56,7 @@ export default defineConfig({
         {
           label: 'Start here',
           translations: { 'pt-BR': 'Comece aqui' },
-          items: ['index', 'install', 'switch-from-arc'],
+          items: ['index', 'install', 'arc-shutdown', 'switch-from-arc'],
         },
         {
           label: 'Using Flecha',
@@ -84,6 +84,11 @@ export default defineConfig({
             'compare/flecha-vs-arc',
             'compare/flecha-vs-dia',
             'compare/flecha-vs-zen',
+            'compare/flecha-vs-vivaldi',
+            'compare/flecha-vs-brave',
+            'compare/flecha-vs-orion',
+            'compare/flecha-vs-edge',
+            'compare/flecha-vs-helium',
             'compare/flecha-vs-chrome',
           ],
         },

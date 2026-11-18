@@ -17,14 +17,14 @@
   </script>
   <meta name="msvalidate.01" content="3B574A02AFCD74C9FABFC0A932660CE2">
   <meta name="google-site-verification" content="4VIARs78amEE0jxoyzqyznHKHSMh3oVsVsqRWYGVd9Q">
-  <title>Flecha · the open-source browser for developers</title>
-  <meta name="description" content="Flecha is an open-source Chromium browser for macOS with a vertical sidebar, Spaces, a command bar that speaks developer and a bridge for your coding agent. Everything stays on your Mac.">
+  <title>Flecha · the open-source Arc alternative for developers</title>
+  <meta name="description" content="Flecha is a free, open-source Arc alternative for Mac: Chromium with a vertical sidebar, Spaces, a developer command bar and MCP for your coding agent.">
   <link rel="canonical" href="https://flecha.dev/">
   <link rel="alternate" hreflang="en" href="https://flecha.dev/">
   <link rel="alternate" hreflang="pt-BR" href="https://flecha.dev/pt-br/">
   <link rel="alternate" hreflang="x-default" href="https://flecha.dev/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Flecha · the open-source browser for developers">
+  <meta property="og:title" content="Flecha · the open-source Arc alternative for developers">
   <meta property="og:description" content="A Chromium browser with Spaces, a developer command bar and a bridge for your coding agent. No account, no telemetry.">
   <meta property="og:url" content="https://flecha.dev/">
   <meta property="og:image" content="https://flecha.dev/assets/og/en.png">
@@ -160,6 +160,21 @@
             "@type": "Question",
             "name": "Do Netflix, Disney+ and Spotify work in Flecha?",
             "acceptedAnswer": { "@type": "Answer", "text": "Not in Flecha itself. Flecha doesn't include Widevine, the DRM that Netflix, Disney+, Prime Video, Max, Hulu, Apple TV+, Paramount+, Peacock, Crunchyroll, Globoplay, MUBI, Tidal and Spotify's web player require. Google only licenses Widevine to browsers that go through a paid certification, and Flecha is free and open source with no paid parts. On those sites Flecha says so once and offers to open the page in Safari. Everything else, including YouTube, X, Twitch and H.264/AAC video, plays normally. See https://flecha.dev/docs/guides/privacy/" }
+          },
+          {
+            "@type": "Question",
+            "name": "When does Arc stop working?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The Browser Company stops Arc on macOS and Windows on December 22, 2026. New Arc accounts closed on October 22, 2026, and personal data tied to Arc accounts is deleted within 30 days after December 22. See https://flecha.dev/docs/arc-shutdown/" }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I do before Arc shuts down?",
+            "acceptedAnswer": { "@type": "Answer", "text": "While Arc still opens: export your tabs (Arc › Settings › Advanced › Export Data saves them as a list of links), import your Spaces into your next browser, move your passwords to a password manager, note your extensions and copy your Boosts. The full checklist is at https://flecha.dev/docs/arc-shutdown/" }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Flecha a good Arc alternative?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Flecha keeps Arc's vertical sidebar, Spaces, pinned tabs with folders, Today tabs that archive themselves, Peek, split view, Air Traffic Control and a Little Arc called Flechinha, on real Chromium. It is free and open source (MIT), so it can't be shut down the way Arc is. It runs only on macOS, has no sync between devices and no AI built in, and it doesn't include Widevine, so Netflix and similar services open in Safari instead. Compare it with other options at https://flecha.dev/docs/compare/arc-alternatives/" }
           }
         ]
       }
@@ -189,6 +204,10 @@
       </a>
     </div>
   </header>
+
+  <aside class="notice" aria-label="Arc is shutting down">
+    <p class="notice-inner"><span class="notice-tag">Arc shuts down Dec 22</span> <a href="/docs/arc-shutdown/">Arc stops working on December 22, 2026. Move your Spaces to Flecha <span aria-hidden="true">→</span></a></p>
+  </aside>
 
   <main id="top">
     <!-- Hero ------------------------------------------------------------ -->
@@ -632,7 +651,7 @@
           <p class="eyebrow">Switching</p>
           <h2>Bring everything with you. Arc included.</h2>
           <p>Arc stops working on December 22, 2026, and Flecha keeps the ideas worth keeping. Import picks up the browsers it finds on your Mac, and a short welcome tour shows you around with your own shortcuts.</p>
-          <p class="import-path"><kbd>Welcome tour</kbd> → <kbd>Bring your stuff over</kbd> · <a href="/docs/switch-from-arc/">How to switch from Arc</a></p>
+          <p class="import-path"><kbd>Welcome tour</kbd> → <kbd>Bring your stuff over</kbd> · <a href="/docs/switch-from-arc/">How to switch from Arc</a> · <a href="/docs/arc-shutdown/">What to save before December 22</a></p>
         </header>
         <div class="migrate" aria-label="What import brings over">
           <table class="import-table">

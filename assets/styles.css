@@ -275,6 +275,30 @@ body::before {
 .nav-docs:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 760px) { .nav .nav-docs { margin-left: auto; } .nav .nav-docs + .lang { margin-left: 0; } }
 
+/* ---- notice: one line under the nav, for time-bound news (Arc's shutdown) ---- */
+
+.notice { background: var(--tint); border-bottom: 1px solid var(--edge); }
+.notice-inner {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 10px max(20px, env(safe-area-inset-right, 0px)) 10px max(20px, env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--text);
+}
+.notice-tag {
+  font: 600 0.72rem/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mark-text);
+}
+.notice a { color: var(--ink); text-underline-offset: 3px; }
+.notice a:hover { text-decoration-thickness: 2px; }
+
 /* ---- hero -------------------------------------------------------------- */
 
 .hero { padding-block: clamp(48px, 7vw, 88px) clamp(56px, 7vw, 88px); }

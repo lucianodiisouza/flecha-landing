@@ -15,7 +15,8 @@ Key facts:
 ## Docs
 
 - [Install Flecha](https://flecha.dev/docs/install/): download, updates, default browser, the helper for importing and agents
-- [Switch from Arc](https://flecha.dev/docs/switch-from-arc/): what's imported and where each Arc feature lives in Flecha
+- [Arc is shutting down: what to do before December 22](https://flecha.dev/docs/arc-shutdown/): Arc's shutdown timeline, what you lose, a checklist of what to export or save, and how to choose a replacement
+- [Switch from Arc](https://flecha.dev/docs/switch-from-arc/): what's imported, where each Arc feature lives in Flecha, Arc-to-Flecha shortcuts, import troubleshooting and a first-day checklist
 - [Command bar](https://flecha.dev/docs/command-bar/): `gh`, `npm`, `mdn`, `caniuse`, `so`, `env`, `boost`, JWT and Unix timestamp decoding
 - [The MCP server for coding agents](https://flecha.dev/docs/agents/mcp/): how to turn it on, security model and every tool (list_tabs, open_tab, activate_tab, close_tab, navigate, read_page, screenshot, console_logs, click, type, press_key, evaluate, wait_for)
 - [Connect Claude Code](https://flecha.dev/docs/agents/claude-code/): `claude mcp add --transport http flecha http://127.0.0.1:7390/mcp --header "Authorization: Bearer <token>"`
@@ -30,10 +31,10 @@ Key facts:
 
 ## Compare
 
-Arc stops working on December 22, 2026 (announced by The Browser Company on October 22, 2026).
+Arc stops working on macOS and Windows on December 22, 2026 (announced by The Browser Company on October 22, 2026, when new Arc accounts closed). Arc accounts are deactivated that day and their personal data is deleted within 30 days. Source: https://arc.net/
 
-- [The best Arc alternatives in 2026](https://flecha.dev/docs/compare/arc-alternatives/): Flecha, Dia, Zen, Vivaldi, Chrome, Orion, Comet
-- [Flecha vs Arc](https://flecha.dev/docs/compare/flecha-vs-arc/), [Flecha vs Dia](https://flecha.dev/docs/compare/flecha-vs-dia/), [Flecha vs Zen](https://flecha.dev/docs/compare/flecha-vs-zen/), [Flecha vs Chrome](https://flecha.dev/docs/compare/flecha-vs-chrome/)
+- [The best Arc alternatives in 2026](https://flecha.dev/docs/compare/arc-alternatives/): Flecha, Dia, Zen, Vivaldi, Brave, Edge, Chrome, Orion, Helium, Comet
+- [Flecha vs Arc](https://flecha.dev/docs/compare/flecha-vs-arc/), [Flecha vs Dia](https://flecha.dev/docs/compare/flecha-vs-dia/), [Flecha vs Zen](https://flecha.dev/docs/compare/flecha-vs-zen/), [Flecha vs Vivaldi](https://flecha.dev/docs/compare/flecha-vs-vivaldi/), [Flecha vs Brave](https://flecha.dev/docs/compare/flecha-vs-brave/), [Flecha vs Orion](https://flecha.dev/docs/compare/flecha-vs-orion/), [Flecha vs Edge](https://flecha.dev/docs/compare/flecha-vs-edge/), [Flecha vs Helium](https://flecha.dev/docs/compare/flecha-vs-helium/), [Flecha vs Chrome](https://flecha.dev/docs/compare/flecha-vs-chrome/)
 
 ## Links
 
@@ -51,5 +52,7 @@ O Flecha é um navegador Chromium gratuito e open source (MIT) para macOS, feito
 
 - [Página inicial em português](https://flecha.dev/pt-br/)
 - [Documentação em português](https://flecha.dev/docs/pt-br/)
+- [O Arc vai acabar: o que fazer antes de 22 de dezembro](https://flecha.dev/docs/pt-br/arc-shutdown/)
 - [Migrar do Arc](https://flecha.dev/docs/pt-br/switch-from-arc/)
+- [Alternativas ao Arc em 2026](https://flecha.dev/docs/pt-br/compare/arc-alternatives/)
 - [Política de privacidade](https://flecha.dev/pt-br/privacidade/)

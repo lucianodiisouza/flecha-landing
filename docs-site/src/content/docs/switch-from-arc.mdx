@@ -1,17 +1,37 @@
 ---
-title: Switch from Arc to Flecha
-description: Arc stops working on December 22, 2026. Move to Flecha, an open-source Arc alternative for Mac. Import your Spaces, pinned tabs, folders, favorites and history, and find where each Arc feature lives in Flecha.
+title: 'Switch from Arc to Flecha: import, shortcuts, first day'
+description: 'Move from Arc to Flecha before Arc shuts down on December 22, 2026: import your Spaces and pinned tabs, map Arc''s shortcuts and fix import issues.'
 sidebar:
   label: Switch from Arc
+faq:
+  - q: How long does it take to move from Arc to Flecha?
+    a: A few minutes. Set up the helper once, open Flecha, and click Import next to Arc in the welcome tour. Spaces, pinned tabs, folders, favorites, history and cookies come over in one step.
+  - q: Do I need to keep Arc installed to import?
+    a: Keep it. Flecha reads Arc's data folder on your Mac, not your Arc account, so leave Arc and its data in place until you've imported and checked your Spaces. Do it before December 22, 2026, while Arc still opens, so you can compare the two side by side.
+  - q: Why does macOS ask about "Arc Safe Storage" during the import?
+    a: Arc encrypts its cookies with a key kept in the macOS Keychain. Choosing Allow lets Flecha read that key once so your sites stay signed in. If you choose Deny, everything else still imports; import Arc again and choose Allow to bring the cookies over.
+  - q: Do my Chrome extensions come over from Arc?
+    a: No. Extensions aren't imported. Flecha is real Chromium, so reinstall them from the Chrome Web Store and sign back in to the ones that need an account.
+  - q: Can I import my Arc profiles?
+    a: Yes. Spaces from your other Arc profiles become Flecha Spaces with their own cookies and logins, so each profile's accounts stay apart.
+  - q: Does Flecha have Little Arc?
+    a: Yes, it's called Flechinha. Press Option-Command-N for an empty one; links from other apps open in one when Flecha is your default browser.
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
+import Faq from '../../components/Faq.astro';
 
 The Browser Company is [sunsetting Arc](https://arc.net/): **Arc stops working on macOS and Windows on December 22, 2026**, and Arc accounts and their data are deleted within 30 days after that. Flecha keeps the ideas that made Arc worth using: a vertical sidebar, Spaces, pinned tabs that come back to where they started, Peek and split view. It is real Chromium, so your Chrome extensions work and you can sign in to Google sites as usual, and it's open source, so it can't be shut down from one day to the next.
 
-Comparing options? See [the best Arc alternatives in 2026](/docs/compare/arc-alternatives/).
+New to the shutdown? [Arc is shutting down: what to do before December 22](/docs/arc-shutdown/) has the dates and a checklist of what to save. Comparing options? See [the best Arc alternatives in 2026](/docs/compare/arc-alternatives/).
 
 Flecha's interface is rebuilt from scratch. It uses no Arc code and is not affiliated with The Browser Company.
+
+## Before you start
+
+- **Keep Arc installed** until you've imported and checked your Spaces. Flecha reads Arc's data folder on your Mac, not your Arc account.
+- **Save what Flecha doesn't import:** passwords, extensions, Boosts' code, Easels and Notes. The [checklist](/docs/arc-shutdown/#your-checklist-before-december-22) covers each one.
+- **Check streaming:** Flecha has no Widevine DRM, so Netflix, Disney+ and Spotify's web player [open in Safari instead](/docs/guides/privacy/#streaming-services-and-drm).
 
 ## Import your Arc sidebar
 
@@ -70,6 +90,65 @@ Arc plays Netflix, Disney+, Spotify's web player and other services that need Wi
 
 On top of that, Flecha adds tools for people who build websites: one key to move a page between local, staging and production, a phone-sized view next to the desktop one, your local dev servers in the sidebar, built-in ad blocking and a [bridge for coding agents](/docs/agents/mcp/). See every key in [Keyboard shortcuts](/docs/shortcuts/).
 
+## Arc shortcuts in Flecha
+
+Most of the keys your fingers know do the same thing in Flecha. A dash means we're only listing Flecha's key.
+
+| Action | Arc | Flecha |
+| --- | --- | --- |
+| New tab, command bar | <kbd>⌘</kbd><kbd>T</kbd> | <kbd>⌘</kbd><kbd>T</kbd> |
+| Show or hide the sidebar | <kbd>⌘</kbd><kbd>S</kbd> | <kbd>⌘</kbd><kbd>S</kbd> |
+| Copy the page's URL | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> as a Markdown link) |
+| Pin or unpin a tab | <kbd>⌘</kbd><kbd>D</kbd> | <kbd>⌘</kbd><kbd>D</kbd> |
+| Go to Space 1 to 9 | <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> | <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> |
+| Little Arc / Flechinha | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd> | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd> |
+| Clear Today tabs | — | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> |
+| Split view | — | <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd>, and <kbd>⌃</kbd><kbd>⇧</kbd><kbd>-</kbd> to leave |
+| Next or previous Space | — | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd> / <kbd>←</kbd> |
+| Edit this site's Boost | — | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> |
+
+If you'd remapped a shortcut in Arc, record the same keys in Settings › **Keyboard Shortcuts** (<kbd>⌘</kbd><kbd>/</kbd>). Every key is in [Keyboard shortcuts](/docs/shortcuts/).
+
+## If something doesn't come over
+
+**Arc isn't in the list, or the import does nothing.** The helper isn't registered. Quit Flecha, run the [helper script](/docs/install/#set-up-the-helper-for-importing-and-coding-agents) (again with the new path if you moved Flecha.app), then import from Settings › **Import**.
+
+**macOS asks about "Arc Safe Storage".** That's the Keychain item where Arc keeps the key to its cookies. Choose **Allow** and your sites stay signed in. If you chose **Deny**, your Spaces and tabs still imported, but you'll be signed out; import Arc again and choose **Allow** to bring the cookies over.
+
+**A Space is missing.** If you used several Arc profiles, their Spaces arrive as separate Spaces with their own logins; look for them in the Space dots at the bottom of the sidebar or in the **Spaces** menu.
+
+**My unpinned folders are flat.** Unpinned tabs come in as Today tabs, and Today tabs don't have folders. Drag the ones you want to keep into the pinned list or onto a folder, or right-click one and choose **Move to New Folder**.
+
+**My extensions are gone.** Extensions aren't imported. Install them again from the [Chrome Web Store](https://chromewebstore.google.com/); they work as in Chrome.
+
+**My passwords aren't there.** Flecha never imports passwords. Use a password manager extension or app, and move your logins into it while Arc still opens.
+
+**History shows the wrong dates.** Imported history keeps the pages but not their visit times, so everything counts as visited on the day you import.
+
+Still stuck? [Open an issue](https://github.com/lucianodiisouza/flecha-browser/issues) with what you see.
+
+## Your first day in Flecha
+
+<Steps>
+
+1. **Make Flecha your default browser** in Settings › **General** › **Default browser**, so links from other apps stop opening in Arc. They'll open in a [Flechinha](/docs/guides/peek-split-flechinha/#flechinha).
+
+2. **Rebuild your Air Traffic Control rules** in Settings › **Tabs**: a site, or a site and a path, and the Space it should open in. [How it works](/docs/guides/spaces/#send-links-from-other-apps-to-a-space)
+
+3. **Choose how long Today tabs live.** 12 hours by default; change it to 1 day, 7 days, 30 days or never in Settings › **Tabs**. Archived tabs are in the command bar and Settings › **Archive**.
+
+4. **Decide which Spaces should keep logins apart.** Imported Spaces share cookies so your sign-ins keep working. Turn on **Separate cookies and logins** in a Space's editor for work and personal accounts side by side. [Spaces](/docs/guides/spaces/#separate-cookies-and-logins)
+
+5. **Try the command bar.** <kbd>⌘</kbd><kbd>T</kbd> searches tabs, history and the archive. If you write code, try `gh`, `npm` or `mdn`, or paste a JWT. [Command bar](/docs/command-bar/)
+
+6. **Bring your Boosts back.** Open the site, press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> and paste your CSS or script. [Boosts](/docs/guides/boosts/)
+
+7. **Reinstall your extensions**, starting with your password manager.
+
+</Steps>
+
+Ad and tracker blocking is already on, picture-in-picture pops out on its own when you switch tabs, and **Stay On Top** in the **Window** menu keeps Flecha above other apps.
+
 ## Importing from other browsers
 
 The same **Bring your stuff over** step also reads bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Opera GX, Chromium, Firefox and Safari.
@@ -78,3 +157,7 @@ The same **Bring your stuff over** step also reads bookmarks and history from Ch
 - Up to 2,000 bookmarks and 5,000 history entries per profile come over. Only `http` and `https` pages are imported.
 - Safari's data can only be read with Full Disk Access. If Flecha asks for it, turn it on in System Settings › Privacy & Security › **Full Disk Access**, then import again.
 - Passwords are never imported. Cookies come over from Chromium browsers and Firefox, so sites stay signed in; Safari's don't yet.
+
+## FAQ
+
+<Faq />

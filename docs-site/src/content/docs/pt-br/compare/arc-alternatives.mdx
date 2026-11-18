@@ -1,6 +1,6 @@
 ---
 title: As melhores alternativas ao Arc em 2026
-description: Procurando uma alternativa ao Arc? Ele para em 22/12/2026. Compare Flecha, Dia, Zen, Vivaldi e Chrome para manter a sidebar, os Spaces e o Peek.
+description: O Arc acaba em 22/12/2026. Compare Flecha, Dia, Zen, Vivaldi, Brave, Edge, Orion e Helium para manter a sidebar, os Spaces e o Peek do Arc.
 sidebar:
   label: Alternativas ao Arc
 ---
@@ -9,23 +9,31 @@ import { Aside } from '@astrojs/starlight/components';
 
 A The Browser Company está [encerrando o Arc](https://arc.net/). Novas contas foram fechadas em 22 de outubro de 2026, e **o Arc para de funcionar no macOS e no Windows em 22 de dezembro de 2026**. Sua conta do Arc e os dados dela são apagados em até 30 dias depois disso. Se você ainda usa o Arc todo dia, a hora de escolher para onde ir é agora.
 
+<Aside type="caution" title="O Arc para em 22 de dezembro de 2026">
+O que você não tirar do Arc até lá fica para trás. [O que fazer antes de o Arc acabar](/docs/pt-br/arc-shutdown/) tem a linha do tempo completa e um checklist.
+</Aside>
+
 Esta página compara os navegadores para onde os usuários do Arc mais migram. Nós fazemos o Flecha, então colocamos a fonte de cada afirmação sobre outros navegadores e limitamos a comparação ao que você pode conferir.
 
 ## Resumo
 
-| | Flecha | Dia | Zen | Vivaldi | Chrome |
-| --- | --- | --- | --- | --- | --- |
-| Motor | Chromium | Chromium | Firefox | Chromium | Chromium |
-| Open source | Sim (MIT) | Não | Sim (MPL-2.0) | Em parte | Não |
-| Plataformas | macOS | macOS, Windows | macOS, Windows, Linux | macOS, Windows, Linux | Todas |
-| Preço | Grátis | Grátis, IA nos planos pagos | Grátis | Grátis | Grátis |
-| Sidebar vertical com Spaces | Sim | Sidebar opcional, Profiles | Sim, Workspaces | Sim, Workspaces | Abas verticais, sem Spaces |
-| Prévia de links estilo Peek | Sim | Não | Sim (Glance) | Não | Não |
-| Tela dividida (split view) | Sim | Sim | Sim | Sim (tiling) | Sim |
-| Extensões do Chrome | Sim | Sim | Não | Sim | Sim |
-| Importa os Spaces do Arc | Sim | Sim | Não | Não | Não |
-| Precisa de conta | Não | Para sync e IA | Não | Não | Não |
-| Agentes de código podem usar suas abas de verdade | Servidor MCP embutido | Não | Não | Não | Com Chrome DevTools MCP `--autoConnect` |
+| | Flecha | Dia | Zen | Vivaldi | Brave | Edge | Chrome |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Motor | Chromium | Chromium | Firefox | Chromium | Chromium | Chromium | Chromium |
+| Open source | Sim (MIT) | Não | Sim (MPL-2.0) | Em parte | Sim (MPL-2.0) | Não | Não |
+| Plataformas | macOS | macOS, Windows | macOS, Windows, Linux | Desktop e celular | Desktop e celular | Desktop e celular | Desktop e celular |
+| Preço | Grátis | Grátis, IA nos planos pagos | Grátis | Grátis | Grátis | Grátis | Grátis |
+| Sidebar vertical com Spaces | Sim | Sidebar opcional, Profiles | Sim, Workspaces | Abas verticais, Workspaces | Abas verticais, sem Spaces | Abas verticais, Workspaces | Abas verticais, sem Spaces |
+| Prévia de links estilo Peek | Sim | Não | Sim (Glance) | Não | Não | Não | Não |
+| Tela dividida (split view) | Sim | Sim | Sim | Sim (tiling) | Sim | Sim | Sim |
+| Extensões do Chrome | Sim | Sim | Não | Sim | Sim | Sim | Sim |
+| Importa os Spaces do Arc | Sim | Sim, como Profiles | Sim | Não | Não | Não | Não |
+| Assistente de IA embutido | Não | Sim | Não | Não | Sim (Leo) | Sim (Copilot) | Sim (Gemini) |
+| Netflix e outros serviços com DRM Widevine | Não | Não conferido | Ainda não | Sim | Sim, depois de ligar | Sim | Sim |
+| Precisa de conta | Não | Para sync e IA | Não | Não | Não | Não | Não |
+| Agentes de código podem usar suas abas de verdade | Servidor MCP embutido | Não | Não | Não | Não | Não | Com Chrome DevTools MCP `--autoConnect` |
+
+Cada navegador tem uma comparação direta com o Flecha: [Arc](/docs/pt-br/compare/flecha-vs-arc/), [Dia](/docs/pt-br/compare/flecha-vs-dia/), [Zen](/docs/pt-br/compare/flecha-vs-zen/), [Vivaldi](/docs/pt-br/compare/flecha-vs-vivaldi/), [Brave](/docs/pt-br/compare/flecha-vs-brave/), [Orion](/docs/pt-br/compare/flecha-vs-orion/), [Edge](/docs/pt-br/compare/flecha-vs-edge/), [Helium](/docs/pt-br/compare/flecha-vs-helium/) e [Chrome](/docs/pt-br/compare/flecha-vs-chrome/).
 
 ## Flecha
 
@@ -41,34 +49,47 @@ Ele traz ferramentas para quem faz sites: uma [barra de comandos](/docs/pt-br/co
 
 O [Dia](https://www.diabrowser.com/) é o navegador com IA da The Browser Company, e é para onde ela aponta os usuários do Arc. Ele é baseado em Chromium, roda no macOS e no Windows, e importa os Spaces do Arc como Profiles, as pastas como grupos de abas, além de senhas, histórico e extensões ([arc.net](https://arc.net/)). O navegador em si é grátis; os recursos de IA ficam nos planos pagos ([preços](https://www.diabrowser.com/pricing)). A sidebar do Arc vira um layout opcional, e Boosts e Easels não têm equivalente.
 
-**Combina com você se** você quer um assistente de IA dentro do navegador e não se importa com uma conta e um app de código fechado.
+**Combina com você se** você quer um assistente de IA dentro do navegador e não se importa com uma conta e um app de código fechado. [Flecha vs Dia](/docs/pt-br/compare/flecha-vs-dia/)
 
 ## Zen
 
-O [Zen](https://zen-browser.app/) é um navegador open source baseado no Firefox, para macOS, Windows e Linux. Ele tem workspaces, um modo compacto, tela dividida e o Glance, a versão dele do Peek ([docs](https://docs.zen-browser.app/)). Como é Firefox, extensões da Chrome Web Store não funcionam, e ele não importa os Spaces do Arc.
+O [Zen](https://zen-browser.app/) é um navegador open source baseado no Firefox, para macOS, Windows e Linux. Ele tem workspaces, um modo compacto, tela dividida e o Glance, a versão dele do Peek ([docs](https://docs.zen-browser.app/)). Desde a versão 1.24b, ele importa Spaces e Profiles do Arc e do Dia ([notas de versão](https://zen-browser.app/release-notes)). Como é Firefox, extensões da Chrome Web Store não funcionam, e ele ainda não toca Netflix nem outros streamings protegidos por Widevine ([FAQ](https://docs.zen-browser.app/faq)).
 
-**Combina com você se** você quer um layout parecido com o do Arc no Linux ou prefere o motor do Firefox.
+**Combina com você se** você quer um layout parecido com o do Arc no Linux ou prefere o motor do Firefox. [Flecha vs Zen](/docs/pt-br/compare/flecha-vs-zen/)
 
 ## Vivaldi
 
-O [Vivaldi](https://vivaldi.com/) é um navegador Chromium muito configurável, com abas verticais, workspaces, tiling de abas, cliente de e-mail embutido e bloqueador de rastreadores. Ele não adiciona IA generativa de propósito ([Vivaldi 7.8](https://vivaldi.com/blog/vivaldi-7-8-launches-with-message-to-big-tech-humans-dont-need-ai-babysitters/)).
+O [Vivaldi](https://vivaldi.com/) é um navegador Chromium muito configurável, com abas verticais, workspaces, tiling de abas, cliente de e-mail embutido e bloqueador de anúncios e rastreadores, no desktop e no celular. Ele não adiciona IA generativa de propósito ([Vivaldi 7.8](https://vivaldi.com/blog/vivaldi-7-8-launches-with-message-to-big-tech-humans-dont-need-ai-babysitters/)). Não achamos um importador do Arc.
 
-**Combina com você se** você gosta de configurar tudo e quer o mesmo navegador em todo sistema de desktop.
+**Combina com você se** você gosta de configurar tudo e quer o mesmo navegador em todo sistema. [Flecha vs Vivaldi](/docs/pt-br/compare/flecha-vs-vivaldi/)
+
+## Brave
+
+O [Brave](https://brave.com/) é um navegador Chromium open source que bloqueia anúncios e rastreadores por padrão, com abas verticais opcionais, tela dividida e o assistente de IA Leo, no desktop e no celular. O Widevine fica desligado até você ligar ([ajuda](https://support.brave.app/hc/en-us/articles/360023851591)).
+
+**Combina com você se** você quer bloqueio forte por padrão em todos os aparelhos e não precisa dos Spaces do Arc. [Flecha vs Brave](/docs/pt-br/compare/flecha-vs-brave/)
+
+## Microsoft Edge
+
+O [Edge](https://www.microsoft.com/edge) tem abas verticais, Workspaces e tela dividida, além do Copilot embutido ([Microsoft](https://blogs.windows.com/msedgedev/2026/05/13/new-updates-to-edge-across-desktop-and-mobile/)). No Mac, ele pede macOS 13 ou mais novo ([Microsoft Learn](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-supported-operating-systems)).
+
+**Combina com você se** você quer um navegador popular com abas verticais, ou sua empresa já usa o Microsoft 365. [Flecha vs Edge](/docs/pt-br/compare/flecha-vs-edge/)
 
 ## Chrome
 
 O Chrome tem abas verticais nativas desde a primavera de 2026 no hemisfério norte (clique com o botão direito numa aba › **Show Tabs Vertically**), mas não tem Spaces, Peek nem Little Arc. Estatísticas de uso são enviadas quando a opção "Help improve Chrome's features and performance" está ligada ([Google](https://support.google.com/chrome/answer/14746339?hl=pt-BR)).
 
-**Combina com você se** você queria o Arc mais pelas abas verticais e está bem no ecossistema do Google.
+**Combina com você se** você queria o Arc mais pelas abas verticais e está bem no ecossistema do Google. [Flecha vs Chrome](/docs/pt-br/compare/flecha-vs-chrome/)
 
 ## Outros
 
-- **[Orion](https://kagi.com/orion/)**, da Kagi: um navegador WebKit para macOS e iOS, sem nenhuma telemetria e com suporte parcial a extensões do Chrome e do Firefox. A Kagi encerrou o Orion para Linux e Windows em outubro de 2026.
-- **[Comet](https://www.perplexity.ai/comet)**, da Perplexity: um navegador Chromium grátis construído em volta de um assistente de IA que automatiza tarefas.
+- **[Orion](https://orionbrowser.com/)**, da Kagi: um navegador WebKit para macOS e iOS, sem nenhuma telemetria, com abas verticais e suporte parcial a extensões do Chrome e do Firefox. Ele lista o Arc entre as fontes de importação. A Kagi encerrou o Orion para Linux e Windows em outubro de 2026. [Flecha vs Orion](/docs/pt-br/compare/flecha-vs-orion/)
+- **[Helium](https://helium.computer/)**: um navegador Chromium open source (GPL-3.0) sem os serviços do Google, com bloqueio de anúncios, abas verticais e tela dividida, em beta para macOS, Windows e Linux. Ainda sem Widevine e sem sincronização. [Flecha vs Helium](/docs/pt-br/compare/flecha-vs-helium/)
+- **[Comet](https://www.perplexity.ai/comet)**, da Perplexity: um navegador Chromium grátis construído em volta de um assistente de IA que automatiza tarefas, no desktop e no celular.
 - O **ChatGPT Atlas** foi encerrado em 9 de agosto de 2026, então não é mais uma opção.
 
 <Aside>
-Os fatos sobre outros navegadores foram verificados em 25 de outubro de 2026, nas páginas linkadas. Navegadores mudam rápido; se algo aqui estiver desatualizado, [abra uma issue](https://github.com/lucianodiisouza/flecha-landing/issues) e a gente corrige.
+Os fatos sobre outros navegadores foram verificados em 18 de novembro de 2026, nas páginas linkadas. Navegadores mudam rápido; se algo aqui estiver desatualizado, [abra uma issue](https://github.com/lucianodiisouza/flecha-landing/issues) e a gente corrige.
 </Aside>
 
 ## Migrar do Arc para o Flecha
@@ -77,4 +98,4 @@ Os fatos sobre outros navegadores foram verificados em 25 de outubro de 2026, na
 2. Configure o auxiliar e depois [importe a sua sidebar do Arc](/docs/pt-br/switch-from-arc/) no tour de boas-vindas.
 3. Aprenda os [atalhos](/docs/pt-br/shortcuts/): a maioria é igual à do Arc.
 
-Faça isso antes de 22 de dezembro: depois que o Arc parar de funcionar, o arquivo da sidebar continua no seu Mac, mas o Arc em si não abre mais.
+Faça isso antes de 22 de dezembro, enquanto o Arc ainda abre, para conferir lado a lado que nada ficou faltando.

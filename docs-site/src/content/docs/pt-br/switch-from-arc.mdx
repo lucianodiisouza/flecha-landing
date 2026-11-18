@@ -1,17 +1,37 @@
 ---
-title: Migrar do Arc para o Flecha
-description: O Arc para de funcionar em 22 de dezembro de 2026. Troque pelo Flecha, uma alternativa open source ao Arc para Mac. Importe Spaces, abas fixadas, pastas, favoritos e histórico, e veja onde fica cada recurso do Arc no Flecha.
+title: 'Migrar do Arc para o Flecha: importação e atalhos'
+description: 'Migre do Arc para o Flecha antes de o Arc acabar em 22/12/2026: importe Spaces e abas fixadas, veja os atalhos equivalentes e resolva problemas.'
 sidebar:
   label: Migrar do Arc
+faq:
+  - q: Quanto tempo leva para migrar do Arc para o Flecha?
+    a: Poucos minutos. Configure o auxiliar uma vez, abra o Flecha e clique em Import ao lado do Arc no tour de boas-vindas. Spaces, abas fixadas, pastas, favoritos, histórico e cookies vêm num passo só.
+  - q: Preciso manter o Arc instalado para importar?
+    a: Mantenha. O Flecha lê a pasta de dados do Arc no seu Mac, não a sua conta do Arc, então deixe o Arc e os dados dele onde estão até importar e conferir seus Spaces. Faça isso antes de 22 de dezembro de 2026, enquanto o Arc ainda abre, para comparar os dois lado a lado.
+  - q: Por que o macOS pergunta sobre "Arc Safe Storage" durante a importação?
+    a: O Arc criptografa os cookies com uma chave guardada no Keychain do macOS. Escolher Permitir deixa o Flecha ler essa chave uma vez para os sites continuarem logados. Se você escolher Negar, o resto é importado do mesmo jeito; importe o Arc de novo e escolha Permitir para trazer os cookies.
+  - q: Minhas extensões do Chrome vêm do Arc?
+    a: Não. Extensões não são importadas. O Flecha é Chromium de verdade, então reinstale pela Chrome Web Store e entre de novo nas que pedem conta.
+  - q: Dá para importar meus perfis do Arc?
+    a: Sim. Os Spaces dos seus outros perfis do Arc viram Spaces do Flecha com cookies e logins próprios, então as contas de cada perfil continuam separadas.
+  - q: O Flecha tem Little Arc?
+    a: Tem, e se chama Flechinha. Aperte Option-Command-N para abrir uma vazia; links de outros apps abrem numa quando o Flecha é o navegador padrão.
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
+import Faq from '../../../components/Faq.astro';
 
 A The Browser Company está [encerrando o Arc](https://arc.net/): **o Arc para de funcionar no macOS e no Windows em 22 de dezembro de 2026**, e as contas do Arc e seus dados são apagados em até 30 dias depois disso. O Flecha mantém as ideias que faziam o Arc valer a pena: sidebar vertical, Spaces, abas fixadas que voltam para onde começaram, Peek e tela dividida. Ele é Chromium de verdade, então suas extensões do Chrome funcionam e você entra nos sites do Google normalmente, e é open source, então não pode ser desligado de um dia para o outro.
 
-Comparando opções? Veja [as melhores alternativas ao Arc em 2026](/docs/pt-br/compare/arc-alternatives/).
+Chegou agora? [O Arc vai acabar: o que fazer antes de 22 de dezembro](/docs/pt-br/arc-shutdown/) tem as datas e um checklist do que salvar. Comparando opções? Veja [as melhores alternativas ao Arc em 2026](/docs/pt-br/compare/arc-alternatives/).
 
 A interface do Flecha foi refeita do zero. Ela não usa código do Arc e não tem relação com a The Browser Company.
+
+## Antes de começar
+
+- **Mantenha o Arc instalado** até importar e conferir seus Spaces. O Flecha lê a pasta de dados do Arc no seu Mac, não a sua conta do Arc.
+- **Salve o que o Flecha não importa:** senhas, extensões, o código dos Boosts, Easels e Notes. O [checklist](/docs/pt-br/arc-shutdown/#checklist-antes-de-22-de-dezembro) cobre cada um.
+- **Confira o streaming:** o Flecha não tem o DRM Widevine, então Netflix, Disney+ e o player web do Spotify [abrem no Safari](/docs/pt-br/guides/privacy/#streaming-e-drm).
 
 ## Importar a sidebar do Arc
 
@@ -70,6 +90,65 @@ O Arc toca Netflix, Disney+, o player web do Spotify e outros serviços que exig
 
 Além disso, o Flecha traz ferramentas para quem faz sites: uma tecla para levar a página entre local, staging e produção, uma visão de celular ao lado da de desktop, seus servidores de dev locais na sidebar, bloqueador de anúncios embutido e uma [ponte para agentes de código](/docs/pt-br/agents/mcp/). Veja todas as teclas em [Atalhos de teclado](/docs/pt-br/shortcuts/).
 
+## Os atalhos do Arc no Flecha
+
+A maioria das teclas que seus dedos já sabem faz a mesma coisa no Flecha. Um traço quer dizer que listamos só a tecla do Flecha.
+
+| Ação | Arc | Flecha |
+| --- | --- | --- |
+| Nova aba, barra de comandos | <kbd>⌘</kbd><kbd>T</kbd> | <kbd>⌘</kbd><kbd>T</kbd> |
+| Mostrar ou esconder a sidebar | <kbd>⌘</kbd><kbd>S</kbd> | <kbd>⌘</kbd><kbd>S</kbd> |
+| Copiar a URL da página | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> como link Markdown) |
+| Fixar ou desafixar uma aba | <kbd>⌘</kbd><kbd>D</kbd> | <kbd>⌘</kbd><kbd>D</kbd> |
+| Ir para o Space 1 a 9 | <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> | <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> |
+| Little Arc / Flechinha | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd> | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd> |
+| Limpar as abas Today | — | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> |
+| Tela dividida | — | <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd>, e <kbd>⌃</kbd><kbd>⇧</kbd><kbd>-</kbd> para sair |
+| Próximo ou anterior Space | — | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd> / <kbd>←</kbd> |
+| Editar o Boost do site | — | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> |
+
+Se você tinha mudado algum atalho no Arc, grave as mesmas teclas em Configurações › **Keyboard Shortcuts** (<kbd>⌘</kbd><kbd>/</kbd>). Todas as teclas estão em [Atalhos de teclado](/docs/pt-br/shortcuts/).
+
+## Se alguma coisa não vier
+
+**O Arc não aparece na lista, ou a importação não faz nada.** O auxiliar não está registrado. Feche o Flecha, rode o [script do auxiliar](/docs/pt-br/install/#configurar-o-auxiliar-para-importar-e-para-agentes-de-código) (de novo, com o caminho novo, se você moveu o Flecha.app) e importe por Configurações › **Import**.
+
+**O macOS pergunta sobre "Arc Safe Storage".** É o item do Keychain onde o Arc guarda a chave dos cookies. Escolha **Permitir** e os sites continuam logados. Se você escolheu **Negar**, seus Spaces e abas foram importados, mas você vai estar deslogado; importe o Arc de novo e escolha **Permitir** para trazer os cookies.
+
+**Falta um Space.** Se você usava vários perfis no Arc, os Spaces deles chegam como Spaces separados, com logins próprios; procure nos pontinhos dos Spaces no pé da sidebar ou no menu **Spaces**.
+
+**Minhas pastas não fixadas viraram uma lista só.** Abas não fixadas chegam como abas Today, e abas Today não têm pastas. Arraste as que quiser manter para a lista de fixadas ou para uma pasta, ou clique com o botão direito e escolha **Move to New Folder**.
+
+**Minhas extensões sumiram.** Extensões não são importadas. Instale de novo pela [Chrome Web Store](https://chromewebstore.google.com/); elas funcionam como no Chrome.
+
+**Minhas senhas não vieram.** O Flecha nunca importa senhas. Use um gerenciador de senhas (extensão ou app) e leve seus logins para ele enquanto o Arc ainda abre.
+
+**O histórico mostra datas erradas.** O histórico importado mantém as páginas, mas não os horários das visitas, então tudo conta como visitado no dia da importação.
+
+Ainda travado? [Abra uma issue](https://github.com/lucianodiisouza/flecha-browser/issues) contando o que aparece.
+
+## Seu primeiro dia no Flecha
+
+<Steps>
+
+1. **Defina o Flecha como navegador padrão** em Configurações › **General** › **Default browser**, para os links de outros apps pararem de abrir no Arc. Eles vão abrir numa [Flechinha](/docs/pt-br/guides/peek-split-flechinha/#flechinha).
+
+2. **Refaça suas regras do Air Traffic Control** em Configurações › **Tabs**: um site, ou um site e um caminho, e o Space onde ele deve abrir. [Como funciona](/docs/pt-br/guides/spaces/#mandar-links-de-outros-apps-para-um-space)
+
+3. **Escolha quanto tempo as abas Today duram.** 12 horas por padrão; mude para 1 dia, 7 dias, 30 dias ou nunca em Configurações › **Tabs**. As abas arquivadas ficam na barra de comandos e em Configurações › **Archive**.
+
+4. **Decida quais Spaces devem separar logins.** Os Spaces importados compartilham cookies para seus logins continuarem funcionando. Ligue **Separate cookies and logins** no editor do Space para ter contas de trabalho e pessoais lado a lado. [Spaces](/docs/pt-br/guides/spaces/#cookies-e-logins-separados)
+
+5. **Experimente a barra de comandos.** <kbd>⌘</kbd><kbd>T</kbd> busca abas, histórico e o arquivo. Se você programa, teste `gh`, `npm` ou `mdn`, ou cole um JWT. [Barra de comandos](/docs/pt-br/command-bar/)
+
+6. **Traga seus Boosts de volta.** Abra o site, aperte <kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd> e cole seu CSS ou script. [Boosts](/docs/pt-br/guides/boosts/)
+
+7. **Reinstale suas extensões**, começando pelo gerenciador de senhas.
+
+</Steps>
+
+O bloqueio de anúncios e rastreadores já vem ligado, o picture-in-picture aparece sozinho quando você troca de aba, e **Stay On Top**, no menu **Window**, deixa o Flecha por cima dos outros apps.
+
 ## Importar de outros navegadores
 
 O mesmo passo **Bring your stuff over** também lê favoritos e histórico do Chrome, Brave, Edge, Vivaldi, Opera, Opera GX, Chromium, Firefox e Safari.
@@ -78,3 +157,7 @@ O mesmo passo **Bring your stuff over** também lê favoritos e histórico do Ch
 - Vêm até 2.000 favoritos e 5.000 itens de histórico por perfil. Só páginas `http` e `https` são importadas.
 - Os dados do Safari só podem ser lidos com Acesso Total ao Disco. Se o Flecha pedir, ative em Ajustes do Sistema › Privacidade e Segurança › **Acesso Total ao Disco** e importe de novo.
 - Senhas nunca são importadas. Os cookies vêm dos navegadores Chromium e do Firefox, então os sites continuam logados; os do Safari ainda não vêm.
+
+## Perguntas frequentes
+
+<Faq />
