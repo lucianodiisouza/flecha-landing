@@ -12,6 +12,44 @@
 /** @type {ChangelogEntry[]} */
 export const CHANGELOG = [
   {
+    version: '0.1.3',
+    date: '2026-11-09',
+    en: {
+      summary: 'Split view by dragging in the sidebar, a foldable Pinned section, and no more freezing after the Mac sleeps.',
+      items: [
+        'Split view from the sidebar: drag a tab onto another tab’s row, on its left or right side. Dragging onto the page still works. Thanks to @areyousessh.',
+        'Pinned folds away when you click its header. Each Space remembers whether it’s folded, and a badge counts the hidden tabs. Thanks to @areyousessh.',
+        'The command bar opens local addresses: network IPs such as `192.168.0.10:3000`, `*.localhost` and `0.0.0.0` over http, and `mailto:` links as typed. Thanks to @ViniAguiar1.',
+        'Flecha no longer freezes after the Mac sleeps. Thanks to @snecserc for the report.',
+        'After an update, the site panel lists your extensions again and Pin to Sidebar shows up. Right-clicking an extension keeps the panel open. Thanks to @pereirapk.',
+        'News sites scroll and load faster with the ad blocker on. Thanks to @ViniAguiar1.',
+        'A second swipe between Spaces, while the first is still coasting, switches again. Thanks to @LucassF5.',
+        'Clicking the search field on a new tab page opens the command bar and loads the search in that tab. Thanks to @ViniAguiar1.',
+        'No more stray tooltip in the window’s top corner. Thanks to @ViniAguiar1.',
+        'Environment badges: prod shows PROD, sites like flecha.dev no longer read as staging, and a local target without a scheme gets http. Thanks to @ViniAguiar1.',
+        'Typing `constructor` or `__proto__` no longer empties the command bar, and a pasted JWT with accents decodes. Thanks to @ViniAguiar1.',
+        'The floating sidebar stays open while one of its menus is open. Thanks to @areyousessh.',
+      ],
+    },
+    'pt-br': {
+      summary: 'Tela dividida arrastando na sidebar, uma seção Fixadas que recolhe e o fim dos travamentos depois que o Mac dorme.',
+      items: [
+        'Tela dividida pela sidebar: arraste uma aba para a linha de outra, do lado esquerdo ou direito. Arrastar para a página continua funcionando. Obrigado, @areyousessh.',
+        'A seção Fixadas recolhe quando você clica no título dela. Cada Space lembra se ela está recolhida, e um selo conta as abas escondidas. Obrigado, @areyousessh.',
+        'A barra de comandos abre endereços locais: IPs da rede como `192.168.0.10:3000`, `*.localhost` e `0.0.0.0` por http, e links `mailto:` do jeito que você digitou. Obrigado, @ViniAguiar1.',
+        'O Flecha não trava mais depois que o Mac dorme. Obrigado pelo aviso, @snecserc.',
+        'Depois de uma atualização, o painel do site volta a listar suas extensões e o Fixar na sidebar aparece de novo. Clicar com o botão direito numa extensão mantém o painel aberto. Obrigado, @pereirapk.',
+        'Sites de notícias rolam e carregam mais rápido com o bloqueador ligado. Obrigado, @ViniAguiar1.',
+        'Um segundo gesto para trocar de Space, enquanto o primeiro ainda está deslizando, troca de novo. Obrigado, @LucassF5.',
+        'Clicar no campo de busca da página de nova aba abre a barra de comandos e faz a busca nessa mesma aba. Obrigado, @ViniAguiar1.',
+        'Nada de dica perdida no canto de cima da janela. Obrigado, @ViniAguiar1.',
+        'Selos de ambiente: prod mostra PROD, sites como flecha.dev não aparecem mais como staging, e um destino local sem esquema ganha http. Obrigado, @ViniAguiar1.',
+        'Digitar `constructor` ou `__proto__` não esvazia mais a barra de comandos, e um JWT colado com acentos é decodificado. Obrigado, @ViniAguiar1.',
+        'A sidebar flutuante fica aberta enquanto um dos menus dela está aberto. Obrigado, @areyousessh.',
+      ],
+    },
+  },
+  {
     version: '0.1.2',
     date: '2026-11-02',
     en: {
