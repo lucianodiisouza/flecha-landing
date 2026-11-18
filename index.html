@@ -77,7 +77,7 @@
         "applicationCategory": "BrowserApplication",
         "applicationSubCategory": "Web browser for developers",
         "operatingSystem": "macOS (Apple silicon, Intel)",
-        "softwareVersion": "0.1.2",
+        "softwareVersion": "0.1.4",
         "downloadUrl": ["https://dl.flecha.dev/Flecha.dmg", "https://dl.flecha.dev/Flecha-x64.dmg"],
         "installUrl": "https://flecha.dev/#download",
         "releaseNotes": "https://flecha.dev/changelog/",
@@ -96,7 +96,8 @@
         },
         "featureList": [
           "Vertical sidebar with pinned tabs, folders and favorites",
-          "Spaces with optional separate cookies per Space",
+          "Spaces with their own cookies and logins, on by default for new Spaces",
+          "Stay On Top, automatic picture-in-picture and Air Traffic Control for links from other apps",
           "Command bar (Cmd+T) with gh, npm, mdn, caniuse and so shortcuts",
           "Local JWT and Unix timestamp decoding",
           "Jump between local, staging and production environments (Option+Cmd+E)",
@@ -123,7 +124,7 @@
           {
             "@type": "Question",
             "name": "Which platforms does Flecha run on?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Flecha runs on macOS, with builds for Apple silicon (M1 or newer) and Intel Macs. Windows and Linux builds are not available yet." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Flecha runs on macOS 13 or newer, with builds for Apple silicon (M1 or newer) and Intel Macs. It is one of the few Arc-style browsers with a build for Intel Macs. Windows and Linux builds are not available yet." }
           },
           {
             "@type": "Question",
@@ -154,6 +155,11 @@
             "@type": "Question",
             "name": "Does Flecha block ads and trackers?",
             "acceptedAnswer": { "@type": "Answer", "text": "Yes. Ad and tracker blocking is built in and on by default, using the EasyList and EasyPrivacy lists, and it runs locally." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do Netflix, Disney+ and Spotify work in Flecha?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not in Flecha itself. Flecha doesn't include Widevine, the DRM that Netflix, Disney+, Prime Video, Max, Hulu, Apple TV+, Paramount+, Peacock, Crunchyroll, Globoplay, MUBI, Tidal and Spotify's web player require. Google only licenses Widevine to browsers that go through a paid certification, and Flecha is free and open source with no paid parts. On those sites Flecha says so once and offers to open the page in Safari. Everything else, including YouTube, X, Twitch and H.264/AAC video, plays normally. See https://flecha.dev/docs/guides/privacy/" }
           }
         ]
       }
@@ -370,7 +376,7 @@
 
           <article class="tile t-spaces">
             <h3>Separate logins per Space.</h3>
-            <p>Turn on separate cookies for a Space and it gets its own sessions. Stay signed in to two GitHub accounts, or test as admin and as a customer side by side.</p>
+            <p>New Spaces get their own cookies and sessions by default. Stay signed in to two GitHub accounts, or test as admin and as a customer side by side.</p>
             <div class="spaces-demo" aria-hidden="true">
               <span class="s-work"><i>💼</i>Work<code>@ana-acme</code></span>
               <span class="s-client"><i>🧪</i>Client<code>@ana-contoso</code></span>
@@ -484,6 +490,12 @@
           <li><strong>Light and dark</strong><span>Flecha's theme also sets <code>prefers-color-scheme</code> for pages.</span></li>
           <li><strong>Downloads and find in page</strong><span>straight to your folder, listed in the sidebar. <kbd>⌘F</kbd> to find.</span></li>
           <li><strong>Back where you left off</strong><span>window, tabs, history and scroll position come back on launch.</span></li>
+          <li><strong>Menus of its own</strong><span>Spaces, Tabs and Archive in the Mac menu bar, with the last 10 archived tabs one click away.</span></li>
+          <li><strong>Stay On Top</strong><span>keeps the window above other apps, from the Window menu or the command bar.</span></li>
+          <li><strong>Picture-in-picture on its own</strong><span>a playing video floats when you switch tabs or Spaces, on any site.</span></li>
+          <li><strong>Air Traffic Control</strong><span>links from other apps open in the Space you choose, by site or path.</span></li>
+          <li><strong>Several tabs at once</strong><span><kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click to select, <kbd>⇧⌘C</kbd> to copy every link.</span></li>
+          <li><strong>An archive you can search</strong><span>in Settings: reopen a tab, forget one or clear it all.</span></li>
         </ul>
       </div>
     </section>
@@ -496,6 +508,7 @@
           <h2>Real Chromium, not a wrapper.</h2>
           <p>Flecha is a Chromium fork. Pages render exactly as they do in Chrome, Google sign-in works, and every extension from the Chrome Web Store installs, including content blockers and password managers that talk to their desktop app.</p>
           <p>The fork stays small on purpose: a short list of patches for the window, sidebar panel, shortcuts, Peek and Flechinha. Everything you see is a built-in TypeScript extension, so updating Chromium stays easy.</p>
+          <p>One exception: Flecha doesn't include Widevine, the DRM behind Netflix, Disney+, Prime Video, Spotify’s web player and other paid streaming. Google only licenses it to browsers that pay for a certification, and Flecha has no paid parts. On those sites Flecha offers to open the page in Safari. YouTube, X, Twitch and the rest of the web play normally.</p>
         </div>
         <figure class="stack" aria-label="How Flecha is built, in three layers">
           <div class="layer l-shell">
@@ -533,7 +546,7 @@
                 <li><span>Tabs, Spaces, settings</span><code>your Flecha profile</code></li>
                 <li><span>History</span><code>your Flecha profile</code></li>
                 <li><span>Boosts</span><code>your Flecha profile</code></li>
-                <li><span>Cookies</span><code>one jar per Space, if you want</code></li>
+                <li><span>Cookies</span><code>one jar per Space, by default</code></li>
                 <li><span>Ad and tracker blocker</span><code>runs locally</code></li>
               </ul>
             </div>
@@ -574,7 +587,7 @@
             </li>
             <li>
               <h3>Spaces can keep secrets</h3>
-              <p>Give a Space its own cookie jar and its sessions stay invisible to your other Spaces.</p>
+              <p>New Spaces get their own cookie jar, so their sessions stay invisible to your other Spaces.</p>
             </li>
           </ul>
         </div>
@@ -639,7 +652,7 @@
             <p class="eyebrow">Download</p>
             <h2>Pick the build for your computer.</h2>
           </div>
-          <p class="aside">Each link is always the latest version. After that, Flecha keeps itself up to date.</p>
+          <p class="aside">Apple silicon and Intel, macOS 13 or newer. Flecha is one of the few Arc-style browsers with a build for Intel Macs. Each link is always the latest version, and after that Flecha keeps itself up to date.</p>
         </header>
         <div class="downloads">
             <article class="dl-card" data-arch="arm">
