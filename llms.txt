@@ -4,10 +4,12 @@
 
 Key facts:
 
-- Platform: macOS 13 Ventura or newer, on Apple silicon (M1 or newer) and Intel. Windows and Linux builds are not available yet.
+- Platform: macOS 13 Ventura or newer, on Apple silicon (M1 or newer) and Intel. One of the few Arc-style browsers with a build for Intel Macs. Windows and Linux builds are not available yet.
 - Engine: a Chromium fork with a small patch set. Pages render as in Chrome, Google sign-in works and Chrome Web Store extensions install.
+- Browser features: Spaces with their own cookies and logins (on by default for new Spaces), pinned tabs, folders with emoji icons, favorites, Today tabs that archive themselves and a searchable archive, multi-select tabs, Peek, split view, Flechinha (Flecha's take on Little Arc), Air Traffic Control for links from other apps, Stay On Top, automatic picture-in-picture, and its own Spaces, Tabs and Archive menus in the Mac menu bar.
+- Streaming: Flecha doesn't include Widevine DRM, because Google only licenses it to browsers that go through a paid certification and Flecha has no paid parts. Netflix, Disney+, Prime Video, Max, Hulu, Apple TV+, Spotify's web player and similar services don't play; Flecha offers to open those pages in Safari. YouTube, X, Twitch and H.264/AAC video play normally.
 - Privacy: the app has no account, no usage analytics and no crash reports. It only contacts flecha.dev for update checks (Sparkle). Ad and tracker blocking (EasyList and EasyPrivacy) is built in and on by default.
-- Switching from Arc: the welcome tour imports Arc's Spaces, pinned tabs with folders, favorites and history, and bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Firefox and Safari. Importing and the MCP server need a helper registered once with `chromium/scripts/install-native-host.sh`.
+- Switching from Arc: the welcome tour imports Arc's Spaces (with their colours and icons; other Arc profiles become Spaces with their own logins), pinned tabs with folders, favorites and history, and bookmarks and history from Chrome, Brave, Edge, Vivaldi, Opera, Firefox and Safari. Importing and the MCP server need a helper registered once with `chromium/scripts/install-native-host.sh`.
 - Made by OPrimoDev. Not affiliated with The Browser Company or Google.
 
 ## Docs
@@ -23,7 +25,7 @@ Key facts:
 - [Developer tools](https://flecha.dev/docs/guides/developer-tools/): environments (local/staging/prod), responsive phone view, local dev servers, console error badges
 - [Boosts](https://flecha.dev/docs/guides/boosts/): per-site TypeScript and CSS
 - [Privacy and ad blocking](https://flecha.dev/docs/guides/privacy/): every connection the app makes
-- [Changelog](https://flecha.dev/docs/changelog/)
+- [What's new](https://flecha.dev/changelog/): what changed in each release
 - [How Flecha is built](https://flecha.dev/docs/development/architecture/), [build from source](https://flecha.dev/docs/development/build/), [releases](https://flecha.dev/docs/development/release/)
 
 ## Compare
@@ -45,7 +47,7 @@ Arc stops working on December 22, 2026 (announced by The Browser Company on Octo
 
 ## Português (pt-BR)
 
-O Flecha é um navegador Chromium gratuito e open source (MIT) para macOS, feito para devs. Ele tem sidebar vertical com Spaces, uma barra de comandos com atalhos de desenvolvedor e um servidor MCP para agentes de código como Claude Code e Cursor. Não pede conta, não tem telemetria e tudo fica no seu Mac. Roda no macOS 13 ou mais novo, em Macs com Apple silicon e Intel, e importa Spaces, abas e histórico do Arc.
+O Flecha é um navegador Chromium gratuito e open source (MIT) para macOS, feito para devs. Ele tem sidebar vertical com Spaces, uma barra de comandos com atalhos de desenvolvedor e um servidor MCP para agentes de código como Claude Code e Cursor. Não pede conta, não tem telemetria e tudo fica no seu Mac. Roda no macOS 13 ou mais novo, em Macs com Apple silicon e Intel, e importa Spaces, abas e histórico do Arc. Não inclui o DRM Widevine, então Netflix, Disney+, o player web do Spotify e serviços parecidos não tocam nele; o Flecha oferece abrir essas páginas no Safari.
 
 - [Página inicial em português](https://flecha.dev/pt-br/)
 - [Documentação em português](https://flecha.dev/docs/pt-br/)
