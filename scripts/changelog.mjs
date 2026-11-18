@@ -12,6 +12,22 @@
 /** @type {ChangelogEntry[]} */
 export const CHANGELOG = [
   {
+    version: '0.1.5',
+    date: '2026-11-18',
+    en: {
+      summary: 'Opening a Peek in the browser no longer closes Flecha when the page is playing a video.',
+      items: [
+        'Opening a Peek as a tab while its page plays a video (a YouTube link, a news article with a video) no longer quits Flecha. The page becomes a tab and the video keeps playing.',
+      ],
+    },
+    'pt-br': {
+      summary: 'Abrir um Peek no navegador não fecha mais o Flecha quando a página está tocando um vídeo.',
+      items: [
+        'Abrir um Peek como aba enquanto a página toca um vídeo (um link do YouTube, uma notícia com vídeo) não fecha mais o Flecha. A página vira aba e o vídeo continua tocando.',
+      ],
+    },
+  },
+  {
     version: '0.1.4',
     date: '2026-11-18',
     en: {
