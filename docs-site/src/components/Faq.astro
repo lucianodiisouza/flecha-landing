@@ -1,0 +1,15 @@
+---
+// The page's `faq` frontmatter as visible questions and answers, so the FAQPage structured data
+// that Head.astro builds from the same list always matches what's on the page.
+const faq = Astro.locals.starlightRoute.entry.data.faq ?? [];
+const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const html = (s: string) =>
+  escape(s).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, href) => `<a href="${href.replace(/"/g, '&quot;')}">${text}</a>`);
+---
+
+{faq.map(({ q, a }) => (
+  <>
+    <h3>{q}</h3>
+    <p set:html={html(a)} />
+  </>
+))}
