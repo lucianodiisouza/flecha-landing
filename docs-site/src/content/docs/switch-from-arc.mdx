@@ -25,9 +25,7 @@ Flecha's interface is rebuilt from scratch. It uses no Arc code and is not affil
 
 </Steps>
 
-<Aside type="caution">
-On version 0.1.0, importing is only offered in the welcome tour. If you've already been through it, an **Import** pane in Settings is on its way. Watch the [releases](https://github.com/lucianodiisouza/flecha-browser/releases) for it.
-</Aside>
+If you've already been through the tour, import from Settings › **Import** instead. When macOS asks to let Flecha use Arc's item in the Keychain, that's how Flecha reads your Arc cookies so sites stay signed in; the tour explains it too.
 
 ### What comes over from Arc
 
@@ -35,13 +33,14 @@ Flecha reads your sidebar from `~/Library/Application Support/Arc/StorableSideba
 
 | In Arc | In Flecha |
 | --- | --- |
-| Spaces, with their name and emoji | Spaces with the same name and emoji. Colours are not brought over; Flecha gives each Space one of its own. |
+| Spaces, with their name, icon and colour | Spaces with the same name, icon and colour |
+| Spaces in your other Arc profiles | Spaces with their own cookies and logins, so each profile's accounts stay apart |
 | Pinned tabs and folders, including nested folders | Pinned tabs and folders in the same Space |
 | Unpinned tabs | Today tabs (folders are flattened) |
 | Favorites (the icons at the top of the sidebar) | Favorites |
 | History | History, searchable from the command bar |
 
-These stay behind: archived tabs, Little Arc windows, Easels, Arc Boosts, Space themes and colours, passwords and cookies. You'll need to sign in to sites again.
+These stay behind: archived tabs, Little Arc windows, Easels, Arc Boosts, Space themes and passwords.
 
 <Aside>
 Imported history keeps the pages but not their original visit times or titles. They count as visited on the day you import.
@@ -53,15 +52,21 @@ Imported history keeps the pages but not their original visit times or titles. T
 | --- | --- |
 | Command bar (<kbd>⌘</kbd><kbd>T</kbd>) | The [command bar](/docs/command-bar/) (<kbd>⌘</kbd><kbd>T</kbd>), which also understands `gh`, `npm`, `mdn`, JWTs and timestamps |
 | Spaces, switch with <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd> | Spaces, <kbd>⌃</kbd><kbd>1</kbd>–<kbd>9</kbd>, or <kbd>⌥</kbd><kbd>⌘</kbd><kbd>←</kbd> / <kbd>→</kbd>, or a two-finger swipe on the sidebar |
-| Profiles | **Separate Cookies and Logins** per Space: right-click the Space. Stay signed in as two people side by side. |
-| Today tabs that archive themselves | Today tabs archive after 12 hours by default (1 day, 7 days, 30 days or never in Settings › Tabs). The archive is searchable from the command bar. |
+| Profiles | Spaces with their own cookies and logins, on by default for new Spaces. Stay signed in as two people side by side. Your Arc profiles import this way. |
+| Air Traffic Control | **Air Traffic Control** in Settings › **Tabs**: send links from other apps to a Space, by site or by site and path. [How it works](/docs/guides/spaces/#send-links-from-other-apps-to-a-space) |
+| Today tabs that archive themselves | Today tabs archive after 12 hours by default (1 day, 7 days, 30 days or never in Settings › Tabs). The archive is searchable from the command bar and in Settings › **Archive**, and the **Archive** menu lists the last 10. |
 | Clear unpinned tabs | **Clear Today**, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> |
 | Peek | Peek: links from pinned tabs and favorites open in a floating card. <kbd>Esc</kbd> closes it, **Open as Tab** keeps it. |
 | Split View | Split view with two panes, <kbd>⌃</kbd><kbd>⇧</kbd><kbd>=</kbd> |
 | Little Arc | **Flechinha**, <kbd>⌥</kbd><kbd>⌘</kbd><kbd>N</kbd>. Links from other apps open in one. |
+| Picture-in-picture when you leave a tab | Automatic, on any site: a playing video floats when you switch tabs or Spaces |
 | Boosts | [Boosts](https://flecha.dev/#loop): your own TypeScript and CSS for any site, edited in Flecha (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>B</kbd>) |
 | Copy URL (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>) | Copy link, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, or as a Markdown link with <kbd>⌥</kbd><kbd>⌘</kbd><kbd>C</kbd> |
 | Hide sidebar (<kbd>⌘</kbd><kbd>S</kbd>) | Show or hide the sidebar, <kbd>⌘</kbd><kbd>S</kbd> |
+
+<Aside>
+Arc plays Netflix, Disney+, Spotify's web player and other services that need Widevine DRM. Flecha doesn't include Widevine, so on those sites it offers to open the page in Safari. [Why](/docs/guides/privacy/#streaming-services-and-drm)
+</Aside>
 
 On top of that, Flecha adds tools for people who build websites: one key to move a page between local, staging and production, a phone-sized view next to the desktop one, your local dev servers in the sidebar, built-in ad blocking and a [bridge for coding agents](/docs/agents/mcp/). See every key in [Keyboard shortcuts](/docs/shortcuts/).
 
@@ -72,4 +77,4 @@ The same **Bring your stuff over** step also reads bookmarks and history from Ch
 - Bookmarks become pinned tabs in a new Space named after the browser, with one folder per profile.
 - Up to 2,000 bookmarks and 5,000 history entries per profile come over. Only `http` and `https` pages are imported.
 - Safari's data can only be read with Full Disk Access. If Flecha asks for it, turn it on in System Settings › Privacy & Security › **Full Disk Access**, then import again.
-- Passwords and cookies are never imported.
+- Passwords are never imported. Cookies come over from Chromium browsers and Firefox, so sites stay signed in; Safari's don't yet.
